@@ -1,4 +1,4 @@
-<%@ page import="dao.favorDaoImp" %>
+<%@ page import="dao.impl.favorDaoImp" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.ArtworksEntity" %>
 <%@ page import="entity.FavorEntity" %>

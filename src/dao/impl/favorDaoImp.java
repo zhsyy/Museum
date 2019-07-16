@@ -1,5 +1,6 @@
-package dao;
+package dao.impl;
 
+import dao.favorDao;
 import entity.ArtworksEntity;
 import entity.FavorEntity;
 import util.DBconnect;
