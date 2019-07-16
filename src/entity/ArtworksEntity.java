@@ -15,6 +15,20 @@ public class ArtworksEntity {
     private int view;
     private String type;
 
+    public ArtworksEntity() {
+    }
+
+    public ArtworksEntity(int artworkId, String imageFileName, String title, String description, int yearOfWork, String location, int view, String type) {
+        this.artworkId = artworkId;
+        this.imageFileName = imageFileName;
+        this.title = title;
+        this.description = description;
+        this.yearOfWork = yearOfWork;
+        this.location = location;
+        this.view = view;
+        this.type = type;
+    }
+
     @Id
     @Column(name = "artworkID")
     public int getArtworkId() {

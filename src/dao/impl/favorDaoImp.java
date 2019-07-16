@@ -3,14 +3,39 @@ package dao.impl;
 import dao.favorDao;
 import entity.ArtworksEntity;
 import entity.FavorEntity;
+import org.omg.CORBA.ARG_IN;
 import util.DBconnect;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class favorDaoImp implements favorDao {
+    @Override
+    public void addFavor(int UserID, int artworkID) {
+        try{
+            DBconnect.init();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        Date date = new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        DBconnect.Update("favor",UserID,artworkID, Timestamp.valueOf(dateFormat.format(date)));
+        DBconnect.closeConn();
+    }
+
+    @Override
+    public void deleteFavor(int favorID) {
+        try{
+            DBconnect.init();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        DBconnect.Delete("favor",favorID);
+        DBconnect.closeConn();
+    }
 
     @Override
     public List<ArtworksEntity> getFavorArtworks(int UserID) {
@@ -21,28 +46,14 @@ public class favorDaoImp implements favorDao {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            ResultSet rs = DBconnect.selectSql("select * from favor where userID = '"+UserID+"'");
-            while (rs.next()) {
-                int artworkID = rs.getInt("artworkID");
-                ResultSet tmp = DBconnect.selectSql("select * from artworks where artworkID = '"+artworkID+"'");
-                while (tmp.next()) {
-                    String image = tmp.getString("imageFileName");
-                    String title = tmp.getString("title");
-                    String description = tmp.getString("description");
-                    int year = tmp.getInt("yearOfWork");
-                    int view = tmp.getInt("view");
-                    String location = tmp.getString("location");
-                    String type = tmp.getString("type");
-                    ArtworksEntity artworksEntity = new ArtworksEntity();
-//                    artworksEntity.setArtworkId(artworkID);
-                    artworksEntity.setDescription(description);
-                    artworksEntity.setImageFileName(image);
-                    artworksEntity.setLocation(location);
-                    artworksEntity.setType(type);
-                    artworksEntity.setView(view);
-                    artworksEntity.setYearOfWork(year);
-                    artworksEntity.setTitle(title);
-
+            ResultSet resultSet = DBconnect.Query("favor","userID",UserID);
+            while (resultSet != null && resultSet.next()) {
+                int artworkID = resultSet.getInt("artworkID");
+                ResultSet tmp = DBconnect.Query("artworks","artworkID", artworkID);
+                while (tmp != null && tmp.next()) {
+                    ArtworksEntity artworksEntity = new ArtworksEntity(artworkID,tmp.getString("imageFileName"),tmp.getString("title"),
+                            tmp.getString("description"), tmp.getInt("yearOfWork"),
+                            tmp.getString("location"),tmp.getInt("view"),tmp.getString("type"));
                     list.add(artworksEntity);
                 }
             }
@@ -62,15 +73,11 @@ public class favorDaoImp implements favorDao {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            ResultSet rs = DBconnect.selectSql("select * from favor where userID = '"+UserID+"'");
-            while (rs.next()) {
+            ResultSet rs = DBconnect.Query("favor","userID",UserID);
+            while (rs!=null && rs.next()) {
                 int favorID = rs.getInt("favorID");
                 int artworkID = rs.getInt("artworkID");
-                FavorEntity favorEntity = new FavorEntity();
-                favorEntity.setFavorId(favorID);
-                favorEntity.setUserId(UserID);
-                favorEntity.setArtworkId(artworkID);
-                favorEntity.setTime(rs.getTimestamp("time"));
+                FavorEntity favorEntity = new FavorEntity(favorID,UserID,artworkID,rs.getTimestamp("time"));
                 list.add(favorEntity);
             }
             DBconnect.closeConn();

@@ -12,6 +12,16 @@ public class FavorEntity {
     private int artworkId;
     private Timestamp time;
 
+    public FavorEntity() {
+    }
+
+    public FavorEntity(int favorId, int userId, int artworkId, Timestamp time) {
+        this.favorId = favorId;
+        this.userId = userId;
+        this.artworkId = artworkId;
+        this.time = time;
+    }
+
     @Id
     @Column(name = "favorID")
     public int getFavorId() {
