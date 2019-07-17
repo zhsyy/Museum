@@ -29,69 +29,69 @@
 <%@include file="nav.jsp"%>
 
 <main class="cart m-4">
-            <h5>My Favor</h5>
-            <div class="container my-3">
-                    <div class="row">
+    <h5>My Favor</h5>
+    <div class="container my-3">
+        <div class="row">
 
-                        <table class="table table-hover table-sm">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">View</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">FavoriteTime</th>
-                                <th scope="col">Option</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <%
+            <table class="table table-hover table-sm">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">FavoriteTime</th>
+                    <th scope="col">Option</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%
 
-                                List<ArtworksEntity> artworkList = artworksDaoImp.getFavorArtworks(userID);
-                                List<FavorEntity> favorList = favorDaoImp.getFavorEntities(userID);
-                                for (int i = 0;i<artworkList.size();i++){
-                                    ArtworksEntity artworksEntity = artworkList.get(i);
-                                    FavorEntity favorEntity = favorList.get(i);
-                                    out.print("<tr>\n" +
-                                            "<th scope=\"row\">"+(i+1)+"</th>\n" +
-                                            "<td>\n" +
-                                            "<a href=\"details.html?artworkID="+favorEntity.getArtworkId()+"\" class=\"badge badge-light\">\n" +
-                                            artworksEntity.getTitle()+"\n" +
-                                            "</a>\n" +
-                                            "</td>\n" +
-                                            "<td style=\"display: -webkit-box;\n" +
-                                            "  -webkit-box-orient:vertical;\n" +
-                                            "  -webkit-line-clamp:2;\n" +
-                                            "  overflow: hidden;\">"+artworksEntity.getDescription()+"</td>\n" +
-                                            "<td>\n" +
-                                            "<img class=\"w-100\" src=\"./resource/img/"+artworksEntity.getType()+"/"+artworksEntity.getImageFileName()+"\" alt=\""+artworksEntity.getTitle()+"\">\n" +
-                                            "</td>\n" +
-                                            "<td>"+artworksEntity.getView()+"</td>\n" +
-                                            "<td>"+artworksEntity.getLocation()+"</td>\n" +
-                                            "<td>"+favorEntity.getTime().toString()+"</td>\n" +
-                                            "<td>\n" +
-                                            "<form class=\"invisible\" method=\"post\" action=\"favor.jsp\">\n" +
-                                            "<input type=\"text\" name=\"favorId\" value=\""+favorEntity.getFavorId()+"\">\n" +
-                                            "<button type=\"submit\" class=\"btn btn-outline-primary visible\">Remove</button>\n" +
-                                            "</form>\n" +
-                                            "</td>" +
-                                            "</tr>");
-                                }
-                            %>
+                    List<ArtworksEntity> artworkList = artworksDaoImp.getFavorArtworks(userID);
+                    List<FavorEntity> favorList = favorDaoImp.getFavorEntities(userID);
+                    for (int i = 0;i<artworkList.size();i++){
+                        ArtworksEntity artworksEntity = artworkList.get(i);
+                        FavorEntity favorEntity = favorList.get(i);
+                        out.print("<tr>\n" +
+                                "<th scope=\"row\">"+(i+1)+"</th>\n" +
+                                "<td>\n" +
+                                "<a href=\"details.html?artworkID="+favorEntity.getArtworkId()+"\" class=\"badge badge-light\">\n" +
+                                artworksEntity.getTitle()+"\n" +
+                                "</a>\n" +
+                                "</td>\n" +
+                                "<td style=\"display: -webkit-box;\n" +
+                                "  -webkit-box-orient:vertical;\n" +
+                                "  -webkit-line-clamp:2;\n" +
+                                "  overflow: hidden;\">"+artworksEntity.getDescription()+"</td>\n" +
+                                "<td>\n" +
+                                "<img class=\"w-100\" src=\"./resource/img/"+artworksEntity.getType()+"/"+artworksEntity.getImageFileName()+"\" alt=\""+artworksEntity.getTitle()+"\">\n" +
+                                "</td>\n" +
+                                "<td>"+artworksEntity.getView()+"</td>\n" +
+                                "<td>"+artworksEntity.getLocation()+"</td>\n" +
+                                "<td>"+favorEntity.getTime().toString()+"</td>\n" +
+                                "<td>\n" +
+                                "<form class=\"invisible\" method=\"post\" action=\"favor.jsp\">\n" +
+                                "<input type=\"text\" name=\"favorId\" value=\""+favorEntity.getFavorId()+"\">\n" +
+                                "<button type=\"submit\" class=\"btn btn-outline-primary visible\">Remove</button>\n" +
+                                "</form>\n" +
+                                "</td>" +
+                                "</tr>");
+                    }
+                %>
 
-                            </tbody>
-                        </table>
-                    </div>
+                </tbody>
+            </table>
+        </div>
 
-                    <!--alert-->
-                    <div class="row">
-                        <span id="alertBuy" class="alert"></span>
-                    </div>
-            </div>
+        <!--alert-->
+        <div class="row">
+            <span id="alertBuy" class="alert"></span>
+        </div>
+    </div>
 
-        </main>
+</main>
 
 
 <footer class="footer navbar navbar-dark bg-dark">

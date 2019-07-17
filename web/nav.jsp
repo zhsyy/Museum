@@ -1,6 +1,6 @@
 <%
-    String navFront, navProfile, navFavor, navRelease;
-    navFront = navProfile = navFavor = navRelease = "";
+    String navFront, navSignUp, navProfile, navFavor, navRelease;
+    navFront = navSignUp = navProfile = navFavor = navRelease = "";
 
     final String active = "active";
 
@@ -8,6 +8,9 @@
         case "":
         case "/index.jsp":
             navFront = active;
+            break;
+        case "/signUp.jsp":
+            navSignUp = active;
             break;
         case "/favor.jsp":
             navFavor = active;
@@ -33,7 +36,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Sign in</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <%=navSignUp%>">
                 <a class="nav-link" href="account_signUp.html">Sign up</a>
             </li>
 
@@ -81,3 +84,6 @@
         </form>
     </div>
 </nav>
+
+<!--// insert sign in modal-->
+<%@include file="signInModal.jsp"%>
