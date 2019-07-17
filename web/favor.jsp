@@ -1,16 +1,20 @@
-<%@ page import="dao.impl.favorDaoImp" %>
-<%@ page import="java.util.List" %>
+<%@ page import="dao.FavorDao" %>
+<%@ page import="dao.impl.FavorDaoImp" %>
+<%@ page import="dao.ArtworksDao" %>
+<%@ page import="dao.impl.ArtworksDaoImp" %>
 <%@ page import="entity.ArtworksEntity" %>
+<%@ page import="java.util.List" %>
 <%@ page import="entity.FavorEntity" %>
 <%
-    session.setAttribute("userID",1);
-    favorDaoImp favorDaoImp = new favorDaoImp();
+    session.setAttribute("userId",1);
+    FavorDao favorDaoImp = new FavorDaoImp();
+    ArtworksDao artworksDaoImp = new ArtworksDaoImp();
 //    if (session.getAttribute("userID") == null){
 //        response.sendRedirect("index.jsp");
 //    }
-    int userID = (int)session.getAttribute("userID");
-    if (request.getParameter("favorID")!=null){
-        favorDaoImp.deleteFavor(Integer.parseInt(request.getParameter("favorID")));
+    int userID = (int)session.getAttribute("userId");
+    if (request.getParameter("favorId")!=null){
+        favorDaoImp.delete(Integer.parseInt(request.getParameter("favorId")));
     }
 %>
 <!DOCTYPE html>
@@ -35,7 +39,7 @@
                         <a class="nav-link" href="index.html">Front Page<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="profile.html"><?php echo $_SESSION['signInUserName'] ?></a>
+                        <a class="nav-link" href="profile.html"><%= session.getAttribute("username") %>></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="favor.jsp">Cart</a>
@@ -95,8 +99,8 @@
                             <tbody>
                             <%
 
-                                List<ArtworksEntity> artworkList = favorDaoImp.getFavorArtworks(userID);
-                                List<FavorEntity> favorList = favorDaoImp.getFavorList(userID);
+                                List<ArtworksEntity> artworkList = artworksDaoImp.getFavorArtworks(userID);
+                                List<FavorEntity> favorList = favorDaoImp.getFavorEntities(userID);
                                 for (int i = 0;i<artworkList.size();i++){
                                     ArtworksEntity artworksEntity = artworkList.get(i);
                                     FavorEntity favorEntity = favorList.get(i);
@@ -119,7 +123,7 @@
                                             "<td>"+favorEntity.getTime().toString()+"</td>\n" +
                                             "<td>\n" +
                                             "<form class=\"invisible\" method=\"post\" action=\"favor.jsp\">\n" +
-                                            "<input type=\"text\" name=\"favorID\" value=\""+favorEntity.getFavorId()+"\">\n" +
+                                            "<input type=\"text\" name=\"favorId\" value=\""+favorEntity.getFavorId()+"\">\n" +
                                             "<button type=\"submit\" class=\"btn btn-outline-primary visible\">Remove</button>\n" +
                                             "</form>\n" +
                                             "</td>" +
