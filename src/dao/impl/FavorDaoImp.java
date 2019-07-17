@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FavorDaoImp implements FavorDao {
     @Override
-    public void add(int userId, int artworkId) {
+    public void insert(int userId, int artworkId) {
         String sql = "INSERT INTO favor (userId, artworkId, time) VALUE (?,?,?)";
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
