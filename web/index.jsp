@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/cssCommon.css">
     <title>Museum</title>
 </head>
-<body class="index">
+<body>
 
 <%@include file="nav.jsp"%>
 

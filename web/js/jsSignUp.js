@@ -6,15 +6,11 @@ const signUpUserName = document.getElementById("signUpUserName");
 const signUpEmail = document.getElementById("signUpEmail");
 const signUpPassword = document.getElementById("signUpPassword");
 const signUpPasswordConfirm = document.getElementById("signUpPasswordConfirm");
-const signUpPhone = document.getElementById("signUpPhone");
-const signUpAddress = document.getElementById("signUpAddress");
 
 const alertUserName = document.getElementById("alertUserName");
 const alertEmail = document.getElementById("alertEmail");
 const alertPassword = document.getElementById("alertPassword");
 const alertPasswordConfirm = document.getElementById("alertPasswordConfirm");
-const alertPhone = document.getElementById("alertPhone");
-const alertAddress = document.getElementById("alertAddress");
 
 const signUpInfo = document.getElementById("signUpInfo");
 
@@ -43,80 +39,29 @@ function createXHR(){
     }
 }
 
-function serialize(form){
-    let parts = Array();
-    let field = null;
-
-    for (let i=0, len=form.elements.length; i < len; i++){
-        field = form.elements[i];
-
-        switch(field.type){
-            case "select-one":
-            case "select-multiple":
-                for (let j=0, optLen = field.options.length; j < optLen; j++){
-                    let option = field.options[j];
-                    if (option.selected){
-                        let optValue = "";
-                        if (option.hasAttribute){
-                            optValue = (option.hasAttribute("value") ?
-                                option.value : option.text);
-                        } else {
-                            optValue = (option.attributes["value"].specified ?
-                                option.value : option.text);
-                        }
-                        parts.push(encodeURIComponent(field.name) + "=" +
-                            encodeURIComponent(optValue));
-                    }
-                }
-                break;
-
-            case undefined:     //fieldset
-            case "file":        //file input
-            case "submit":      //submit button
-            case "reset":       //reset button
-            case "button":      //custom button
-                break;
-
-            case "radio":       //radio button
-            case "checkbox":    //checkbox
-                if (!field.checked){
-                    break;
-                }
-            /* falls through */
-
-            default:
-                parts.push(encodeURIComponent(field.name) + "=" +
-                    encodeURIComponent(field.value));
-        }
-    }
-    return parts.join("&");
-}
-
 signUpSubmit.onclick = function () {
     let username = signUpUserName.value;
     let email = signUpEmail.value;
     let password = signUpPassword.value;
     let passwordConfirm = signUpPasswordConfirm.value;
-    let phone = signUpPhone.value;
-    let address = signUpAddress.value;
 
     checkSignUpUserName(username);
     checkSignUpEmail(email);
     checkSignUpPassword(password);
     checkSignUpPasswordConfirm(passwordConfirm);
-    checkSignUpPhone(phone);
-    checkSignUpAddress(address);
 
-    if (alertUserName.innerText !== "" || alertEmail.innerText !== "" || alertPassword.innerText !== "" ||
-        alertPasswordConfirm.innerText !== "" || alertPhone.innerText !== "" || alertAddress.innerText !== "") {
-        signUpInfo.innerText = "Sign up failed! Please refine your information. ";
+    if (alertUserName.innerText.trim() === "" &&
+        alertEmail.innerText.trim() === "" &&
+        alertPassword.innerText.trim() === "" &&
+        alertPasswordConfirm.innerText.trim() === "") {// all fields passed
+        signUpInfo.innerText = "All fields checked! Going to sign up!";
     } else {
-        signUpInfo.innerText = "Signed up successfully!";
+        signUpInfo.innerText = "Sign up failed! Please refine your information. ";
     }
 };
 
 signUpCommit.onclick = function () {
-    if (signUpInfo.innerText === "Signed up successfully!")
+    if (signUpInfo.innerText === "All fields checked! Going to sign up!")
         signUp.submit();
 };
 
@@ -124,32 +69,26 @@ function checkSignUpUserName(username) {
     if (username === "") {// 用户名为空
         alertUserName.innerText = "User name cannot be empty!";
         return false;
-    }else if (username.length < 6) {// 长度小于6位
-        alertUserName.innerText = "User name cannot be shorter than 6 characters!";
+    }else if (username.length < 4) {// 长度小于4位
+        alertUserName.innerText = "User name cannot be shorter than 4 characters!";
         return false;
-    }else if (/^[a-zA-Z]+$/.test(username) || /^\d+$/.test(username)) {// 全部是数字或字母
-        alertUserName.innerText = "User name cannot be only numbers or characters!";
+    }else if (username.length > 15) {// 长度大于15位
+        alertUserName.innerText = "User name cannot be longer than 15 characters!";
         return false;
-    }else {
-        // check if username has been used
+    }else {// check if username has been used
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4){
                 if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
-                    if (xhr.response) {
-                        alertUserName.innerText = "";
-                        return true;
-                    } else {
-                        alertUserName.innerText = "Sorry! This name has been used. Please change another one.";
-                        return false;
-                    }
+                    alertUserName.innerText = xhr.response;
                 } else {
                     alert("Request was unsuccessful: " + xhr.status);
                 }
             }
         };
 
-        xhr.open("get", "checkSignUp.php?username=" + username, true);
-        xhr.send(null);
+        xhr.open("post", "/checkSignUp", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("username=" + username);
     }
 }
 
@@ -164,23 +103,23 @@ function checkSignUpEmail(email) {
         alertEmail.innerText = "";
         return true;
     }
-
 }
 
 function checkSignUpPassword(password) {
-    let username = signUpUserName.value;
-
     if (password === "") {// 密码为空
         alertPassword.innerText = "Password cannot be empty!";
         return false;
     }else if (password.length < 6) {// 长度小于6位
         alertPassword.innerText = "Password cannot be shorter than 6 characters!";
         return false;
-    }else if (/^\d+$/.test(password) || /^[a-zA-Z]+$/.test(password)) {// 纯数字或纯字母
-        alertPassword.innerText = "Password cannot be only numbers or characters!";
+    }else if (password.length > 10) {// 长度大于10位
+        alertPassword.innerText = "Password cannot be longer than 10 characters!";
         return false;
-    } else if (password === username) {// 密码与用户名相同
-        alertPassword.innerText = "Password cannot be the same as user name!";
+    }else if (!/^[a-zA-Z0-9]+$/.test(password)) {// 包含除字母和数字之外的内容
+        alertPassword.innerText = "Password cannot be consist of characters other than letters and numbers!";
+        return false;
+    }else if (!(/\d/.test(password) && /[a-z]/.test(password) && /[A-Z]/.test(password))) {// 不同时包含大小写字母和数字
+        alertPassword.innerText = "Password cannot be only numbers or lower case letters or upper case letters!";
         return false;
     }else {
         alertPassword.innerText = "";
@@ -199,29 +138,6 @@ function checkSignUpPasswordConfirm(passwordConfirm) {
         return false;
     }else {
         alertPasswordConfirm.innerText = "";
-        return true;
-    }
-}
-
-function checkSignUpPhone(phone) {
-    if (!/^\d+$/.test(phone)) {// 不是纯数字
-        alertPhone.innerText = "Phone number should be all numbers!";
-        return false;
-    }else if (phone.length !== 11) {// 长度不为11位
-        alertPhone.innerText = "Phone number should be 11 numbers!";
-        return false;
-    }else {
-        alertPhone.innerText = "";
-        return true;
-    }
-}
-
-function checkSignUpAddress(address) {
-    if (address === "") {
-        alertAddress.innerText = "Address cannot be empty!";
-        return false;
-    }else {
-        alertAddress.innerText = "";
         return true;
     }
 }

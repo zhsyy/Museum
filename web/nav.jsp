@@ -1,3 +1,4 @@
+<%@ page import="entity.UsersEntity" %>
 <%
     String navFront, navSignUp, navProfile, navFavor, navRelease;
     navFront = navSignUp = navProfile = navFavor = navRelease = "";
@@ -18,6 +19,10 @@
     }
 %>
 
+<%
+    UsersEntity user = (UsersEntity) session.getAttribute("user");
+%>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.jsp"><strong>Museum</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,19 +36,19 @@
                 <a class="nav-link" href="index.jsp">Front Page<span class="sr-only">(current)</span></a>
             </li>
 
-            <% if (session.getAttribute("username") == null) {// not logged in %>
+            <% if (user == null) {// not logged in %>
 
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Sign in</a>
             </li>
             <li class="nav-item <%=navSignUp%>">
-                <a class="nav-link" href="account_signUp.html">Sign up</a>
+                <a class="nav-link" href="signUp.jsp">Sign up</a>
             </li>
 
             <% } else {// logged in %>
 
             <li class="nav-item <%=navProfile%>">
-                <a class="nav-link" href="profile.html"><%= session.getAttribute("username") %></a>
+                <a class="nav-link" href="profile.html"><%= user.getName() %></a>
             </li>
             <li class="nav-item <%=navFavor%>">
                 <a class="nav-link" href="favor.jsp">Favor</a>

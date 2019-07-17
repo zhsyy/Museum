@@ -5,7 +5,7 @@ import entity.FavorEntity;
 import java.util.List;
 
 public interface FavorDao {
-    void insert(int userId, int artworkId);
+    void insert(FavorEntity favor);
 
     void delete(int favorId);
 

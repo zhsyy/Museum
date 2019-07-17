@@ -21,14 +21,14 @@
 
 <main>
     <div class="container my-3">
-        <form id="signUp" method="post" action="signUpProcess.php">
+        <form id="signUp" method="post" action="${pageContext.request.contextPath}/signUp">
             <h3 class="mb-3">Sign Up</h3>
             <div class="form-row">
                 <div class="col mb-3">
                     <label for="signUpUserName">User name: </label>
                     <input type="text" class="form-control" id="signUpUserName" name="signUpUserName" aria-describedby="userNameHelpBlock" placeholder="User name" onblur="checkSignUpUserName(this.value)">
                     <small id="userNameHelpBlock" class="form-text text-muted">
-                        Your user name should be at least 6 characters long, and should contain numbers and characters. Like 'HNoodles1' is ok.
+                        Your user name should have length from 4 to 15. Like 'HNoodles1' is ok.
                     </small>
                     <span id="alertUserName" class="alert"></span>
                 </div>
@@ -48,7 +48,7 @@
                     <label for="signUpPassword">Password: </label>
                     <input type="password" class="form-control" id="signUpPassword" name="signUpPassword" aria-describedby="passwordHelpBlock" placeholder="Password" onblur="checkSignUpPassword(this.value)">
                     <small id="passwordHelpBlock" class="form-text text-muted">
-                        Your password should be at least 6 characters long, and shouldn't contain only numbers. Like 'Hn123456' is ok.
+                        Your password should have length from 6 to 10, and should contain numbers and letters of upper case and lower case. Like 'Hn123456' is ok.
                     </small>
                     <span id="alertPassword" class="alert"></span>
                 </div>
@@ -61,26 +61,6 @@
                         Your confirmation should be just the same as your password.
                     </small>
                     <span id="alertPasswordConfirm" class="alert"></span>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col mb-3">
-                    <label for="signUpPhone">Phone: </label>
-                    <input type="text" class="form-control" id="signUpPhone" name="signUpPhone" aria-describedby="phoneHelpBlock" placeholder="Phone" onblur="checkSignUpPhone(this.value)">
-                    <small id="phoneHelpBlock" class="form-text text-muted">
-                        Your phone should contain 11 numbers. Like '12345678910' is ok.
-                    </small>
-                    <span id="alertPhone" class="alert"></span>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col mb-3">
-                    <label for="signUpAddress">Address: </label>
-                    <input type="text" class="form-control" id="signUpAddress" name="signUpAddress" aria-describedby="addressHelpBlock" placeholder="Address" onblur="checkSignUpAddress(this.value)">
-                    <small id="addressHelpBlock" class="form-text text-muted">
-                        Your should input your address here.
-                    </small>
-                    <span id="alertAddress" class="alert"></span>
                 </div>
             </div>
             <button type="button" id="signUpSubmit" class="btn btn-outline-primary" data-toggle="modal" data-target="#alertModal">Submit</button>
@@ -113,7 +93,7 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-<!--<script src="js/jsSignUp.js"></script>-->
+<script src="js/jsSignUp.js"></script>
 <!--<script src="js/jsSearch.js"></script>-->
 </body>
 </html>

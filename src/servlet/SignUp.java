@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "CheckLogin", value = "/checkLogin")
-public class CheckLogin extends HttpServlet {
+@WebServlet(name = "SignUp", value = "/signUp")
+public class SignUp extends HttpServlet {
     private UserService userService = new UserServiceImp();
 
     @Override
@@ -23,23 +23,25 @@ public class CheckLogin extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
+        // generate user bean and sign up
+        String username = req.getParameter("signUpUserName");
+        String email = req.getParameter("signUpEmail");
+        String password = req.getParameter("signUpPassword");
 
-        UsersEntity usersEntity = userService.login(username, password);
+        UsersEntity user = new UsersEntity(-1, username, email, password, "normalUser");
 
+        userService.signUp(user);
+
+        // inform users what is going on
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
 
-        if (usersEntity != null) {// found matched user, login succeed
-            out.println("Login succeed! Returning to web page...");
+        out.println("Sign up succeed! Returning to web page...");
 
-            req.getSession().setAttribute("user", usersEntity);
-        } else {// not found, login failed
-            out.println("Login failed! Wrong username or password, please try again.<br/>" +
-                    "Returning...");
-        }
+        // login to get signed up user bean, set session
+        user = userService.login(username, password);
+        req.getSession().setAttribute("user", user);
 
-        resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
+        resp.setHeader("refresh", "2;url=index.jsp");
     }
 }
