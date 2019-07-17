@@ -39,7 +39,7 @@
             <% if (user == null) {// not logged in %>
 
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Sign in</a>
+                <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Login</a>
             </li>
             <li class="nav-item <%=navSignUp%>">
                 <a class="nav-link" href="signUp.jsp">Sign up</a>
@@ -57,7 +57,7 @@
                 <a class="nav-link" href="release.html">Release</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="signOut.php?location=<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">Sign out</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/logOut">Log out</a>
             </li>
 
             <% }// end of logged in %>
