@@ -10,4 +10,8 @@ public interface ArtworksDao {
     List<ArtworksEntity> getHottestArtworks();
 
     List<ArtworksEntity> getNewestArtworks();
+
+    List<ArtworksEntity> getPageSearchArtworks(String searchText,String[] searchBy,int page,String sortBy);
+
+    int getAllSearchArtworksCount(String searchText, String[] searchBy);
 }
