@@ -6,16 +6,16 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.FavorEntity" %>
 <%
-    session.setAttribute("userId",1);
-    FavorDao favorDaoImp = new FavorDaoImp();
-    ArtworksDao artworksDaoImp = new ArtworksDaoImp();
+    //    session.setAttribute("userId",1);
+//    FavorDao favorDaoImp = new FavorDaoImp();
+//    ArtworksDao artworksDaoImp = new ArtworksDaoImp();
 //    if (session.getAttribute("userID") == null){
 //        response.sendRedirect("index.jsp");
 //    }
-    int userID = (int)session.getAttribute("userId");
-    if (request.getParameter("favorId")!=null){
-        favorDaoImp.delete(Integer.parseInt(request.getParameter("favorId")));
-    }
+//    int userID = (int)session.getAttribute("userId");
+//    if (request.getParameter("favorId")!=null){
+//        favorDaoImp.delete(Integer.parseInt(request.getParameter("favorId")));
+//    }
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,6 @@
     <h5>My Favor</h5>
     <div class="container my-3">
         <div class="row">
-
             <table class="table table-hover table-sm">
                 <thead class="thead-light">
                 <tr>
@@ -48,39 +47,41 @@
                 </thead>
                 <tbody>
                 <%
-
-                    List<ArtworksEntity> artworkList = artworksDaoImp.getFavorArtworks(userID);
-                    List<FavorEntity> favorList = favorDaoImp.getFavorEntities(userID);
+                    @SuppressWarnings("unchecked")
+                    List<ArtworksEntity> artworkList = (List<ArtworksEntity>)request.getAttribute("artworkList");
+                    @SuppressWarnings("unchecked")
+                    List<FavorEntity> favorList = (List<FavorEntity>)request.getAttribute("favorList");
                     for (int i = 0;i<artworkList.size();i++){
                         ArtworksEntity artworksEntity = artworkList.get(i);
                         FavorEntity favorEntity = favorList.get(i);
-                        out.print("<tr>\n" +
-                                "<th scope=\"row\">"+(i+1)+"</th>\n" +
-                                "<td>\n" +
-                                "<a href=\"details.html?artworkID="+favorEntity.getArtworkId()+"\" class=\"badge badge-light\">\n" +
-                                artworksEntity.getTitle()+"\n" +
-                                "</a>\n" +
-                                "</td>\n" +
-                                "<td style=\"display: -webkit-box;\n" +
-                                "  -webkit-box-orient:vertical;\n" +
-                                "  -webkit-line-clamp:2;\n" +
-                                "  overflow: hidden;\">"+artworksEntity.getDescription()+"</td>\n" +
-                                "<td>\n" +
-                                "<img class=\"w-100\" src=\"./resource/img/"+artworksEntity.getType()+"/"+artworksEntity.getImageFileName()+"\" alt=\""+artworksEntity.getTitle()+"\">\n" +
-                                "</td>\n" +
-                                "<td>"+artworksEntity.getView()+"</td>\n" +
-                                "<td>"+artworksEntity.getLocation()+"</td>\n" +
-                                "<td>"+favorEntity.getTime().toString()+"</td>\n" +
-                                "<td>\n" +
-                                "<form class=\"invisible\" method=\"post\" action=\"favor.jsp\">\n" +
-                                "<input type=\"text\" name=\"favorId\" value=\""+favorEntity.getFavorId()+"\">\n" +
-                                "<button type=\"submit\" class=\"btn btn-outline-primary visible\">Remove</button>\n" +
-                                "</form>\n" +
-                                "</td>" +
-                                "</tr>");
+                %>
+                <tr>
+                    <th scope="row"><%=(i+1)%></th>
+                    <td>
+                        <a href="details.html?artworkID=<%=favorEntity.getArtworkId()%>" class="badge badge-light">
+                            <%=artworksEntity.getTitle()%>
+                        </a>
+                    </td>
+                    <td style="display:-webkit-box;
+                                -webkit-box-orient:vertical;
+                                -webkit-line-clamp:2;
+                                overflow: hidden;"><%=artworksEntity.getDescription()%></td>
+                    <td>
+                        <img class="w-100" src="./resource/img/<%=artworksEntity.getType()%>/<%=artworksEntity.getImageFileName()%>" alt="<%=artworksEntity.getTitle()%>">
+                    </td>
+                    <td><%=artworksEntity.getView()%></td>
+                    <td><%=artworksEntity.getLocation()%></td>
+                    <td><%=favorEntity.getTime().toString()%></td>
+                    <td>
+                        <form class="invisible" method="post" action="favor.jsp">
+                            <input type="text" name="favorId" value="<%=favorEntity.getFavorId()%>">
+                            <button type="submit" class="btn btn-outline-primary visible">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                <%
                     }
                 %>
-
                 </tbody>
             </table>
         </div>

@@ -63,7 +63,7 @@
             <% }// end of logged in %>
 
         </ul>
-        <form id="search" class="form-inline my-2 my-lg-0" method="get" action="search.html">
+        <form id="search" class="form-inline my-2 my-lg-0" method="get" action="/search">
             <input id="searchText" class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search here" aria-label="Search">
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
