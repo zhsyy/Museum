@@ -3,18 +3,18 @@
     String navFront, navSignUp, navProfile, navFavor, navRelease;
     navFront = navSignUp = navProfile = navFavor = navRelease = "";
 
-    final String active = "active";
+    final String ACTIVE = "active";
 
     switch (request.getServletPath()) {
         case "":
         case "/index.jsp":
-            navFront = active;
+            navFront = ACTIVE;
             break;
         case "/signUp.jsp":
-            navSignUp = active;
+            navSignUp = ACTIVE;
             break;
         case "/favor.jsp":
-            navFavor = active;
+            navFavor = ACTIVE;
             break;
     }
 %>

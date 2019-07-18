@@ -1,4 +1,12 @@
+<%@ page import="entity.ArtworksEntity" %>
+<%@ page import="java.util.List" %>
+<%@ page import="service.ArtworkService" %>
+<%@ page import="service.impl.ArtworkServiceImp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%!
+    private ArtworkService artworkService = new ArtworkServiceImp();
+%>
 
 <html lang="en">
 <head>
@@ -13,108 +21,47 @@
 
 <%@include file="nav.jsp"%>
 
-<div id="carouselGallery" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselGallery" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselGallery" data-slide-to="1"></li>
-        <li data-target="#carouselGallery" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="SOME_IMAGE" alt="Title">
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="display-4">Artist</h1>
-                <h4>Description</h4>
-                <a class="btn btn-outline-light" href="details.html?artworkID='.$rowView['artworkID'].'" role="button">Learn more</a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="SOME_IMAGE" alt="Title">
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="display-4">Artist</h1>
-                <h4>Description</h4>
-                <a class="btn btn-outline-light" href="details.html?artworkID='.$rowView['artworkID'].'" role="button">Learn more</a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="SOME_IMAGE" alt="Title">
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="display-4">Artist</h1>
-                <h4>Description</h4>
-                <a class="btn btn-outline-light" href="details.html?artworkID='.$rowView['artworkID'].'" role="button">Learn more</a>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselGallery" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselGallery" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
-
-<!--<?php-->
-
-<!--// show history-->
-<!--include_once "showHistory.php";-->
-
-<!--// connect the database-->
-<!--include_once "connect.php";-->
-
-<!--// carousel display-->
-<!--echo '<div id="carouselGallery" class="carousel slide" data-ride="carousel">-->
-<!--        <ol class="carousel-indicators">-->
-<!--            <li data-target="#carouselGallery" data-slide-to="0" class="active"></li>-->
-<!--            <li data-target="#carouselGallery" data-slide-to="1"></li>-->
-<!--            <li data-target="#carouselGallery" data-slide-to="2"></li>-->
-<!--        </ol>';-->
-
-<!--// get results order by view-->
-<!--$sqlView = 'SELECT * FROM artworks WHERE orderID IS NULL ORDER BY view DESC';-->
-<!--$resultView = $connection->query($sqlView);-->
-
-<!--echo '<div class="carousel-inner">';-->
-
-<!--for ($i = 0; $i < 3; $i++) {-->
-<!--    $rowView = $resultView->fetch_assoc();-->
-<!--    if ($i == 0) {// not bought and the first-->
-<!--        echo '<div class="carousel-item active">-->
-<!--        <img class="d-block w-100" src="resources/img/'.$rowView['imageFileName'].'" alt="'.$rowView['title'].'">-->
-<!--            <div class="carousel-caption d-none d-md-block">-->
-<!--                <h1 class="display-4">'.$rowView['artist'].'</h1>-->
-<!--                <h4>'.$rowView['description'].'</h4>-->
-<!--                <a class="btn btn-outline-light" href="details.html?artworkID='.$rowView['artworkID'].'" role="button">Learn more</a>-->
-<!--            </div>-->
-<!--        </div>';-->
-<!--    } else {// not bought and not the first-->
-<!--        echo '<div class="carousel-item">-->
-<!--            <img class="d-block w-100" src="resources/img/'.$rowView['imageFileName'].'" alt="'.$rowView['title'].'">-->
-<!--            <div class="carousel-caption d-none d-md-block">-->
-<!--                <h1 class="display-4">'.$rowView['artist'].'</h1>-->
-<!--                <h4>'.$rowView['description'].'</h4>-->
-<!--                <a class="btn btn-outline-light" href="details.html?artworkID='.$rowView['artworkID'].'" role="button">Learn more</a>-->
-<!--            </div>-->
-<!--        </div>';-->
-<!--    }-->
-<!--}-->
-
-<!--// release the memory used by the result set-->
-<!--$resultView->close();-->
-
-<!--echo '<a class="carousel-control-prev" href="#carouselGallery" role="button" data-slide="prev">-->
-<!--            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--            <span class="sr-only">Previous</span>-->
-<!--        </a>-->
-<!--        <a class="carousel-control-next" href="#carouselGallery" role="button" data-slide="next">-->
-<!--            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--            <span class="sr-only">Next</span>-->
-<!--        </a>-->
-<!--    </div>-->
-<!--</div>';-->
-
 <main class="index">
+    <div id="carouselGallery" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselGallery" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselGallery" data-slide-to="1"></li>
+            <li data-target="#carouselGallery" data-slide-to="2"></li>
+        </ol>
+
+        <%
+            List<ArtworksEntity> hottestArtworks = artworkService.getHottestArtworks();
+        %>
+
+        <div class="carousel-inner">
+
+            <%
+                for (int i = 0; i < 3; i++) {
+                    ArtworksEntity artwork = hottestArtworks.get(i);
+            %>
+
+            <div class="carousel-item <%=i == 0 ? "active" : ""%>">
+                <img class="d-block w-100" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4"><%=artwork.getTitle()%></h1>
+                    <h4><%=artwork.getDescription()%></h4>
+                    <a class="btn btn-outline-light" href="details.html?artworkID='.$rowView['artworkID'].'" role="button">Learn more</a>
+                </div>
+            </div>
+
+            <% } %>
+
+            <a class="carousel-control-prev" href="#carouselGallery" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselGallery" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
     <div class="card-group text-center">
 
         <!--        <?php-->

@@ -24,7 +24,7 @@ public class UsersEntity {
     }
 
     @Id
-    @Column(name = "userID")
+    @Column(name = "userId")
     public int getUserId() {
         return userId;
     }

@@ -23,7 +23,7 @@ public class FavorEntity {
     }
 
     @Id
-    @Column(name = "favorID")
+    @Column(name = "favorId")
     public int getFavorId() {
         return favorId;
     }
@@ -33,7 +33,7 @@ public class FavorEntity {
     }
 
     @Basic
-    @Column(name = "userID")
+    @Column(name = "userId")
     public int getUserId() {
         return userId;
     }
@@ -43,28 +43,13 @@ public class FavorEntity {
     }
 
     @Basic
-    @Column(name = "artworkID")
+    @Column(name = "artworkId")
     public int getArtworkId() {
         return artworkId;
     }
 
     public void setArtworkId(int artworkId) {
         this.artworkId = artworkId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FavorEntity that = (FavorEntity) o;
-        return favorId == that.favorId &&
-                userId == that.userId &&
-                artworkId == that.artworkId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(favorId, userId, artworkId);
     }
 
     @Basic
@@ -75,5 +60,21 @@ public class FavorEntity {
 
     public void setTime(Timestamp time) {
         this.time = time;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FavorEntity that = (FavorEntity) o;
+        return favorId == that.favorId &&
+                userId == that.userId &&
+                artworkId == that.artworkId &&
+                Objects.equals(time, that.time);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(favorId, userId, artworkId, time);
     }
 }
