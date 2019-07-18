@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
@@ -14,11 +15,12 @@ public class ArtworksEntity {
     private String location;
     private int view;
     private String type;
+    private Timestamp timeReleased;
 
     public ArtworksEntity() {
     }
 
-    public ArtworksEntity(int artworkId, String imageFileName, String title, String description, int yearOfWork, String location, int view, String type) {
+    public ArtworksEntity(int artworkId, String imageFileName, String title, String description, int yearOfWork, String location, int view, String type, Timestamp timeReleased) {
         this.artworkId = artworkId;
         this.imageFileName = imageFileName;
         this.title = title;
@@ -27,10 +29,11 @@ public class ArtworksEntity {
         this.location = location;
         this.view = view;
         this.type = type;
+        this.timeReleased = timeReleased;
     }
 
     @Id
-    @Column(name = "artworkID")
+    @Column(name = "artworkId")
     public int getArtworkId() {
         return artworkId;
     }
@@ -109,6 +112,16 @@ public class ArtworksEntity {
         this.type = type;
     }
 
+    @Basic
+    @Column(name = "timeReleased")
+    public Timestamp getTimeReleased() {
+        return timeReleased;
+    }
+
+    public void setTimeReleased(Timestamp timeReleased) {
+        this.timeReleased = timeReleased;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -121,11 +134,12 @@ public class ArtworksEntity {
                 Objects.equals(title, that.title) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(location, that.location) &&
-                Objects.equals(type, that.type);
+                Objects.equals(type, that.type) &&
+                Objects.equals(timeReleased, that.timeReleased);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(artworkId, imageFileName, title, description, yearOfWork, location, view, type);
+        return Objects.hash(artworkId, imageFileName, title, description, yearOfWork, location, view, type, timeReleased);
     }
 }

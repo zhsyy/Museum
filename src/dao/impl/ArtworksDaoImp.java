@@ -28,4 +28,18 @@ public class ArtworksDaoImp implements ArtworksDao {
 
         return artworksEntities;
     }
+
+    @Override
+    public List<ArtworksEntity> getHottestArtworks() {
+        String sql = "SELECT * FROM artworks ORDER BY view DESC";
+
+        return DBUtils.getList(ArtworksEntity.class, sql);
+    }
+
+    @Override
+    public List<ArtworksEntity> getNewestArtworks() {
+        String sql = "SELECT * FROM artworks ORDER BY timeReleased DESC";
+
+        return DBUtils.getList(ArtworksEntity.class, sql);
+    }
 }

@@ -11,11 +11,11 @@ import java.util.List;
 
 public class FavorDaoImp implements FavorDao {
     @Override
-    public void insert(int userId, int artworkId) {
+    public void insert(FavorEntity favor) {
         String sql = "INSERT INTO favor (userId, artworkId, time) VALUE (?,?,?)";
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-        DBUtils.update(sql, userId, artworkId, Timestamp.valueOf(dateFormat.format(new Date())));
+        DBUtils.update(sql, favor.getFavorId(), favor.getArtworkId(), Timestamp.valueOf(dateFormat.format(new Date())));
     }
 
     @Override

@@ -1,21 +1,26 @@
+<%@ page import="entity.UsersEntity" %>
 <%
     String navFront, navSignUp, navProfile, navFavor, navRelease;
     navFront = navSignUp = navProfile = navFavor = navRelease = "";
 
-    final String active = "active";
+    final String ACTIVE = "active";
 
     switch (request.getServletPath()) {
         case "":
         case "/index.jsp":
-            navFront = active;
+            navFront = ACTIVE;
             break;
         case "/signUp.jsp":
-            navSignUp = active;
+            navSignUp = ACTIVE;
             break;
         case "/favor.jsp":
-            navFavor = active;
+            navFavor = ACTIVE;
             break;
     }
+%>
+
+<%
+    UsersEntity user = (UsersEntity) session.getAttribute("user");
 %>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,19 +36,19 @@
                 <a class="nav-link" href="index.jsp">Front Page<span class="sr-only">(current)</span></a>
             </li>
 
-            <% if (session.getAttribute("username") == null) {// not logged in %>
+            <% if (user == null) {// not logged in %>
 
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Sign in</a>
+                <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Login</a>
             </li>
             <li class="nav-item <%=navSignUp%>">
-                <a class="nav-link" href="account_signUp.html">Sign up</a>
+                <a class="nav-link" href="signUp.jsp">Sign up</a>
             </li>
 
             <% } else {// logged in %>
 
             <li class="nav-item <%=navProfile%>">
-                <a class="nav-link" href="profile.html"><%= session.getAttribute("username") %></a>
+                <a class="nav-link" href="profile.html"><%= user.getName() %></a>
             </li>
             <li class="nav-item <%=navFavor%>">
                 <a class="nav-link" href="favor.jsp">Favor</a>
@@ -52,7 +57,7 @@
                 <a class="nav-link" href="release.html">Release</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="signOut.php?location=<?php echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>">Sign out</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/logOut">Log out</a>
             </li>
 
             <% }// end of logged in %>
