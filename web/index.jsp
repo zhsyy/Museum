@@ -1,11 +1,16 @@
 <%@ page import="entity.ArtworksEntity" %>
 <%@ page import="java.util.List" %>
-<%@ page import="service.ArtworkService" %>
-<%@ page import="service.impl.ArtworkServiceImp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%!
-    private ArtworkService artworkService = new ArtworkServiceImp();
+<%
+    @SuppressWarnings("unchecked")
+    List<ArtworksEntity> hottestArtworks = (List<ArtworksEntity>) request.getAttribute("hottestArtworks");
+    @SuppressWarnings("unchecked")
+    List<ArtworksEntity> newestArtworks = (List<ArtworksEntity>) request.getAttribute("newestArtworks");
+
+    if (hottestArtworks.size() == 0 || newestArtworks.size() == 0) {// incorrect visit
+        response.sendRedirect("error.page?message=NotExist");
+    }
 %>
 
 <html lang="en">
@@ -30,7 +35,7 @@
         </ol>
 
         <%
-            List<ArtworksEntity> hottestArtworks = artworkService.getHottestArtworks();
+
         %>
 
         <div class="carousel-inner">
@@ -45,7 +50,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="display-4"><%=artwork.getTitle()%></h1>
                     <h4><%=artwork.getDescription()%></h4>
-                    <a class="btn btn-outline-light" href="details.html?artworkID='.$rowView['artworkID'].'" role="button">Learn more</a>
+                    <a class="btn btn-outline-light" href="details.page?artworkId=<%=artwork.getArtworkId()%>" role="button">Learn more</a>
                 </div>
             </div>
 
@@ -66,59 +71,25 @@
 
     <div class="card-group text-center">
 
-        <!--        <?php-->
-        <!--        // get result order by released time-->
-        <!--        $sqlTimeReleased = 'SELECT * FROM artworks WHERE orderID IS NULL ORDER BY timeReleased DESC';-->
-        <!--        $resultTImeReleased = $connection->query($sqlTimeReleased);-->
+        <%
+            for (int i = 0; i < 3; i++) {
+                ArtworksEntity artwork = newestArtworks.get(i);
+        %>
 
-        <!--        for ($i = 0; $i < 3; $i++) {-->
-        <!--            $rowTimeReleased = $resultTImeReleased->fetch_array();-->
-        <!--            echo '<div class="card">-->
-        <!--            <img class="card-img-top" src="resources/img/'.$rowTimeReleased['imageFileName'].'" alt="'.$rowTimeReleased['title'].'">-->
-        <!--            <div class="card-body">-->
-        <!--                <h3 class="card-title">'.$rowTimeReleased['title'].'</h3>-->
-        <!--                <p class="card-text">'.$rowTimeReleased['description'].'</p>-->
-        <!--            </div>-->
-        <!--            <div class="card-footer">-->
-        <!--                <a href="details.html?artworkID='.$rowTimeReleased['artworkID'].'" class="btn btn-outline-primary">More Details</a>-->
-        <!--            </div>-->
-        <!--        </div>';-->
-        <!--        }-->
-
-        <!--        $resultTImeReleased->close();-->
-
-        <!--        $connection->close();-->
-        <!--        ?>-->
         <div class="card">
-            <img class="card-img-top" src="SOME_IMAGE" alt="Title">
+            <img class="card-img-top" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>">
             <div class="card-body">
-                <h3 class="card-title">SOME_IMAGE</h3>
-                <p class="card-text">Description</p>
+                <h3 class="card-title"><%=artwork.getTitle()%></h3>
+                <p class="card-text"><%=artwork.getDescription()%></p>
             </div>
             <div class="card-footer">
-                <a href="details.html" class="btn btn-outline-primary">More Details</a>
+                <a href="details.page?artworkId=<%=artwork.getArtworkId()%>" class="btn btn-outline-primary">More Details</a>
             </div>
         </div>
-        <div class="card">
-            <img class="card-img-top" src="SOME_IMAGE" alt="Title">
-            <div class="card-body">
-                <h3 class="card-title">SOME_IMAGE</h3>
-                <p class="card-text">Description</p>
-            </div>
-            <div class="card-footer">
-                <a href="details.html" class="btn btn-outline-primary">More Details</a>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="SOME_IMAGE" alt="Title">
-            <div class="card-body">
-                <h3 class="card-title">SOME_IMAGE</h3>
-                <p class="card-text">Description</p>
-            </div>
-            <div class="card-footer">
-                <a href="details.html" class="btn btn-outline-primary">More Details</a>
-            </div>
-        </div>
+
+        <%
+            }
+        %>
 
     </div>
 </main>
@@ -132,7 +103,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
 <script src="js/jsSignIn.js"></script>
-<!--<script src="js/jsSearch.js"></script>-->
+<script src="js/jsSearch.js"></script>
 </body>
 </html>
 

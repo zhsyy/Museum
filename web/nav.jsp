@@ -24,7 +24,7 @@
 %>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.jsp"><strong>Museum</strong></a>
+    <a class="navbar-brand" href="index.page"><strong>Museum</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,7 +33,7 @@
         <span class="navbar-text mx-2">Where you find <strong>genius</strong> and <strong>extraordinary</strong></span>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item <%=navFront%>">
-                <a class="nav-link" href="index.jsp">Front Page<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.page">Front Page<span class="sr-only">(current)</span></a>
             </li>
 
             <% if (user == null) {// not logged in %>
@@ -42,7 +42,7 @@
                 <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Login</a>
             </li>
             <li class="nav-item <%=navSignUp%>">
-                <a class="nav-link" href="signUp.jsp">Sign up</a>
+                <a class="nav-link" href="signUp.page">Sign up</a>
             </li>
 
             <% } else {// logged in %>

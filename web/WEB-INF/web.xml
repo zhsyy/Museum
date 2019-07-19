@@ -12,6 +12,6 @@
         <url-pattern>/*</url-pattern> <!--*即为过滤所有-->
     </filter-mapping>
     <welcome-file-list><!--默认首页地址-->
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.page</welcome-file>
     </welcome-file-list>
 </web-app>
