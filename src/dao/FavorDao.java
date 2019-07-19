@@ -9,5 +9,5 @@ public interface FavorDao {
 
     void delete(int favorId);
 
-    List<FavorEntity> getFavorEntities(int userId);
+    List<FavorEntity> getFavors(int userId);
 }

@@ -10,8 +10,6 @@
       <change afterPath="$PROJECT_DIR$/src/service/FavorService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/service/impl/FavorServiceImp.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/servlet/ArtworkServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/PageServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/ServletUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/details.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/ArtworksDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ArtworksDao.java" afterDir="false" />
@@ -24,11 +22,6 @@
       <change beforePath="$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlet/GetFavor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/GetFavor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/signUp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/signUp.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,7 +79,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servlet/UserServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="411">
@@ -111,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/details.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="52" column="80" selection-start-line="52" selection-start-column="80" selection-end-line="52" selection-end-column="80" />
+            <state relative-caret-position="1140">
+              <caret line="75" column="19" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -176,7 +169,6 @@
         <option value="$PROJECT_DIR$/web/search.jsp" />
         <option value="$PROJECT_DIR$/web/signInModal.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/CheckLogin.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/web/js/jsSignUp.js" />
         <option value="$PROJECT_DIR$/src/servlet/CheckSignUp.java" />
         <option value="$PROJECT_DIR$/src/servlet/SignUp.java" />
@@ -199,9 +191,10 @@
         <option value="$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java" />
         <option value="$PROJECT_DIR$/src/servlet/GetFavor.java" />
         <option value="$PROJECT_DIR$/src/servlet/ArtworkServlet.java" />
-        <option value="$PROJECT_DIR$/web/details.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/PageServlet.java" />
         <option value="$PROJECT_DIR$/src/servlet/UserServlet.java" />
+        <option value="$PROJECT_DIR$/web/details.jsp" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
       </list>
     </option>
   </component>
@@ -453,7 +446,7 @@
       <workItem from="1563335673020" duration="18805000" />
       <workItem from="1563368609273" duration="6441000" />
       <workItem from="1563430101030" duration="16514000" />
-      <workItem from="1563512432755" duration="25146000" />
+      <workItem from="1563512432755" duration="25461000" />
     </task>
     <task id="LOCAL-00001" summary="refactored DBUtils and DAOs">
       <created>1563308861967</created>
@@ -518,17 +511,24 @@
       <option name="project" value="LOCAL" />
       <updated>1563519324608</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="implemented page forwarding, prevent from accessing jsp files directly">
+      <created>1563564673078</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1563564673078</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88424000" />
+    <option name="totallyTimeSpent" value="88739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62681913" visible="true" weight="0.23027718" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62681913" visible="true" weight="0.23027718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.2130977" side_tool="true" weight="0.22761194" />
@@ -539,7 +539,7 @@
       <window_info id="Web" order="8" sideWeight="0.37318087" side_tool="true" weight="0.23027718" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32848233" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32120582" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32120582" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -559,7 +559,7 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.2153518" />
+      <window_info anchor="right" id="Database" order="6" weight="0.2153518" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -652,7 +652,8 @@
     <MESSAGE value="implemented user log out" />
     <MESSAGE value="implemented hottest artworks in index.jsp" />
     <MESSAGE value="implemented UserServlet, use one servlet to response several requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented UserServlet, use one servlet to response several requests" />
+    <MESSAGE value="implemented page forwarding, prevent from accessing jsp files directly" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented page forwarding, prevent from accessing jsp files directly" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
@@ -661,15 +662,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a1c00b72-4066-4c2a-92d0-e24e61e05048/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/artworks">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="c307588f-5841-40c6-ae79-1e05d18c84b0">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/artifacts/myTest_war_exploded/css/cssCommon.css">
       <provider selected="true" editor-type-id="text-editor" />
@@ -748,15 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="54" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="fce0a7b7-04ce-4a2e-8038-5a52b084e7d4">
-          <filtering>
-            <filter text="" />
-          </filtering>
         </state>
       </provider>
     </entry>
@@ -1031,13 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/details.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="52" column="80" selection-start-line="52" selection-start-column="80" selection-end-line="52" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/servlet/PageServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1048,6 +1024,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="fce0a7b7-04ce-4a2e-8038-5a52b084e7d4">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/servlet/UserServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
@@ -1055,6 +1040,22 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/artworks">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="fce0a7b7-04ce-4a2e-8038-5a52b084e7d4">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/details.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="75" column="19" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
         </state>
       </provider>
     </entry>

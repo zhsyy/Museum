@@ -9,26 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArtworksDaoImp implements ArtworksDao {
-    private FavorDaoImp favorDaoImp = new FavorDaoImp();
-
-    @Override
-    public List<ArtworksEntity> getFavorArtworks(int userId) {
-        List<ArtworksEntity> artworksEntities = new ArrayList<>();
-
-        String sql = "SELECT * FROM artworks WHERE artworkID = ?";
-
-        // get favor entities of user
-        List<FavorEntity> favorEntities = favorDaoImp.getFavorEntities(userId);
-        for (FavorEntity favorEntity : favorEntities) {
-            artworksEntities.add(
-                    // query artwork entity of artwork ID
-                    DBUtils.get(ArtworksEntity.class, sql, favorEntity.getArtworkId())
-            );
-        }
-
-        return artworksEntities;
-    }
-
     @Override
     public List<ArtworksEntity> getHottestArtworks() {
         String sql = "SELECT * FROM artworks ORDER BY view DESC";
@@ -99,5 +79,19 @@ public class ArtworksDaoImp implements ArtworksDao {
             artworksEntities = DBUtils.getList(ArtworksEntity.class,sql,"%"+searchText+"%","%"+searchText+"%","%"+searchText+"%");
         }
         return artworksEntities.size();
+    }
+
+    @Override
+    public ArtworksEntity getArtwork(int artworkId) {
+        String sql = "SELECT * FROM artworks WHERE artworkId = ?";
+
+        return DBUtils.get(ArtworksEntity.class, sql, artworkId);
+    }
+
+    @Override
+    public void updateView(int artworkId, int view) {
+        String sql = "UPDATE artworks SET view = ? WHERE artworkId = ?";
+
+        DBUtils.update(sql, view, artworkId);
     }
 }

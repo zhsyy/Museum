@@ -5,6 +5,8 @@ import dao.impl.FavorDaoImp;
 import entity.ArtworksEntity;
 import entity.FavorEntity;
 import entity.UsersEntity;
+import service.ArtworkService;
+import service.impl.ArtworkServiceImp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +19,8 @@ import java.util.List;
 
 @WebServlet(name = "favor", value = "/favor")
 public class GetFavor extends HttpServlet {
+    private ArtworkService artworkService = new ArtworkServiceImp();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -29,10 +33,9 @@ public class GetFavor extends HttpServlet {
         if (user==null){
             resp.sendRedirect("signUp.jsp");
         }else {
-            ArtworksDaoImp artworksDaoImp = new ArtworksDaoImp();
             FavorDaoImp favorDaoImp = new FavorDaoImp();
-            List<ArtworksEntity> artworksEntityList = artworksDaoImp.getFavorArtworks(user.getUserId());
-            List<FavorEntity> favorEntityList = favorDaoImp.getFavorEntities(user.getUserId());
+            List<ArtworksEntity> artworksEntityList = artworkService.getFavorArtworks(user.getUserId());
+            List<FavorEntity> favorEntityList = favorDaoImp.getFavors(user.getUserId());
             req.setAttribute("artworkList",artworksEntityList);
             req.setAttribute("favorList",favorEntityList);
             req.getRequestDispatcher("/favor.jsp").forward(req,resp);
