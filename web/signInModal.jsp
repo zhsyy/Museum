@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="signIn" method="post" name="signIn" action="${pageContext.request.contextPath}/checkLogin">
+                <form id="signIn" method="post" name="signIn" action="${pageContext.request.contextPath}/login.user">
                     <div class="form-row">
                         <div class="col mb-3">
                             <span id="alertSignIn" class="alert"></span>

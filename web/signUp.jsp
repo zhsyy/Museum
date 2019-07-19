@@ -21,7 +21,7 @@
 
 <main>
     <div class="container my-3">
-        <form id="signUp" method="post" action="${pageContext.request.contextPath}/signUp">
+        <form id="signUp" method="post" action="${pageContext.request.contextPath}/signUp.user">
             <h3 class="mb-3">Sign Up</h3>
             <div class="form-row">
                 <div class="col mb-3">

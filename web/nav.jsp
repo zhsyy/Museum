@@ -57,7 +57,7 @@
                 <a class="nav-link" href="release.html">Release</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/logOut">Log out</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/logOut.user">Log out</a>
             </li>
 
             <% }// end of logged in %>
