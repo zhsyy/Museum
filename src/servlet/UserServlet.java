@@ -3,6 +3,7 @@ package servlet;
 import entity.UsersEntity;
 import service.UserService;
 import service.impl.UserServiceImp;
+import util.ServletUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 @WebServlet(name = "UserServlet", value = "*.user")
 public class UserServlet extends HttpServlet {
@@ -25,18 +24,10 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String servletPath = req.getServletPath();
-        String methodName = servletPath.substring(1, servletPath.indexOf("."));
-
-        try {
-            Method method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
-            method.invoke(this, req, resp);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-            resp.sendRedirect("error.jsp");
-        }
+        ServletUtils.getAndDoMethod(this, req, resp);
     }
 
+    @SuppressWarnings("unused")
     private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -47,7 +38,7 @@ public class UserServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
 
         if (usersEntity != null) {// found matched user, login succeed
-            out.println("Login succeed! Returning to web page...");
+            out.println("Login succeed! Returning to previous page...");
 
             req.getSession().setAttribute("user", usersEntity);
         } else {// not found, login failed
@@ -58,6 +49,7 @@ public class UserServlet extends HttpServlet {
         resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
     }
 
+    @SuppressWarnings("unused")
     private void checkSignUp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
 
@@ -71,13 +63,14 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    @SuppressWarnings("unused")
     private void signUp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // generate user bean and sign up
         String username = req.getParameter("signUpUserName");
         String email = req.getParameter("signUpEmail");
         String password = req.getParameter("signUpPassword");
 
-        UsersEntity user = new UsersEntity(-1, username, email, password, "normalUser");
+        UsersEntity user = new UsersEntity(username, email, password, "normalUser");
 
         userService.signUp(user);
 
@@ -85,15 +78,16 @@ public class UserServlet extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
 
-        out.println("Sign up succeed! Returning to web page...");
+        out.println("Sign up succeed! Returning to index...");
 
         // login to get signed up user bean, set session
         user = userService.login(username, password);
         req.getSession().setAttribute("user", user);
 
-        resp.setHeader("refresh", "2;url=index.jsp");
+        resp.setHeader("refresh", "2;url=index.page");
     }
 
+    @SuppressWarnings("unused")
     private void logOut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().setAttribute("user", null);
 
@@ -103,6 +97,6 @@ public class UserServlet extends HttpServlet {
         out.println("Logged out.<br/>" +
                 "Returning to index...");
 
-        resp.setHeader("refresh", "2;url=index.jsp");
+        resp.setHeader("refresh", "2;url=index.page");
     }
 }

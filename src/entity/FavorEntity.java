@@ -15,11 +15,9 @@ public class FavorEntity {
     public FavorEntity() {
     }
 
-    public FavorEntity(int favorId, int userId, int artworkId, Timestamp time) {
-        this.favorId = favorId;
+    public FavorEntity(int userId, int artworkId) {
         this.userId = userId;
         this.artworkId = artworkId;
-        this.time = time;
     }
 
     @Id
