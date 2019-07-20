@@ -3,15 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <filter><!-- 过滤器配置-->
-        <filter-name>EncodingFilter</filter-name>
-        <filter-class>filter.EncodingFilter</filter-class><!--全路径 从根包开始一直到类名-->
-    </filter>
-    <filter-mapping>
-        <filter-name>EncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern> <!--*即为过滤所有-->
-    </filter-mapping>
+    <!--<filter>&lt;!&ndash; 过滤器配置&ndash;&gt;-->
+        <!--<filter-name>EncodingFilter</filter-name>-->
+        <!--<filter-class>filter.EncodingFilter</filter-class>&lt;!&ndash;全路径 从根包开始一直到类名&ndash;&gt;-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>EncodingFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern> &lt;!&ndash;*即为过滤所有&ndash;&gt;-->
+    <!--</filter-mapping>-->
     <welcome-file-list><!--默认首页地址-->
-        <welcome-file>index.page</welcome-file>
+        <welcome-file>index.admin</welcome-file>
     </welcome-file-list>
+
 </web-app>

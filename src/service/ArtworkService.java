@@ -14,4 +14,8 @@ public interface ArtworkService {
     ArtworksEntity getArtwork(int artworkId);
 
     void updateView(int artworkId, int oldView);
+
+    List<ArtworksEntity> getSearchArtworks(String searchText,String[] searchBy,String sortBy);
+
+    List<ArtworksEntity> getOutputArtworks(List<ArtworksEntity> allArtworks,int page);
 }
