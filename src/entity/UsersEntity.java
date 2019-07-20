@@ -23,6 +23,7 @@ public class UsersEntity {
         this.email = email;
         this.password = password;
         this.type = type;
+        this.signature = signature;
     }
 
     @Id
@@ -104,11 +105,13 @@ public class UsersEntity {
                 Objects.equals(name, that.name) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(password, that.password) &&
-                Objects.equals(type, that.type);
+                Objects.equals(type, that.type) &&
+                Objects.equals(time, that.time) &&
+                Objects.equals(signature, that.signature);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, name, email, password, type);
+        return Objects.hash(userId, name, email, password, type, time, signature);
     }
 }

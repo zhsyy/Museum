@@ -15,5 +15,7 @@ public interface UserService {
 
     List<UsersEntity> getAllUsers();
 
-    void update(UsersEntity user);
+    UsersEntity update(UsersEntity user);
+
+    boolean checkModifyUser(int userId, String password);
 }

@@ -48,7 +48,13 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void update(UsersEntity user) {
+    public UsersEntity update(UsersEntity user) {
         usersDao.update(user);
+        return usersDao.query(user.getName());
+    }
+
+    @Override
+    public boolean checkModifyUser(int userId, String password) {
+        return usersDao.query(userId, password) != null;
     }
 }

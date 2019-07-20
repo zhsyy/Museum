@@ -48,7 +48,7 @@
             <% } else {// logged in %>
 
             <li class="nav-item <%=navProfile%>">
-                <a class="nav-link" href="profile.html"><%= user.getName() %></a>
+                <a class="nav-link" href="profile.page"><%= user.getName() %></a>
             </li>
             <li class="nav-item <%=navFavor%>">
                 <a class="nav-link" href="favor.jsp">Favor</a>
@@ -91,5 +91,8 @@
     </div>
 </nav>
 
-<!--// insert sign in modal-->
+<% if (user == null) { %>
+
 <%@include file="signInModal.jsp"%>
+
+<% } %>

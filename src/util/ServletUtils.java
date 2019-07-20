@@ -19,7 +19,7 @@ public class ServletUtils {
             method.invoke(servlet, req, resp);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
-            resp.sendRedirect("error.jsp");
+            resp.sendRedirect("error.page?message=NotExist");
         }
     }
 }

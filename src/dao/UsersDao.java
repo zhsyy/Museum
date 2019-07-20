@@ -9,6 +9,8 @@ public interface UsersDao {
 
     UsersEntity query(String username);
 
+    UsersEntity query(int userId, String password);
+
     void insert(UsersEntity user);
 
     List<UsersEntity> queryAll();

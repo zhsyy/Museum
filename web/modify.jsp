@@ -23,10 +23,11 @@
     <div class="container my-3">
         <form id="signUp" method="post" action="${pageContext.request.contextPath}/modify.user">
             <h3 class="mb-3">Modify</h3>
+            <input id="oldUsername" type="hidden" value="<%=user.getName()%>">
             <div class="form-row">
                 <div class="col mb-3">
                     <label for="signUpUserName">User name: </label>
-                    <input type="text" class="form-control" id="signUpUserName" name="signUpUserName" value="<%=user.getName()%>" aria-describedby="userNameHelpBlock" placeholder="User name" onblur="checkSignUpUserName(this.value)">
+                    <input type="text" class="form-control" id="signUpUserName" name="signUpUserName" value="<%=user.getName()%>" aria-describedby="userNameHelpBlock" placeholder="User name" onblur="checkSignUpUserName(this.value.trim())">
                     <small id="userNameHelpBlock" class="form-text text-muted">
                         Your user name should have length from 4 to 15. Like 'HNoodles1' is ok.
                     </small>
@@ -36,7 +37,7 @@
             <div class="form-row">
                 <div class="col mb-3">
                     <label for="signUpEmail">Email: </label>
-                    <input type="text" class="form-control" id="signUpEmail" name="signUpEmail" value="<%=user.getEmail()%>" aria-describedby="emailHelpBlock" placeholder="Email" onblur="checkSignUpEmail(this.value)">
+                    <input type="text" class="form-control" id="signUpEmail" name="signUpEmail" value="<%=user.getEmail()%>" aria-describedby="emailHelpBlock" placeholder="Email" onblur="checkSignUpEmail(this.value.trim())">
                     <small id="emailHelpBlock" class="form-text text-muted">
                         Your email should be like 'name@example.com'.
                     </small>
@@ -46,27 +47,17 @@
             <div class="form-row">
                 <div class="col mb-3">
                     <label for="signUpPassword">Password: </label>
-                    <input type="password" class="form-control" id="signUpPassword" name="signUpPassword" aria-describedby="passwordHelpBlock" placeholder="Password" onblur="checkSignUpPassword(this.value)" disabled>
+                    <input type="password" class="form-control" id="signUpPassword" name="signUpPassword" value="" aria-describedby="passwordHelpBlock" placeholder="Password" readonly>
                     <small id="passwordHelpBlock" class="form-text text-muted">
-                        Your password should have length from 6 to 10, and should contain numbers and letters of upper case and lower case. Like 'Hn123456' is ok.
+                        Sorry, you cannot modify your password.
                     </small>
                     <span id="alertPassword" class="alert"></span>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col mb-3">
-                    <label for="signUpPasswordConfirm">Confirm Password: </label>
-                    <input type="password" class="form-control" id="signUpPasswordConfirm" name="signUpPasswordConfirm" aria-describedby="confirmPasswordHelpBlock" placeholder="Confirm password" onblur="checkSignUpPasswordConfirm(this.value)" disabled>
-                    <small id="confirmPasswordHelpBlock" class="form-text text-muted">
-                        Your confirmation should be just the same as your password.
-                    </small>
-                    <span id="alertPasswordConfirm" class="alert"></span>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col mb-3">
                     <label for="signUpSignature">Signature: </label>
-                    <input type="text" class="form-control" id="signUpSignature" name="signUpSignature" value="<%=user.getSignature() != null ? user.getSignature() : ""%>" aria-describedby="signatureHelpBlock" placeholder="Signature" onblur="">
+                    <input type="text" class="form-control" id="signUpSignature" name="signUpSignature" value="<%=user.getSignature()%>" aria-describedby="signatureHelpBlock" placeholder="Signature" onblur="checkSignUpSignature(this.value.trim())">
                     <small id="signatureHelpBlock" class="form-text text-muted">
                         Leave some comments of yours here. MAX LENGTH: 120.
                     </small>

@@ -23,6 +23,11 @@ public class PageServlet extends HttpServlet {
         ServletUtils.getAndDoMethod(this, req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
     @SuppressWarnings("unused")
     private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String searchText = req.getParameter("searchText");
@@ -109,6 +114,17 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
+    private void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("user") == null) {// user not logged in, error
+            resp.sendRedirect("error.page?message=NotLoggedIn");
+        } else if (req.getAttribute("checkedPassword") == null) {// password not checked
+            resp.sendRedirect("error.page?message=NotAuthorized");
+        } else {// user logged in , normal
+            req.getRequestDispatcher("modify.jsp").forward(req, resp);
+        }
+    }
+
+    @SuppressWarnings("unused")
     private void error(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String message = req.getParameter("message");
         String info = "Sorry! ";
@@ -122,6 +138,9 @@ public class PageServlet extends HttpServlet {
                 break;
             case "NotLoggedIn":
                 info += "You haven't logged in! Please login first!";
+                break;
+            case "NotAuthorized":
+                info += "You are not allowed to access this page!";
                 break;
             default:
                 info += "Some unknown error occurred!";

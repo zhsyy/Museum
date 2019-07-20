@@ -101,17 +101,39 @@ public class UserServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
+    private void checkPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userId = Integer.parseInt(req.getParameter("userId"));
+        String password = req.getParameter("password");
+
+        resp.setContentType("text/plain");
+        PrintWriter out = resp.getWriter();
+
+        if (userService.checkModifyUser(userId, password)) {// valid
+            out.println("");
+        } else {// invalid
+            out.println("Incorrect password! Please try again!");
+        }
+    }
+
+    @SuppressWarnings("unused")
+    private void checkedPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("checkedPassword", true);
+        req.getRequestDispatcher("modify.page").forward(req, resp);
+    }
+
+    @SuppressWarnings("unused")
     private void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // generate user bean and update
-        String username = req.getParameter("signUpUserName");
-        String email = req.getParameter("signUpEmail");
-        String password = req.getParameter("signUpPassword");
-        String signature = req.getParameter("signUpSignature");
+        String username = req.getParameter("signUpUserName").trim();
+        String email = req.getParameter("signUpEmail").trim();
+        String signature = req.getParameter("signUpSignature").trim();
 
-        UsersEntity oldUser = (UsersEntity) req.getSession().getAttribute("user");
-        UsersEntity newUser = new UsersEntity(username, email, password, oldUser.getType(), signature);
+        UsersEntity user = (UsersEntity) req.getSession().getAttribute("user");
+        user.setName(username);
+        user.setEmail(email);
+        user.setSignature(signature);
 
-        userService.update(newUser);
+        user = userService.update(user);
 
         // inform users what is going on
         resp.setContentType("text/html");
@@ -120,7 +142,7 @@ public class UserServlet extends HttpServlet {
         out.println("Modify succeed! Returning to profile page...");
 
         // update session
-        req.getSession().setAttribute("user", newUser);
+        req.getSession().setAttribute("user", user);
 
         resp.setHeader("refresh", "2;url=profile.page");
     }
