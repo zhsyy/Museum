@@ -7,115 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3525f7aa-9b6c-4bad-b686-6b8642c69d5f" name="Default Changelist" comment="implemented page forwarding, prevent from accessing jsp files directly">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_fileupload_1_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/jquery-1.11.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/js/jsForArtwork.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/adminPageLib/js/jsForUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/26.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/28.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/29.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/31.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/32.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/35.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/36.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/37.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/39.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/40.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/42.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/44.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/45.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/47.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/48.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/51.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/54.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/55.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/56.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/57.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/58.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/59.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/60.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/61.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/62.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/63.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/64.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/65.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/66.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/67.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/68.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/69.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/70.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/71.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/72.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/73.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/74.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/75.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/76.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/77.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/78.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/79.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/80.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/81.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/82.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/83.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/84.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/85.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/86.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/87.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/88.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/89.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/resource/img/90.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Museum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Museum.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ArtworksDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ArtworksDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UsersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UsersDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/impl/ArtworksDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/impl/ArtworksDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/impl/UsersDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/impl/UsersDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/ArtworksEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/ArtworksEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ArtworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ArtworkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/impl/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/impl/UserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/AdminServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/adminArtwork.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminArtwork.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/adminIndex.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminIndex.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/adminUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/adminUsersList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminUsersList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/arts.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminArtworksList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/premium.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminPageLib/premium.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminPageLib/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/favor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/favor.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sign-up.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -223,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/adminUsersList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="52" column="41" lean-forward="true" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+            <state relative-caret-position="211">
+              <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -426,7 +318,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563643635773" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563644617317" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../testUpload" />
@@ -567,7 +459,7 @@
       <workItem from="1563512432755" duration="25461000" />
       <workItem from="1563594506457" duration="560000" />
       <workItem from="1563597847661" duration="28403000" />
-      <workItem from="1563630985362" duration="12483000" />
+      <workItem from="1563630985362" duration="13510000" />
     </task>
     <task id="LOCAL-00001" summary="refactored DBUtils and DAOs">
       <created>1563308861967</created>
@@ -646,11 +538,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563608931525</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="implemented page forwarding, prevent from accessing jsp files directly">
+      <created>1563643671728</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1563643671728</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130185000" />
+    <option name="totallyTimeSpent" value="131212000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -663,7 +562,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5452632" visible="true" weight="0.20710456" />
       <window_info id="Structure" order="1" sideWeight="0.45473683" side_tool="true" weight="0.1689008" />
@@ -676,27 +574,27 @@
       <window_info id="Web" order="8" sideWeight="0.37318087" side_tool="true" weight="0.23027718" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.3243626" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.3243626" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.22237961" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.5831601" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.49150142" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49946696" weight="0.32952183" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49946696" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.17962466" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.1575067" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -1193,8 +1091,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/adminUsersList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="52" column="41" lean-forward="true" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+        <state relative-caret-position="211">
+          <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
