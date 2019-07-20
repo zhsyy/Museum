@@ -14,4 +14,6 @@ public interface UserService {
     UsersEntity getUserByName(String userName);
 
     List<UsersEntity> getAllUsers();
+
+    void update(UsersEntity user);
 }

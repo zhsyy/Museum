@@ -12,4 +12,6 @@ public interface UsersDao {
     void insert(UsersEntity user);
 
     List<UsersEntity> queryAll();
+
+    void update(UsersEntity user);
 }
