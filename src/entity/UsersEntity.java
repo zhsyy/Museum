@@ -1,6 +1,8 @@
 package entity;
 
 import javax.persistence.*;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +13,7 @@ public class UsersEntity {
     private String email;
     private String password;
     private String type;
+    private Timestamp time;
 
     public UsersEntity() {
     }
@@ -70,6 +73,16 @@ public class UsersEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Basic
+    @Column(name = "time")
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
     @Override
