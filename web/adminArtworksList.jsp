@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="entity.ArtworksEntity" %>
-<%@ page import="entity.UsersEntity" %><%
-    ArtworksEntity artwork = (ArtworksEntity)request.getAttribute("artwork");
+<%@ page import="entity.UsersEntity" %>
+<%@ page import="java.util.List" %><%
+    @SuppressWarnings("unchecked")
+    List<ArtworksEntity> artworksList = (List<ArtworksEntity>)request.getAttribute("artworksList");
     UsersEntity user = (UsersEntity)session.getAttribute("user");
 %>
 <!doctype html>
@@ -77,82 +79,64 @@
 
 <div class="content">
     <div class="header">
-        <h1 class="page-title">Edit Art</h1>
+
+        <h1 class="page-title">Arts</h1>
+
     </div>
     <div class="main-content">
-        <div class="container my-3">
-            <h5>Release a work</h5>
-            <h5 id="alertMessage" style="color: red"> </h5>
-            <form id="artworkFormSubmit" enctype="multipart/form-data" method="post" action="<%
-                if (artwork!=null)out.print("modify");
-                else out.print("add");
-                %>Artwork.admin">
-                <input class="invisible" name="submitWay" id="submitWay" value="<%
-                if (artwork!=null)out.print("modify");
-                else out.print("add");
-                %>">
-                <input class="invisible" name="artworkId" id="artworkId" value="<%
-                if (artwork!=null)out.print(artwork.getArtworkId());
-                %>">
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="<%
-                        if (artwork!=null)
-                            out.print(artwork.getTitle());
-                            %>">
-                        <!--<span id="alertTitle" class="alert"></span>-->
-                    </div>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="3" placeholder="Description"><%
-                        if (artwork!=null)
-                            out.print(artwork.getDescription());
-                    %></textarea>
-                    <!--<span id="alertDescription" class="alert"></span>-->
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-8">
-                        <label for="location">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" placeholder="Location" value="<%
-                        if (artwork!=null)
-                            out.print(artwork.getLocation());
-                            %>">
-                        <!--<span id="alertGenre" class="alert"></span>-->
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="yearOfWork">Year of work</label>
-                        <input type="number" class="form-control" id="yearOfWork" name="yearOfWork" placeholder="Year of work" value="<%
-                        if (artwork!=null)
-                            out.print(artwork.getYearOfWork());
-                            %>">
-                        <!--<span id="alertYearOfWork" class="alert"></span>-->
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="custom-file col-md-4">
-                        <input type="file" id="imageFileName" name="imageFileName" accept="image/png,image/jpeg,image/gif">
-                            <%--准备设置为，若用户在修改时上传了图片，则使用该图片，若没有，则使用原本的图片--%>
-                    </div>
-                </div>
-                    <div class="custom-file col-md-8"></div>
-                <div class="form-group">
-                    <div class="custom-file col-md-12">
-                        <br>
-                        <button type="button" id="btSubmit" class="btn btn-success">Submit</button>
-                    </div>
-                </div>
-            </form>
+
+        <div class="btn-toolbar list-toolbar">
+            <button class="btn btn-primary" onclick="window.location.href='artwork.admin'"><i class="fa fa-plus"></i>New Art</button><!--添加新的用户，可设置跳转到注册界面,不是一般用户的注册界面-->
+            <div class="btn-group">
+            </div>
         </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Introduction</th>
+                <th>Picture</th>
+                <th>Location</th>
+                <th>Years</th>
+                <th style="width: 3.5em;"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                for (int i = 0;i<artworksList.size();i++){
+                    ArtworksEntity u = artworksList.get(i);
+            %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=u.getTitle()%></td>
+                <td><%=u.getDescription()%></td>
+                <td><img style="width: 100px;height: 100px" src="resource/img/<%=u.getImageFileName()%>" alt="<%=u.getTitle()%>"></td>
+                <td><%=u.getLocation()%></td>
+                <td><%=u.getYearOfWork()%></td>
+                <td>
+                    <a href="artwork.admin?artworkId=<%=u.getArtworkId()%>"><i class="fa fa-pencil"></i></a><!--修改-->
+                    <a href="deleteArtwork.admin?artworkId=<%=u.getArtworkId()%>"><i class="fa fa-trash-o"></i></a><!--删除-->
+                </td>
+            </tr>
+            <%
+                }
+            %>
+
+            </tbody>
+        </table>
+
+
 
         <footer>
             <hr>
-            <p class="pull-right">A <a  target="_blank">Free Bootstrap Theme</a> by <a target="_blank">Portnine</a></p>
-            <p>© 2019 <a target="_blank">Museum</a></p>
+            <p class="pull-right">A <a href="./" target="_blank">Free Bootstrap Theme</a> by <a href="./" target="_blank">Portnine</a></p>
+            <p>© 2014 <a href="http://www.portnine.com" target="_blank">Portnine</a></p>
         </footer>
     </div>
 </div>
+
+
 <script src="adminPageLib/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
     $("[rel=tooltip]").tooltip();
@@ -160,6 +144,6 @@
         $('.demo-cancel-click').click(function(){return false;});
     });
 </script>
-<script src="adminPageLib/js/jsForArtwork.js" type="text/javascript"></script>
+
 
 </body></html>

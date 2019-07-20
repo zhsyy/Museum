@@ -14,4 +14,12 @@ public interface UserService {
     UsersEntity getUserByName(String userName);
 
     List<UsersEntity> getAllUsers();
+
+    void addUser(UsersEntity users);
+
+    void modifyUser(UsersEntity users);
+
+    void deleteUser(String name);
+
+    void deleteUser(int userId);
 }

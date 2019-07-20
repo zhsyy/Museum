@@ -15,4 +15,10 @@ public interface ArtworksDao {
     ArtworksEntity getArtwork(int artworkId);
 
     void updateView(int artworkId, int view);
+
+    void insert(ArtworksEntity artwork);
+
+    void delete(String artworkId);
+
+    void modify(ArtworksEntity artwork);
 }

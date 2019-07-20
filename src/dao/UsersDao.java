@@ -12,4 +12,8 @@ public interface UsersDao {
     void insert(UsersEntity user);
 
     List<UsersEntity> queryAll();
+
+    void delete(String name);
+
+    void delete(int userId);
 }

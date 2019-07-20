@@ -9,6 +9,12 @@ import java.util.List;
 
 public class ArtworksDaoImp implements ArtworksDao {
     @Override
+    public void modify(ArtworksEntity artwork) {
+        delete(artwork.getArtworkId()+"");
+        insert(artwork);
+    }
+
+    @Override
     public List<ArtworksEntity> getHottestArtworks() {
         String sql = "SELECT * FROM artworks ORDER BY view DESC";
 
@@ -44,5 +50,19 @@ public class ArtworksDaoImp implements ArtworksDao {
         String sql = "UPDATE artworks SET view = ? WHERE artworkId = ?";
 
         DBUtils.update(sql, view, artworkId);
+    }
+
+    @Override
+    public void insert(ArtworksEntity artwork) {
+        String sql = "INSERT INTO artworks (imageFileName, title, description, yearOfWork, location, view, type, timeReleased) VALUE (?,?,?,?,?,?,?,?)";
+
+        DBUtils.update(sql, artwork.getImageFileName(), artwork.getTitle(),artwork.getDescription(),artwork.getYearOfWork(),artwork.getLocation(),artwork.getView(),artwork.getType(),artwork.getTimeReleased());
+    }
+
+    @Override
+    public void delete(String artworkId) {
+        String sql = "DELETE FROM artworks WHERE artworkId = ?";
+
+        DBUtils.update(sql, artworkId);
     }
 }
