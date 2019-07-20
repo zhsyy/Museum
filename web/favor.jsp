@@ -1,22 +1,7 @@
-<%@ page import="dao.FavorDao" %>
-<%@ page import="dao.impl.FavorDaoImp" %>
-<%@ page import="dao.ArtworksDao" %>
-<%@ page import="dao.impl.ArtworksDaoImp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="entity.ArtworksEntity" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.FavorEntity" %>
-<%
-    //    session.setAttribute("userId",1);
-//    FavorDao favorDaoImp = new FavorDaoImp();
-//    ArtworksDao artworksDaoImp = new ArtworksDaoImp();
-//    if (session.getAttribute("userID") == null){
-//        response.sendRedirect("index.jsp");
-//    }
-//    int userID = (int)session.getAttribute("userId");
-//    if (request.getParameter("favorId")!=null){
-//        favorDaoImp.delete(Integer.parseInt(request.getParameter("favorId")));
-//    }
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

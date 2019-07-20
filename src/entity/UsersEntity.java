@@ -1,6 +1,8 @@
 package entity;
 
 import javax.persistence.*;
+
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -15,6 +17,7 @@ public class UsersEntity {
     private Timestamp time;
     private String signature;
 
+
     public UsersEntity() {
     }
 
@@ -24,6 +27,15 @@ public class UsersEntity {
         this.password = password;
         this.type = type;
         this.signature = signature;
+    }
+
+
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
     @Id

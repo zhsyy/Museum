@@ -56,5 +56,25 @@ public class UserServiceImp implements UserService {
     @Override
     public boolean checkModifyUser(int userId, String password) {
         return usersDao.query(userId, password) != null;
+
+    @Override
+    public void addUser(UsersEntity user) {
+        usersDao.insert(user);
+    }
+
+    @Override
+    public void modifyUser(UsersEntity user) {
+        usersDao.delete(user.getName());
+        usersDao.insert(user);
+    }
+
+    @Override
+    public void deleteUser(String name) {
+        usersDao.delete(name);
+    }
+
+    @Override
+    public void deleteUser(int userId) {
+        usersDao.delete(userId);
     }
 }

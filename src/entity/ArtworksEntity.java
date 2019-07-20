@@ -20,8 +20,7 @@ public class ArtworksEntity {
     public ArtworksEntity() {
     }
 
-    public ArtworksEntity(int artworkId, String imageFileName, String title, String description, int yearOfWork, String location, int view, String type, Timestamp timeReleased) {
-        this.artworkId = artworkId;
+    public ArtworksEntity(String imageFileName, String title, String description, int yearOfWork, String location, int view, String type, Timestamp timeReleased) {
         this.imageFileName = imageFileName;
         this.title = title;
         this.description = description;

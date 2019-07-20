@@ -48,4 +48,17 @@ public class UsersDaoImp implements UsersDao {
 
         DBUtils.update(sql, user.getName(), user.getEmail(), user.getPassword(), user.getType(), user.getTime(), user.getSignature(), user.getUserId());
     }
+  
+    public void delete(String name) {
+        String sql = "DELETE FROM users WHERE name = ?";
+
+        DBUtils.update(sql, name);
+    }
+
+    @Override
+    public void delete(int userId) {
+        String sql = "DELETE FROM users WHERE userId = ?";
+
+        DBUtils.update(sql, userId);
+    }
 }
