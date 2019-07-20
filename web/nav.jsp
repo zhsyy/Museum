@@ -63,25 +63,43 @@
             <% }// end of logged in %>
 
         </ul>
-        <form id="search" class="form-inline my-2 my-lg-0" method="get" action="/search">
-            <input id="searchText" class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search here" aria-label="Search">
+        <form id="search" class="form-inline my-2 my-lg-0" method="get" action="search.page">
+            <input id="searchText" class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search here" aria-label="Search" value="<%if (request.getAttribute("searchText")!=null)out.print(request.getAttribute("searchText"));%>">
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Search By...
                 </button>
                 <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy[]" value="title" checked>
+                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy" value="title"
+                            <%
+                            if (request.getAttribute("searchByTitle")!=null){
+                                out.print("checked");
+                            }
+                        %>
+                        >
                         <label class="form-check-label" for="ckbTitle">Title</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy[]" value="description">
+                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy" value="description"
+                            <%
+                            if (request.getAttribute("searchByDescription")!=null){
+                                out.print("checked");
+                            }
+                        %>
+                        >
                         <label class="form-check-label" for="ckbIntroduction">Description</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbArtist" name="searchBy[]" value="artist">
-                        <label class="form-check-label" for="ckbArtist">Artist</label>
+                        <input class="form-check-input" type="checkbox" id="ckbLocation" name="searchBy" value="location"<%
+                            if (request.getAttribute("searchByLocation")!=null){
+                                out.print("checked");
+                            }
+                        %>
+                        >
+                        <label class="form-check-label" for="ckbLocation">Location</label>
                     </div>
+                    <input class="invisible" id="sortBy" name="sortBy" value="">
                     <span id="searchAlert" class="invisible alert"></span><br/>
                     <button id="btSearch" class="btn btn-outline-primary my-2 my-sm-0" type="button">Search</button>
                 </div>

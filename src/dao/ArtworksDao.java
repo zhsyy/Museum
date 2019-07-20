@@ -1,5 +1,6 @@
 package dao;
 
+import criteriaObject.CriteriaSearch;
 import entity.ArtworksEntity;
 
 import java.util.List;
@@ -9,9 +10,7 @@ public interface ArtworksDao {
 
     List<ArtworksEntity> getNewestArtworks();
 
-    List<ArtworksEntity> getPageSearchArtworks(String searchText,String[] searchBy,int page,String sortBy);
-
-    int getAllSearchArtworksCount(String searchText, String[] searchBy);
+    List<ArtworksEntity> getSearchArtworks(CriteriaSearch criteriaSearch);
 
     ArtworksEntity getArtwork(int artworkId);
 

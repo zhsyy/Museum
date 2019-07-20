@@ -5,6 +5,8 @@ import dao.impl.UsersDaoImp;
 import entity.UsersEntity;
 import service.UserService;
 
+import java.util.List;
+
 public class UserServiceImp implements UserService {
     private UsersDao usersDao = new UsersDaoImp();
 
@@ -21,5 +23,15 @@ public class UserServiceImp implements UserService {
     @Override
     public void signUp(UsersEntity user) {
         usersDao.insert(user);
+    }
+
+    @Override
+    public UsersEntity getUserByName(String userName) {
+        return usersDao.query(userName);
+    }
+
+    @Override
+    public List<UsersEntity> getAllUsers() {
+        return usersDao.queryAll();
     }
 }

@@ -1,11 +1,13 @@
 package servlet;
 
+import com.alibaba.fastjson.JSONArray;
 import entity.ArtworksEntity;
 import entity.UsersEntity;
 import service.ArtworkService;
 import service.impl.ArtworkServiceImp;
 import util.ServletUtils;
 
+import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +23,29 @@ public class PageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.getAndDoMethod(this, req, resp);
+    }
+
+    @SuppressWarnings("unused")
+    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String searchText = req.getParameter("searchText");
+        String sortBy = req.getParameter("sortBy");
+        String[] searchBy = req.getParameterValues("searchBy");
+        List<ArtworksEntity> allArtworks = artworkService.getSearchArtworks(searchText,searchBy,sortBy);
+
+
+        int totalCount = allArtworks.size();
+        int totalPage = ((totalCount % 9 == 0) ? (totalCount / 9):(totalCount / 9 + 1));
+        for (String u: searchBy) {
+            if (u.equals("title")) req.setAttribute("searchByTitle",u);
+            if (u.equals("description")) req.setAttribute("searchByDescription",u);
+            if (u.equals("location")) req.setAttribute("searchByLocation",u);
+        }
+        req.setAttribute("searchText",searchText);
+        req.setAttribute("totalCount",totalCount);
+        req.setAttribute("totalPage",totalPage);
+        req.setAttribute("sortBy",sortBy);
+        req.setAttribute("artworksEntities",artworkService.getOutputArtworks(allArtworks,1));
+        req.getRequestDispatcher("search.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")

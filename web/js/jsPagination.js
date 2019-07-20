@@ -1,15 +1,27 @@
-function checkPage(searchText,searchBy, totalPage,sortBy) {
+function checkPage(totalPage) {
     let page = document.getElementById("page").value;
     if ((page > 0) && (page <= totalPage)) {
-        ajaxToPage(page, searchText, searchBy, totalPage,sortBy);
+        ajaxToPage(page, totalPage);
     }
 }
-
-function ajaxToPage(page,searchText,searchBy,totalPage,sortBy) {
+function checkboxOnclick(totalPage){
+    ajaxToPage(1,totalPage);
+}
+function ajaxToPage(page,totalPage) {
+    const searchText = document.getElementById("searchText").value;
+    const ckbTitle = document.getElementById("ckbTitle");
+    const ckbIntroduction = document.getElementById("ckbIntroduction");
+    const ckbLocation = document.getElementById("ckbLocation");
+    var searchByTitle="",searchByDescription="",searchByLocation="",sortByView = "";
+    const filterView = document.getElementById("filterView");
+    if (ckbTitle.checked) searchByTitle="title";
+    if (ckbIntroduction.checked) searchByDescription="description";
+    if (ckbLocation.checked) searchByLocation="location";
+    if (filterView.checked) sortByView="view";
     $.ajax({
         type: "post",
-        url: "changeSearchPage",
-        data: {page:page ,searchText:searchText, searchBy:searchBy, totalPage:totalPage,sortBy:sortBy},// data post
+        url: "pagingInSearch",
+        data: {page:page,searchText:searchText,searchByTitle:searchByTitle,searchByDescription:searchByDescription,searchByLocation:searchByLocation,sortByView:sortByView},// data post
         dataType: "json",
         success: function(data) {
             let prePage = (page > 1) ? (page - 1) : 1;
@@ -25,24 +37,12 @@ function ajaxToPage(page,searchText,searchBy,totalPage,sortBy) {
 
             // compose html with data
             // start of total row
-            if (searchText===""){
-                searchText="\'\'";
-            }else {
-                searchText="\'"+searchText+"\'";
-            }
-            if (sortBy===""){
-                sortBy="\'\'";
-            }else {
-                sortBy="\'"+sortBy+"\'";
-            }
-            var flag = false;
             for (let i = 0; i < data.length;) {
                 output += `<div class="row">`;
-
                 for (let j = 0; j < 3; j++) {
                     if (data[i]) {
                         output += `<div class="card-group text-center col-md-4"><div class="card">
-                                <img class="card-img-top" src="/resource/img/` + data[i]['imageFileName'] + `" alt="` + data[i]['title'] + `">
+                                <img class="card-img-top" src="resource/img/` + data[i]['imageFileName'] + `" alt="` + data[i]['title'] + `">
                                 <div class="card-body">
                                 <h5 class="card-title">` + data[i]['title'] + `</h5>
                             <p class="card-text" style="display: 
@@ -56,7 +56,7 @@ function ajaxToPage(page,searchText,searchBy,totalPage,sortBy) {
                             <li class="list-group-item">View: <span class="badge badge-primary">` + data[i]['view'] + `</span></li>
                             </ul>
                             <div class="card-footer">
-                                <a href="details.jsp?artworkId=` + data[i]['artworkId'] + `" class="btn btn-outline-primary">More Details</a>
+                                <a href="details.page?artworkId=` + data[i]['artworkId'] + `" class="btn btn-outline-primary">More Details</a>
                             </div>
                             </div></div>`;
                         i++;
@@ -74,8 +74,8 @@ function ajaxToPage(page,searchText,searchBy,totalPage,sortBy) {
                 output += `<li class="page-item disabled"><a id="aFirstPage" class="page-link" href="#">First</a></li>`;
                 output += `<li class="page-item disabled"><a id="aPreviousPage" class="page-link" href="#">Previous</a></li>`;
             } else {
-                output += `<li class="page-item"><a id="aFirstPage" class="page-link" href="javascript:void(0)" onclick="` + `clickToPage(1,`+ searchText + `,`  + totalPage + `,`+ sortBy + `)` + `">First</a></li>`;
-                output += `<li class="page-item"><a id="aPreviousPage" class="page-link" href="javascript:void(0)" onclick="` + `clickToPage(` + prePage + `,` + searchText + `,` + totalPage + `,`+ sortBy + `)`+ `">Previous</a></li>`;
+                output += `<li class="page-item"><a id="aFirstPage" class="page-link" href="javascript:void(0)" onclick="` + `ajaxToPage(1,`+totalPage+`)` + `">First</a></li>`;
+                output += `<li class="page-item"><a id="aPreviousPage" class="page-link" href="javascript:void(0)" onclick="` + `ajaxToPage(`+prePage+`,`+totalPage+`)`+ `">Previous</a></li>`;
             }
 
             if (nextPage === page) {
@@ -83,18 +83,18 @@ function ajaxToPage(page,searchText,searchBy,totalPage,sortBy) {
                 output += `<li class="page-item disabled"><a id="aLastPage" class="page-link" href="#">Last</a></li>`;
             } else {
                 output += `<li class="page-item"><a id="aNextPage" class="page-link" href="javascript:void(0)"
-                    onclick="` + `clickToPage(` + nextPage + `,` + searchText + `,`  + totalPage +  `,`+ sortBy + `)` + `">Next</a></li>`;
+                    onclick="` + `ajaxToPage(` + nextPage + `,`+totalPage+`)` + `">Next</a></li>`;
                 output += `<li class="page-item"><a id="aLastPage" class="page-link" href="javascript:void(0)"
-                    onclick="` + `clickToPage(` + totalPage + `,` + searchText + `,` + totalPage +  `,`+ sortBy + `)` + `">Last</a></li>`;
+                    onclick="` + `ajaxToPage(` + totalPage + `,`+totalPage+`)` + `">Last</a></li>`;
             }
 
             output += `<li class="page-item">
                     <form class="form-inline">
                     <input id="page" class="form-control" type="number" min="1" max="`+ totalPage + `"
                 name="page" placeholder="` + page + `">
-                    &nbsp;` + `/` + `&nbsp;` + '<div id="totalPage">'+totalPage+ '</div>' + ` Page(s)
+                    &nbsp;` + `/` + `&nbsp;` + totalPage +  ` Page(s)
                 &nbsp;<a id="aGoToPage" class="page-link" href="javascript:void(0)"
-                onclick="` + `inputToPage(` + searchText + `,` + totalPage +  `,`+ sortBy + `)` + `">Go</a>
+                onclick="` + `checkPage(` + totalPage +  `)` + `">Go</a>
                     </form>
                     </li>
                     </ul>

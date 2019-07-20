@@ -25,7 +25,6 @@
 <body>
 
 <%@include file="nav.jsp"%>
-
 <main class="index">
     <div id="carouselGallery" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

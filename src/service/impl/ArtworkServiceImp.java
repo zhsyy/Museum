@@ -1,5 +1,6 @@
 package service.impl;
 
+import criteriaObject.CriteriaSearch;
 import dao.ArtworksDao;
 import dao.FavorDao;
 import dao.impl.ArtworksDaoImp;
@@ -14,6 +15,22 @@ import java.util.List;
 public class ArtworkServiceImp implements ArtworkService {
     private ArtworksDao artworksDao = new ArtworksDaoImp();
     private FavorDao favorDao = new FavorDaoImp();
+
+    @Override
+    public List<ArtworksEntity> getOutputArtworks(List<ArtworksEntity> allArtworks,int page) {
+        List<ArtworksEntity> outputList = new ArrayList<>();
+        for (int i = (page - 1) * 9;i < (page - 1) * 9 + 9; i++){
+            if(i<allArtworks.size())
+                outputList.add(allArtworks.get(i));
+        }
+        return outputList;
+    }
+
+    @Override
+    public List<ArtworksEntity> getSearchArtworks(String searchText,String[] searchBy,String sortBy) {
+        CriteriaSearch criteriaSearch = new CriteriaSearch(searchText,searchBy,sortBy);
+        return artworksDao.getSearchArtworks(criteriaSearch);
+    }
 
     @Override
     public List<ArtworksEntity> getFavorArtworks(int userId) {
