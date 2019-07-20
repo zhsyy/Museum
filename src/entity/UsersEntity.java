@@ -1,7 +1,6 @@
 package entity;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -14,11 +13,12 @@ public class UsersEntity {
     private String password;
     private String type;
     private Timestamp time;
+    private String signature;
 
     public UsersEntity() {
     }
 
-    public UsersEntity(String name, String email, String password, String type) {
+    public UsersEntity(String name, String email, String password, String type, String signature) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -83,6 +83,16 @@ public class UsersEntity {
 
     public void setTime(Timestamp time) {
         this.time = time;
+    }
+
+    @Basic
+    @Column(name = "signature")
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 
     @Override

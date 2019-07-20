@@ -71,33 +71,15 @@
                 </button>
                 <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy" value="title"
-                            <%
-                            if (request.getAttribute("searchByTitle")!=null){
-                                out.print("checked");
-                            }
-                            %>
-                        >
+                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy" value="title" <%=request.getAttribute("searchByTitle") != null ? "checked" : ""%>>
                         <label class="form-check-label" for="ckbTitle">Title</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy" value="description"
-                            <%
-                            if (request.getAttribute("searchByDescription")!=null){
-                                out.print("checked");
-                            }
-                            %>
-                        >
+                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy" value="description" <%=request.getAttribute("searchByDescription") != null ? "checked" : ""%>>
                         <label class="form-check-label" for="ckbIntroduction">Description</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbLocation" name="searchBy" value="location"
-                            <%
-                            if (request.getAttribute("searchByLocation")!=null){
-                                out.print("checked");
-                            }
-                            %>
-                        >
+                        <input class="form-check-input" type="checkbox" id="ckbLocation" name="searchBy" value="location" <%=request.getAttribute("searchByLocation") != null ? "checked" : ""%>>
                         <label class="form-check-label" for="ckbLocation">Location</label>
                     </div>
                     <label for="sortBy"></label><input class="invisible" id="sortBy" name="sortBy" value="">

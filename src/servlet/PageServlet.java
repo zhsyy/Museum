@@ -1,13 +1,11 @@
 package servlet;
 
-import com.alibaba.fastjson.JSONArray;
 import entity.ArtworksEntity;
 import entity.UsersEntity;
 import service.ArtworkService;
 import service.impl.ArtworkServiceImp;
 import util.ServletUtils;
 
-import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -102,6 +100,15 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
+    private void profile(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("user") == null) {// user not logged in, error
+            resp.sendRedirect("error.page?message=NotLoggedIn");
+        } else {// user logged in , normal
+            req.getRequestDispatcher("profile.jsp").forward(req, resp);
+        }
+    }
+
+    @SuppressWarnings("unused")
     private void error(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String message = req.getParameter("message");
         String info = "Sorry! ";
@@ -112,6 +119,9 @@ public class PageServlet extends HttpServlet {
                 break;
             case "LoggedIn":
                 info += "You have already logged in!";
+                break;
+            case "NotLoggedIn":
+                info += "You haven't logged in! Please login first!";
                 break;
             default:
                 info += "Some unknown error occurred!";

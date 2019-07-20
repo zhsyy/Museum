@@ -59,7 +59,7 @@ public class UserServlet extends HttpServlet {
         if (userService.checkSignUpUsername(username)) {// valid username
             out.println("");
         } else {// invalid, username has been used
-            out.println("Sorry! This name has been used. Please change another one.");
+            out.println("Sorry! This name has been used. Please try another one.");
         }
     }
 
@@ -70,7 +70,7 @@ public class UserServlet extends HttpServlet {
         String email = req.getParameter("signUpEmail");
         String password = req.getParameter("signUpPassword");
 
-        UsersEntity user = new UsersEntity(username, email, password, "normalUser");
+        UsersEntity user = new UsersEntity(username, email, password, "normal", null);
 
         userService.signUp(user);
 
@@ -98,5 +98,30 @@ public class UserServlet extends HttpServlet {
                 "Returning to index...");
 
         resp.setHeader("refresh", "2;url=index.page");
+    }
+
+    @SuppressWarnings("unused")
+    private void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // generate user bean and update
+        String username = req.getParameter("signUpUserName");
+        String email = req.getParameter("signUpEmail");
+        String password = req.getParameter("signUpPassword");
+        String signature = req.getParameter("signUpSignature");
+
+        UsersEntity oldUser = (UsersEntity) req.getSession().getAttribute("user");
+        UsersEntity newUser = new UsersEntity(username, email, password, oldUser.getType(), signature);
+
+        userService.update(newUser);
+
+        // inform users what is going on
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+
+        out.println("Modify succeed! Returning to profile page...");
+
+        // update session
+        req.getSession().setAttribute("user", newUser);
+
+        resp.setHeader("refresh", "2;url=profile.page");
     }
 }
