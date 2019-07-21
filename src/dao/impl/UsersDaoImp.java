@@ -68,4 +68,11 @@ public class UsersDaoImp implements UsersDao {
 
         DBUtils.update(sql, userId);
     }
+
+    @Override
+    public List<UsersEntity> queryLike(String username) {
+        String sql = "SELECT * FROM users WHERE name LIKE ?";
+
+        return DBUtils.getList(UsersEntity.class, sql, "%" + username + "%");
+    }
 }

@@ -22,4 +22,6 @@ public interface UsersDao {
     void delete(String name);
 
     void delete(int userId);
+
+    List<UsersEntity> queryLike(String username);
 }

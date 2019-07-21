@@ -1,8 +1,11 @@
 package servlet;
 
 import entity.FriendshipEntity;
+import entity.UsersEntity;
 import service.FriendshipService;
+import service.UserService;
 import service.impl.FriendshipServiceImp;
+import service.impl.UserServiceImp;
 import util.ServletUtils;
 
 import javax.servlet.ServletException;
@@ -12,10 +15,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "FriendServlet", value = "*.friend")
 public class FriendServlet extends HttpServlet {
     private FriendshipService friendshipService = new FriendshipServiceImp();
+    private UserService userService = new UserServiceImp();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,7 +50,7 @@ public class FriendServlet extends HttpServlet {
 
         out.println("Request accepted! Returning to previous page...");
 
-        resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
+        resp.setHeader("refresh", "2;url=profile.page");
     }
 
     @SuppressWarnings("unused")
@@ -60,7 +68,7 @@ public class FriendServlet extends HttpServlet {
 
         out.println("Request rejected! Returning to previous page...");
 
-        resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
+        resp.setHeader("refresh", "2;url=profile.page");
     }
 
     @SuppressWarnings("unused")
@@ -77,7 +85,7 @@ public class FriendServlet extends HttpServlet {
 
         out.println("Friend deleted! Returning to previous page...");
 
-        resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
+        resp.setHeader("refresh", "2;url=profile.page");
     }
 
     @SuppressWarnings("unused")
@@ -94,6 +102,28 @@ public class FriendServlet extends HttpServlet {
 
         out.println("Friend request sent successfully! Returning to previous page...");
 
-        resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
+        resp.setHeader("refresh", "2;url=profile.page");
+    }
+
+    @SuppressWarnings("unused")
+    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int userId = Integer.parseInt(req.getParameter("userId"));
+        String searchName = req.getParameter("searchName") != null ? req.getParameter("searchName") : "";
+
+        Map<UsersEntity, String> searchedUsers = new HashMap<>();
+
+        // get users with similar username
+        List<UsersEntity> users = userService.getUserByNameLike(searchName);
+        // check if user is friend of current user
+        for (UsersEntity friend : users) {
+            if (userId == friend.getUserId())// skip user self
+                continue;
+            String status = friendshipService.getFriendshipStatus(userId, friend.getUserId());
+            searchedUsers.put(friend, status);
+        }
+
+        // set attribute and forward
+        req.setAttribute("searchedUsers", searchedUsers);
+        req.getRequestDispatcher("profile.page").forward(req, resp);
     }
 }

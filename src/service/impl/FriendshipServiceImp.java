@@ -26,8 +26,9 @@ public class FriendshipServiceImp implements FriendshipService {
 
     @Override
     public void reject(FriendshipEntity friendship) {
-        friendship.setStatus("rejected");
-        friendshipDao.update(friendship);
+//        friendship.setStatus("rejected");
+//        friendshipDao.update(friendship);
+        friendshipDao.delete(friendship.getSenderId(), friendship.getReceiverId());
     }
 
     @Override
@@ -43,5 +44,12 @@ public class FriendshipServiceImp implements FriendshipService {
     @Override
     public void add(int senderId, int receiverId) {
         friendshipDao.insert(new FriendshipEntity(senderId, receiverId));
+    }
+
+    @Override
+    public String getFriendshipStatus(int userId, int friendId) {
+        FriendshipEntity friendship = friendshipDao.get(userId, friendId);
+
+        return friendship == null ? null : friendship.getStatus();
     }
 }

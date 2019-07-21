@@ -146,7 +146,7 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
-    void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UsersEntity user = (UsersEntity)session.getAttribute("user");
         if (user==null){
