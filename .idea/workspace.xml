@@ -6,23 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3525f7aa-9b6c-4bad-b686-6b8642c69d5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/FriendshipDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/impl/FriendshipDaoImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/FriendshipEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/FriendshipService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/impl/FriendshipServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/FriendServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UsersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UsersDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/impl/UsersDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/impl/UsersDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/UsersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/UsersEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/impl/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/impl/UserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/PageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/PageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/favor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/favor.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/profile.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="3525f7aa-9b6c-4bad-b686-6b8642c69d5f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +150,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/service/impl/UserServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-188">
+            <state relative-caret-position="640">
               <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -407,20 +391,20 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\Desktop\卓越软件开发\Project\Museum\web" />
-      <recent name="D:\Huang\Huang Yuanmin\FDU\2018-2019FDU Notes\暑期课程\卓越软件开发基础\Project\Museum\web\js" />
-      <recent name="D:\Huang\Huang Yuanmin\FDU\2018-2019FDU Notes\暑期课程\卓越软件开发基础\Project\Museum\web" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="entity" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Desktop\卓越软件开发\Project\Museum\web\js" />
       <recent name="C:\Users\ASUS\Desktop\卓越软件开发\Project\Museum\web\css" />
       <recent name="C:\Users\ASUS\Desktop\卓越软件开发\Project\Museum\web\WEB-INF\lib" />
       <recent name="D:\Huang\Huang Yuanmin\FDU\2018-2019FDU Notes\暑期课程\卓越软件开发基础\Project\Museum\web" />
       <recent name="D:\Huang\Huang Yuanmin\FDU\2018-2019FDU Notes\暑期课程\卓越软件开发基础\Project\Museum\web\WEB-INF" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Desktop\卓越软件开发\Project\Museum\web" />
+      <recent name="D:\Huang\Huang Yuanmin\FDU\2018-2019FDU Notes\暑期课程\卓越软件开发基础\Project\Museum\web\js" />
+      <recent name="D:\Huang\Huang Yuanmin\FDU\2018-2019FDU Notes\暑期课程\卓越软件开发基础\Project\Museum\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -657,20 +641,27 @@
       <option name="project" value="LOCAL" />
       <updated>1563641742173</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="implemented part of friend pages">
+      <created>1563692130197</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1563692130197</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122173000" />
+    <option name="totallyTimeSpent" value="122729000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.71829104" visible="true" weight="0.23294243" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7182952" visible="true" weight="0.23294243" />
       <window_info id="Structure" order="1" sideWeight="0.4466403" side_tool="true" weight="0.19504021" />
       <window_info id="Designer" order="2" />
-      <window_info id="Persistence" order="3" sideWeight="0.28170896" side_tool="true" visible="true" weight="0.23294243" />
+      <window_info id="Persistence" order="3" sideWeight="0.28170478" side_tool="true" visible="true" weight="0.23294243" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
@@ -683,7 +674,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" visible="true" weight="0.22141372" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.22141372" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.5831601" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32952183" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -763,7 +754,8 @@
     <MESSAGE value="modified user login, added last login time update" />
     <MESSAGE value="implemented modify user info part" />
     <MESSAGE value="implemented modify user info, and part of user profile page" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented modify user info, and part of user profile page" />
+    <MESSAGE value="implemented part of friend pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented part of friend pages" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
@@ -1146,7 +1138,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/impl/UserServiceImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-188">
+        <state relative-caret-position="640">
           <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
