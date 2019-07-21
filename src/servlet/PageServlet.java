@@ -25,6 +25,34 @@ public class PageServlet extends HttpServlet {
         ServletUtils.getAndDoMethod(this, req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
+    @SuppressWarnings("unused")
+    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String searchText = req.getParameter("searchText");
+        String sortBy = req.getParameter("sortBy");
+        String[] searchBy = req.getParameterValues("searchBy");
+        List<ArtworksEntity> allArtworks = artworkService.getSearchArtworks(searchText,searchBy,sortBy);
+
+
+        int totalCount = allArtworks.size();
+        int totalPage = ((totalCount % 9 == 0) ? (totalCount / 9):(totalCount / 9 + 1));
+        for (String u: searchBy) {
+            if (u.equals("title")) req.setAttribute("searchByTitle",u);
+            if (u.equals("description")) req.setAttribute("searchByDescription",u);
+            if (u.equals("location")) req.setAttribute("searchByLocation",u);
+        }
+        req.setAttribute("searchText",searchText);
+        req.setAttribute("totalCount",totalCount);
+        req.setAttribute("totalPage",totalPage);
+        req.setAttribute("sortBy",sortBy);
+        req.setAttribute("artworksEntities",artworkService.getOutputArtworks(allArtworks,1));
+        req.getRequestDispatcher("search.jsp").forward(req, resp);
+    }
+
     @SuppressWarnings("unused")
     private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String searchText = req.getParameter("searchText");
@@ -102,6 +130,26 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
+    private void profile(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("user") == null) {// user not logged in, error
+            resp.sendRedirect("error.page?message=NotLoggedIn");
+        } else {// user logged in , normal
+            req.getRequestDispatcher("profile.jsp").forward(req, resp);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    private void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getSession().getAttribute("user") == null) {// user not logged in, error
+            resp.sendRedirect("error.page?message=NotLoggedIn");
+        } else if (req.getAttribute("checkedPassword") == null) {// password not checked
+            resp.sendRedirect("error.page?message=NotAuthorized");
+        } else {// user logged in , normal
+            req.getRequestDispatcher("modify.jsp").forward(req, resp);
+        }
+    }
+
+    @SuppressWarnings("unused")
     private void error(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String message = req.getParameter("message");
         String info = "Sorry! ";
@@ -112,6 +160,12 @@ public class PageServlet extends HttpServlet {
                 break;
             case "LoggedIn":
                 info += "You have already logged in!";
+                break;
+            case "NotLoggedIn":
+                info += "You haven't logged in! Please login first!";
+                break;
+            case "NotAuthorized":
+                info += "You are not allowed to access this page!";
                 break;
             default:
                 info += "Some unknown error occurred!";

@@ -48,7 +48,7 @@
             <% } else {// logged in %>
 
             <li class="nav-item <%=navProfile%>">
-                <a class="nav-link" href="profile.html"><%= user.getName() %></a>
+                <a class="nav-link" href="profile.page"><%= user.getName() %></a>
             </li>
             <li class="nav-item <%=navFavor%>">
                 <a class="nav-link" href="favor.jsp">Favor</a>
@@ -64,42 +64,25 @@
 
         </ul>
         <form id="search" class="form-inline my-2 my-lg-0" method="get" action="search.page">
-            <input id="searchText" class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search here" aria-label="Search" value="<%if (request.getAttribute("searchText")!=null)out.print(request.getAttribute("searchText"));%>">
+            <input id="searchText" class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search here" aria-label="Search" value="<%=request.getAttribute("searchText") != null ? request.getAttribute("searchText") : ""%>">
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Search By...
                 </button>
                 <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy" value="title"
-                            <%
-                            if (request.getAttribute("searchByTitle")!=null){
-                                out.print("checked");
-                            }
-                        %>
-                        >
+                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy" value="title" <%=request.getAttribute("searchByTitle") != null ? "checked" : ""%>>
                         <label class="form-check-label" for="ckbTitle">Title</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy" value="description"
-                            <%
-                            if (request.getAttribute("searchByDescription")!=null){
-                                out.print("checked");
-                            }
-                        %>
-                        >
+                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy" value="description" <%=request.getAttribute("searchByDescription") != null ? "checked" : ""%>>
                         <label class="form-check-label" for="ckbIntroduction">Description</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbLocation" name="searchBy" value="location"<%
-                            if (request.getAttribute("searchByLocation")!=null){
-                                out.print("checked");
-                            }
-                        %>
-                        >
+                        <input class="form-check-input" type="checkbox" id="ckbLocation" name="searchBy" value="location" <%=request.getAttribute("searchByLocation") != null ? "checked" : ""%>>
                         <label class="form-check-label" for="ckbLocation">Location</label>
                     </div>
-                    <input class="invisible" id="sortBy" name="sortBy" value="">
+                    <label for="sortBy"></label><input class="invisible" id="sortBy" name="sortBy" value="">
                     <span id="searchAlert" class="invisible alert"></span><br/>
                     <button id="btSearch" class="btn btn-outline-primary my-2 my-sm-0" type="button">Search</button>
                 </div>
@@ -108,5 +91,8 @@
     </div>
 </nav>
 
-<!--// insert sign in modal-->
+<% if (user == null) { %>
+
 <%@include file="signInModal.jsp"%>
+
+<% } %>

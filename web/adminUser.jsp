@@ -1,4 +1,6 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ page import="entity.UsersEntity" %><%
     UsersEntity editUser = (UsersEntity)request.getAttribute("user");
     UsersEntity user = (UsersEntity)session.getAttribute("user");
@@ -13,11 +15,13 @@
     <meta name="author" content="">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' charset="utf-8">
+
     <link rel="stylesheet" type="text/css" href="adminPageLib/bootstrap/css/bootstrap.css" charset="utf-8">
     <link rel="stylesheet" href="adminPageLib/font-awesome/css/font-awesome.css" charset="utf-8">
     <script src="adminPageLib/jquery-1.11.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="adminPageLib/theme.css" charset="utf-8">
     <link rel="stylesheet" type="text/css" href="adminPageLib/premium.css" charset="utf-8">
+
 </head>
 <body class=" theme-blue">
 <style type="text/css">
@@ -45,9 +49,11 @@
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
+
                     <li><a href="user.admin?name=<%=user.getName()%>">My Account</a></li>
                     <li class="divider"></li>
                     <li><a href="index.page">Home Panel</a> </li><!--这个好像没啥用，可以做装饰-->
+
                     <li><a href="usersList.admin">Users</a></li>
                     <li class="divider"></li>
                     <li><a tabindex="-1" href="">Logout</a></li>

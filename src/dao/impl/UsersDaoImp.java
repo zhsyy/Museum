@@ -22,6 +22,13 @@ public class UsersDaoImp implements UsersDao {
     }
 
     @Override
+    public UsersEntity query(int userId, String password) {
+        String sql = "SELECT * FROM users WHERE userId = ? AND password = ?";
+
+        return DBUtils.get(UsersEntity.class, sql, userId, password);
+    }
+
+    @Override
     public void insert(UsersEntity user) {
         String sql = "INSERT INTO users (name, email, password, type) VALUE (?,?,?,?)";
 
@@ -36,6 +43,12 @@ public class UsersDaoImp implements UsersDao {
     }
 
     @Override
+    public void update(UsersEntity user) {
+        String sql = "UPDATE users SET name = ?, email = ?, password = ?, type = ?, time = ?, signature = ? WHERE userId = ?";
+
+        DBUtils.update(sql, user.getName(), user.getEmail(), user.getPassword(), user.getType(), user.getTime(), user.getSignature(), user.getUserId());
+    }
+  
     public void delete(String name) {
         String sql = "DELETE FROM users WHERE name = ?";
 

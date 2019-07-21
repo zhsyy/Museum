@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import java.io.IOException;
 import java.io.*;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -35,7 +38,9 @@ public class AdminServlet extends HttpServlet {
     @SuppressWarnings("unused")
     private void index(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String tsStr = "2011-05-09 11:49:45";
-        UsersEntity usersEntity = new UsersEntity("zhsyy","123@email","123456","admin");
+
+        UsersEntity usersEntity = new UsersEntity("zhsyy","123@email","123456","admin", null);
+
         usersEntity.setTime(Timestamp.valueOf(tsStr));
         usersEntity.setUserId(2);
         HttpSession session = req.getSession();
@@ -47,6 +52,7 @@ public class AdminServlet extends HttpServlet {
     private void user(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         UsersEntity usersEntity = userService.getUserByName(name);
+
         req.setAttribute("user",usersEntity);
         req.getRequestDispatcher("adminUser.jsp").forward(req, resp);
     }
@@ -55,12 +61,20 @@ public class AdminServlet extends HttpServlet {
     private void usersList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<UsersEntity> list = userService.getAllUsers();
         req.setAttribute("usersList",list);
+
+//        System.out.println(list.size());
+
         req.getRequestDispatcher("adminUsersList.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")
     private void artwork(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String artworkId = req.getParameter("artworkId");
+
+        ArtworksEntity artworksEntity = artworkService.getArtwork(Integer.parseInt(artworkId));
+        req.setAttribute("artwork",artworksEntity);
+        req.getRequestDispatcher("adminUser.jsp").forward(req, resp);
+
         if (artworkId!=null){
             ArtworksEntity artworksEntity = artworkService.getArtwork(Integer.parseInt(artworkId));
             req.setAttribute("artwork",artworksEntity);

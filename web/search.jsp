@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.ArtworksEntity" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,10 +101,11 @@
             }
         %>
 
+
     </div>
 
 
-
+    </div>
 
 </main>
 <footer class="footer navbar navbar-dark bg-dark">
@@ -113,5 +116,6 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<script src="js/jsSignIn.js"></script>
 <script src="js/jsPagination.js"></script>
 <script src="js/jsSearch.js"></script>

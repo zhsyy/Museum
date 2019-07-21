@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="entity.ArtworksEntity" %>
 <%@ page import="entity.UsersEntity" %><%
@@ -45,9 +46,11 @@
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
+
                     <li><a href="user.admin?name=<%=user.getName()%>">My Account</a></li>
                     <li class="divider"></li>
                     <li><a href="index.page">Home Panel</a> </li><!--这个好像没啥用，可以做装饰-->
+
                     <li><a href="usersList.admin">Users</a></li>
                     <li class="divider"></li>
                     <li><a tabindex="-1" href="">Logout</a></li>
@@ -67,6 +70,7 @@
         </ul></li>
 
         <li><a href="#" data-target=".legal-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-legal"></i> Exhibits management<i class="fa fa-collapse"></i></a></li>
+
         <li><ul class="legal-menu nav nav-list collapse in">
             <li ><a href="artwork.admin"><span class="fa fa-caret-right"></span> Upload arts</a></li>
             <li ><a href="artworksList.admin"><span class="fa fa-caret-right"></span> Art list</a></li>
@@ -110,6 +114,7 @@
                         if (artwork!=null)
                             out.print(artwork.getDescription());
                     %></textarea>
+
                     <!--<span id="alertDescription" class="alert"></span>-->
                 </div>
                 <div class="form-row">
@@ -127,6 +132,7 @@
                         if (artwork!=null)
                             out.print(artwork.getYearOfWork());
                             %>">
+
                         <!--<span id="alertYearOfWork" class="alert"></span>-->
                     </div>
                 </div>
@@ -137,6 +143,7 @@
                     </div>
                 </div>
                     <div class="custom-file col-md-8"></div>
+
                 <div class="form-group">
                     <div class="custom-file col-md-12">
                         <br>
@@ -153,13 +160,17 @@
         </footer>
     </div>
 </div>
+
 <script src="adminPageLib/bootstrap/js/bootstrap.js"></script>
+
 <script type="text/javascript">
     $("[rel=tooltip]").tooltip();
     $(function() {
         $('.demo-cancel-click').click(function(){return false;});
     });
 </script>
+
 <script src="adminPageLib/js/jsForArtwork.js" type="text/javascript"></script>
+
 
 </body></html>

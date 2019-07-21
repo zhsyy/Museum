@@ -1,4 +1,6 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ page import="entity.UsersEntity" %>
 <%@ page import="java.util.List" %>
 <%
@@ -16,11 +18,13 @@
     <meta name="author" content="">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' charset="utf-8">
+
     <link rel="stylesheet" type="text/css" href="adminPageLib/bootstrap/css/bootstrap.css" charset="utf-8">
     <link rel="stylesheet" href="adminPageLib/font-awesome/css/font-awesome.css" charset="utf-8">
     <script src="adminPageLib/jquery-1.11.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="adminPageLib/theme.css" charset="utf-8">
     <link rel="stylesheet" type="text/css" href="adminPageLib/premium.css" charset="utf-8">
+
 </head>
 <body class=" theme-blue">
 <style type="text/css">
@@ -48,9 +52,11 @@
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
+
                     <li><a href="user.admin?name=<%=user.getName()%>">My Account</a></li>
                     <li class="divider"></li>
                     <li><a href="index.page">Home Panel</a> </li><!--这个好像没啥用，可以做装饰-->
+
                     <li><a href="usersList.admin">Users</a></li>
                     <li class="divider"></li>
                     <li><a tabindex="-1" href="">Logout</a></li>
@@ -63,6 +69,7 @@
 
     <div class="sidebar-nav">
         <ul>
+
             <li><a href="#" data-target=".dashboard-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> Personnel management<i class="fa fa-collapse"></i></a></li>
             <li><ul class="dashboard-menu nav nav-list collapse in">
                 <li><a href="user.admin?name=<%=user.getName()%>"><span class="fa fa-caret-right"></span> My Profile</a></li>
@@ -85,7 +92,9 @@
         <div class="main-content">
 
 <div class="btn-toolbar list-toolbar">
+
     <button class="btn btn-primary" onclick="window.location.href='user.admin'"><i class="fa fa-plus"></i>New User</button><!--添加新的用户，可设置跳转到注册界面,不是一般用户的注册界面-->
+
   <div class="btn-group">
   </div>
 </div>
@@ -120,7 +129,6 @@
 
   </tbody>
 </table>
-
             <footer>
                 <hr>
                 <p class="pull-right">A <a href="./" target="_blank">Free Bootstrap Theme</a> by <a href="./" target="_blank">Portnine</a></p>
@@ -131,6 +139,7 @@
 
 
     <script src="adminPageLib/bootstrap/js/bootstrap.js"></script>
+
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
@@ -139,5 +148,7 @@
     </script>
     
   
+
 </body>
 </html>
+
