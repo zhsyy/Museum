@@ -7,7 +7,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3525f7aa-9b6c-4bad-b686-6b8642c69d5f" name="Default Changelist" comment="implemented page forwarding, prevent from accessing jsp files directly">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/35.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/44.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/51.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/60.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/62.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/66.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/67.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/68.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/70.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/71.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/72.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/73.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/75.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/77.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/78.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/79.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/81.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/83.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/84.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/85.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/86.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/88.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/89.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/img/90.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,8 +167,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/adminUsersList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="105" column="4" lean-forward="true" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
+            <state relative-caret-position="1890">
+              <caret line="105" column="4" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -116,8 +176,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/nav.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+            <state relative-caret-position="224">
+              <caret line="102" column="79" lean-forward="true" selection-start-line="102" selection-start-column="79" selection-end-line="103" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -266,6 +326,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,8 +349,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -442,6 +502,7 @@
       <workItem from="1563630985362" duration="14982000" />
       <workItem from="1563647380896" duration="628000" />
       <workItem from="1563673901647" duration="1157000" />
+      <workItem from="1563678580952" duration="220000" />
     </task>
     <task id="LOCAL-00001" summary="refactored DBUtils and DAOs">
       <created>1563308861967</created>
@@ -527,11 +588,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563643671728</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="implemented page forwarding, prevent from accessing jsp files directly">
+      <created>1563678700502</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1563678700502</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134469000" />
+    <option name="totallyTimeSpent" value="134716000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -543,9 +611,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5452632" visible="true" weight="0.2124665" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5452632" visible="true" weight="0.15884718" />
       <window_info id="Structure" order="1" sideWeight="0.45473683" side_tool="true" weight="0.1689008" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.2130977" side_tool="true" weight="0.22761194" />
@@ -563,9 +632,9 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.22237961" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.5831601" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.6427614" visible="true" weight="0.28045326" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.64209116" visible="true" weight="0.18413597" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.35723862" side_tool="true" visible="true" weight="0.28045326" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.35790884" side_tool="true" visible="true" weight="0.18413597" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
@@ -576,7 +645,7 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.1575067" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.17426273" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -1003,6 +1072,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/adminUsersList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1890">
+          <caret line="105" column="4" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/adminUser.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="882">
@@ -1034,17 +1110,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminUsersList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="105" column="4" lean-forward="true" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/nav.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+        <state relative-caret-position="224">
+          <caret line="102" column="79" lean-forward="true" selection-start-line="102" selection-start-column="79" selection-end-line="103" selection-end-column="80" />
         </state>
       </provider>
     </entry>
