@@ -12,7 +12,7 @@
         <!--<url-pattern>/*</url-pattern> &lt;!&ndash;*即为过滤所有&ndash;&gt;-->
     <!--</filter-mapping>-->
     <welcome-file-list><!--默认首页地址-->
-        <welcome-file>index.page</welcome-file>
+        <welcome-file>index.admin</welcome-file>
     </welcome-file-list>
 
 </web-app>
