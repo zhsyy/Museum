@@ -1,13 +1,7 @@
 package servlet;
 
-import dao.impl.ArtworksDaoImp;
-import dao.impl.FavorDaoImp;
-import entity.ArtworksEntity;
 import entity.FavorEntity;
-import entity.UsersEntity;
-import service.ArtworkService;
 import service.FavorService;
-import service.impl.ArtworkServiceImp;
 import service.impl.FavorServiceImp;
 import util.ServletUtils;
 
@@ -16,13 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "favor", value = "*.favor")
 public class FavorServlet extends HttpServlet {
-    private ArtworkService artworkService = new ArtworkServiceImp();
     private FavorService favorService = new FavorServiceImp();
 
     @Override

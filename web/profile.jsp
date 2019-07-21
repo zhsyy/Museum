@@ -1,4 +1,3 @@
-<%@ page import="entity.FriendshipEntity" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -124,28 +123,33 @@
                         %>
 
                         <tr>
-                            <th scope="row"><%=i + 1%></th>
-                            <td>
+                            <th scope="row" class="align-middle"><%=i + 1%></th>
+                            <td class="align-middle">
                                 <a href="<%//TODO: friend page%>" class="badge badge-light"><%=sender.getName()%></a>
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 <%=sender.getEmail()%>
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 <%=sender.getSignature()%>
                             </td>
-                            <td>
-                                <form method="post" action="">
-                                    <input type="hidden" name="senderId" value="<%=sender.getUserId()%>">
-                                    <input type="hidden" name="receiverId" value="<%=user.getUserId()%>">
-                                    <button type="submit" class="btn btn-outline-primary">Accept</button>
-                                </form>
-                                &nbsp;
-                                <form method="post" action="">
-                                    <input type="hidden" name="senderId" value="<%=sender.getUserId()%>">
-                                    <input type="hidden" name="receiverId" value="<%=user.getUserId()%>">
-                                    <button type="submit" class="btn btn-outline-primary">Reject</button>
-                                </form>
+                            <td class="align-middle">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <form method="post" action="accept.friend">
+                                            <input type="hidden" name="senderId" value="<%=sender.getUserId()%>">
+                                            <input type="hidden" name="receiverId" value="<%=user.getUserId()%>">
+                                            <button type="submit" class="btn btn-outline-primary">Accept</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <form method="post" action="reject.friend">
+                                            <input type="hidden" name="senderId" value="<%=sender.getUserId()%>">
+                                            <input type="hidden" name="receiverId" value="<%=user.getUserId()%>">
+                                            <button type="submit" class="btn btn-outline-primary">Reject</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
 
@@ -177,22 +181,33 @@
                         %>
 
                         <tr>
-                            <th scope="row"><%=i + 1%></th>
-                            <td>
+                            <th scope="row" class="align-middle"><%=i + 1%></th>
+                            <td class="align-middle">
                                 <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 <%=friend.getEmail()%>
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 <%=friend.getSignature()%>
                             </td>
-                            <td>
-                                <form method="post" action="">
-                                    <input type="hidden" name="friendId" value="<%=friend.getUserId()%>">
-                                    <input type="hidden" name="userId" value="<%=user.getUserId()%>">
-                                    <button type="submit" class="btn btn-outline-primary">Delete</button>
-                                </form>
+                            <td class="align-middle">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <form method="post" action="">
+<%--                                            <input type="hidden" name="fromId" value="<%=user.getUserId()%>">--%>
+                                            <input type="hidden" name="toId" value="<%=friend.getUserId()%>">
+                                            <button type="submit" class="btn btn-outline-primary">Send Message</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <form method="post" action="delete.friend">
+                                            <input type="hidden" name="friendId" value="<%=friend.getUserId()%>">
+                                            <input type="hidden" name="userId" value="<%=user.getUserId()%>">
+                                            <button type="submit" class="btn btn-outline-primary">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
 
@@ -226,17 +241,17 @@
                         %>
 
 <%--                        <tr>--%>
-<%--                            <th scope="row"><%=i + 1%></th>--%>
-<%--                            <td>--%>
+<%--                            <th scope="row" class="align-middle"><%=i + 1%></th>--%>
+<%--                            <td class="align-middle">--%>
 <%--                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>--%>
 <%--                            </td>--%>
-<%--                            <td>--%>
+<%--                            <td class="align-middle">--%>
 <%--                                <%=friend.getEmail()%>--%>
 <%--                            </td>--%>
-<%--                            <td>--%>
+<%--                            <td class="align-middle">--%>
 <%--                                <%=friend.getSignature()%>--%>
 <%--                            </td>--%>
-<%--                            <td>--%>
+<%--                            <td class="align-middle">--%>
 <%--                                <form method="post" action="">--%>
 <%--                                    <input type="hidden" name="friendId" value="<%=friend.getUserId()%>">--%>
 <%--                                    <input type="hidden" name="userId" value="<%=user.getUserId()%>">--%>

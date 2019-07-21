@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Timestamp;
 
 @WebServlet(name = "UserServlet", value = "*.user")
 public class UserServlet extends HttpServlet {
@@ -47,7 +46,10 @@ public class UserServlet extends HttpServlet {
                     "Returning...");
         }
 
-        resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
+        // shouldn't return to sign up page after login
+        String url = req.getHeader("Referer").equals("signUp.page") ? "index.page" : req.getHeader("Referer");
+
+        resp.setHeader("refresh", "2;url=" + url);
     }
 
     @SuppressWarnings("unused")
