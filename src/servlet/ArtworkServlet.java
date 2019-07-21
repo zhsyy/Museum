@@ -1,8 +1,5 @@
 package servlet;
 
-import entity.FavorEntity;
-import service.FavorService;
-import service.impl.FavorServiceImp;
 import util.ServletUtils;
 
 import javax.servlet.ServletException;
@@ -14,8 +11,6 @@ import java.io.IOException;
 
 @WebServlet(name = "ArtworkServlet", value = "*.artwork")
 public class ArtworkServlet extends HttpServlet {
-    private FavorService favorService = new FavorServiceImp();
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);

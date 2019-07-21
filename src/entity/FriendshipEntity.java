@@ -14,6 +14,11 @@ public class FriendshipEntity {
     public FriendshipEntity() {
     }
 
+    public FriendshipEntity(int senderId, int receiverId) {
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+    }
+
     @Id
     @Column(name = "friendshipId")
     public int getFriendshipId() {

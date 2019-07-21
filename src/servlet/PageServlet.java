@@ -6,7 +6,9 @@ import entity.ArtworksEntity;
 import entity.FavorEntity;
 import entity.UsersEntity;
 import service.ArtworkService;
+import service.UserService;
 import service.impl.ArtworkServiceImp;
+import service.impl.UserServiceImp;
 import util.ServletUtils;
 
 import javax.servlet.ServletException;
@@ -21,6 +23,7 @@ import java.util.List;
 @WebServlet(name = "Page", value = "*.page")
 public class PageServlet extends HttpServlet {
     private ArtworkService artworkService = new ArtworkServiceImp();
+    private UserService userService = new UserServiceImp();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -110,9 +113,17 @@ public class PageServlet extends HttpServlet {
 
     @SuppressWarnings("unused")
     private void profile(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getSession().getAttribute("user") == null) {// user not logged in, error
+        UsersEntity user = (UsersEntity) req.getSession().getAttribute("user");
+
+        if (user == null) {// user not logged in, error
             resp.sendRedirect("error.page?message=NotLoggedIn");
         } else {// user logged in , normal
+            List<UsersEntity> friends = userService.getFriends(user.getUserId());
+            List<UsersEntity> requestSenders = userService.getFriendRequestSenders(user.getUserId());
+
+            req.setAttribute("friends", friends);
+            req.setAttribute("requestSenders", requestSenders);
+
             req.getRequestDispatcher("profile.jsp").forward(req, resp);
         }
     }
@@ -131,6 +142,22 @@ public class PageServlet extends HttpServlet {
             resp.sendRedirect("error.page?message=NotAuthorized");
         } else {// user logged in , normal
             req.getRequestDispatcher("modify.jsp").forward(req, resp);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        UsersEntity user = (UsersEntity)session.getAttribute("user");
+        if (user==null){
+            resp.sendRedirect("signUp.jsp");
+        }else {
+            FavorDaoImp favorDaoImp = new FavorDaoImp();
+            List<ArtworksEntity> artworksEntityList = artworkService.getFavorArtworks(user.getUserId());
+            List<FavorEntity> favorEntityList = favorDaoImp.getFavors(user.getUserId());
+            req.setAttribute("artworkList",artworksEntityList);
+            req.setAttribute("favorList",favorEntityList);
+            req.getRequestDispatcher("/favor.jsp").forward(req,resp);
         }
     }
 
@@ -158,21 +185,5 @@ public class PageServlet extends HttpServlet {
         }
         req.setAttribute("info", info);
         req.getRequestDispatcher("error.jsp").forward(req, resp);
-    }
-
-    @SuppressWarnings("unused")
-    void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        UsersEntity user = (UsersEntity)session.getAttribute("user");
-        if (user==null){
-            resp.sendRedirect("signUp.jsp");
-        }else {
-            FavorDaoImp favorDaoImp = new FavorDaoImp();
-            List<ArtworksEntity> artworksEntityList = artworkService.getFavorArtworks(user.getUserId());
-            List<FavorEntity> favorEntityList = favorDaoImp.getFavors(user.getUserId());
-            req.setAttribute("artworkList",artworksEntityList);
-            req.setAttribute("favorList",favorEntityList);
-            req.getRequestDispatcher("/favor.jsp").forward(req,resp);
-        }
     }
 }

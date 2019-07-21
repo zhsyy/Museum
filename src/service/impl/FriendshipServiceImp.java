@@ -10,13 +10,35 @@ import java.util.List;
 public class FriendshipServiceImp implements FriendshipService {
     private FriendshipDao friendshipDao = new FriendshipDaoImp();
 
+//    @Override
+//    public List<FriendshipEntity> getFriendships(int userId) {
+//        return friendshipDao.getFriendships(userId);
+//    }
+//
+//    @Override
+//    public List<FriendshipEntity> getFriendshipRequests(int receiverId) {
+//        return friendshipDao.getFriendshipRequests(receiverId);
+//    }
+
     @Override
-    public List<FriendshipEntity> getFriendships(int userId) {
-        return friendshipDao.getFriendships(userId);
+    public void accept(FriendshipEntity friendship) {
+        friendship.setStatus("accepted");
+        friendshipDao.update(friendship);
     }
 
     @Override
-    public List<FriendshipEntity> getFriendshipRequests(int receiverId) {
-        return friendshipDao.getFriendshipRequests(receiverId);
+    public void reject(FriendshipEntity friendship) {
+        friendship.setStatus("rejected");
+        friendshipDao.update(friendship);
+    }
+
+    @Override
+    public FriendshipEntity get(int userId, int friendId) {
+        return friendshipDao.get(userId, friendId);
+    }
+
+    @Override
+    public void delete(int userId, int friendId) {
+        friendshipDao.delete(userId, friendId);
     }
 }
