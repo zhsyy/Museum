@@ -48,7 +48,7 @@
                 <img class="d-block w-100" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="display-4"><%=artwork.getTitle()%></h1>
-                    <h4><%=artwork.getDescription()%></h4>
+                    <h4 style="display: -webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow: hidden;"><%=artwork.getDescription()%></h4>
                     <a class="btn btn-outline-light" href="details.page?artworkId=<%=artwork.getArtworkId()%>" role="button">Learn more</a>
                 </div>
             </div>
@@ -76,10 +76,10 @@
         %>
 
         <div class="card">
-            <img class="card-img-top" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>">
+            <img class="card-img-top" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>" style="height: 500px">
             <div class="card-body">
                 <h3 class="card-title"><%=artwork.getTitle()%></h3>
-                <p class="card-text"><%=artwork.getDescription()%></p>
+                <p class="card-text" style="display: -webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow: hidden;"><%=artwork.getDescription()%></p>
             </div>
             <div class="card-footer">
                 <a href="details.page?artworkId=<%=artwork.getArtworkId()%>" class="btn btn-outline-primary">More Details</a>

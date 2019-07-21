@@ -25,17 +25,4 @@ public class ArtworkServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.getAndDoMethod(this, req, resp);
     }
-
-    @SuppressWarnings("unused")
-    private void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int artworkId = Integer.parseInt(req.getParameter("artworkId"));
-        int userId = Integer.parseInt(req.getParameter("userId"));
-
-        FavorEntity favor = new FavorEntity(userId, artworkId);
-
-        favorService.insert(favor);
-
-        // back to previous page, details of artwork
-        resp.sendRedirect(req.getHeader("Referer"));
-    }
 }

@@ -23,7 +23,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Image</th>
+                    <th scope="col" width="100px">Image</th>
                     <th scope="col">View</th>
                     <th scope="col">Location</th>
                     <th scope="col">FavoriteTime</th>
@@ -43,7 +43,7 @@
                 <tr>
                     <th scope="row"><%=(i+1)%></th>
                     <td>
-                        <a href="details.html?artworkID=<%=favorEntity.getArtworkId()%>" class="badge badge-light">
+                        <a href="details.page?artworkId=<%=favorEntity.getArtworkId()%>" class="badge badge-light">
                             <%=artworksEntity.getTitle()%>
                         </a>
                     </td>
@@ -52,13 +52,13 @@
                                 -webkit-line-clamp:2;
                                 overflow: hidden;"><%=artworksEntity.getDescription()%></td>
                     <td>
-                        <img class="w-100" src="./resource/img/<%=artworksEntity.getType()%>/<%=artworksEntity.getImageFileName()%>" alt="<%=artworksEntity.getTitle()%>">
+                        <img class="w-100" src="resource/img/<%=artworksEntity.getImageFileName()%>" alt="<%=artworksEntity.getTitle()%>" style="height: 100px">
                     </td>
                     <td><%=artworksEntity.getView()%></td>
                     <td><%=artworksEntity.getLocation()%></td>
                     <td><%=favorEntity.getTime().toString()%></td>
                     <td>
-                        <form class="invisible" method="post" action="favor.jsp">
+                        <form class="invisible" method="post" action="delete.favor">
                             <input type="text" name="favorId" value="<%=favorEntity.getFavorId()%>">
                             <button type="submit" class="btn btn-outline-primary visible">Remove</button>
                         </form>
@@ -88,5 +88,6 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<script src="js/jsSearch.js"></script>
 </body>
 </html>

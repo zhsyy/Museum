@@ -12,4 +12,9 @@ public class FavorServiceImp implements FavorService {
     public void insert(FavorEntity favor) {
         favorDao.insert(favor);
     }
+
+    @Override
+    public void delete(String favorId) {
+        favorDao.delete(Integer.parseInt(favorId));
+    }
 }

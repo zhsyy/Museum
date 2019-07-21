@@ -15,6 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "pagingInSearch", value = "/pagingInSearch")
 public class PagingInSearch extends HttpServlet {
+    private ArtworkService artworkService = new ArtworkServiceImp();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -22,18 +23,8 @@ public class PagingInSearch extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ArtworkService artworkService = new ArtworkServiceImp();
-        int page = Integer.parseInt(req.getParameter("page"));
-        String sortBy = req.getParameter("sortByView");
-        String searchText = req.getParameter("searchText");
-        String searchByTitle = req.getParameter("searchByTitle");
-        String searchByDescription = req.getParameter("searchByDescription");
-        String searchByLocation = req.getParameter("searchByLocation");
-
-        String[] searchBy = new String[]{searchByTitle,searchByDescription,searchByLocation};
-
         JSONArray jsonArray = new JSONArray();
-        List<ArtworksEntity> outputList = artworkService.getOutputArtworks(artworkService.getSearchArtworks(searchText,searchBy,sortBy),page);
+        List<ArtworksEntity> outputList = artworkService.getOutputArtworks(req);
         jsonArray.addAll(outputList);
         resp.setCharacterEncoding("utf-8");
         resp.getWriter().write(jsonArray.toString());
