@@ -101,14 +101,13 @@ public class ArtworkServiceImp implements ArtworkService {
     @Override
     public void saveArtworks(HttpServletRequest req,String filePath){
         DiskFileItemFactory sf= new DiskFileItemFactory();//实例化磁盘被文件列表工厂
-        String path = filePath;
-        String p[] = path.split("\\\\");
-        String realPath = "";
+        String[] p = filePath.split("\\\\");
+        StringBuilder realPath = new StringBuilder();
         for (int i = 0;i<p.length-5;i++){
-            realPath += p[i]+"\\";
+            realPath.append(p[i]).append("\\");
         }
-        realPath+="web\\resource\\img";
-        sf.setRepository(new File(path));//设置文件存放目录
+        realPath.append("web\\resource\\img");
+        sf.setRepository(new File(filePath));//设置文件存放目录
         sf.setSizeThreshold(1024*1024);//设置文件上传小于1M放在内存中
         String rename = "";//文件新生成的文件名
         String fileName = "";//文件原名称
@@ -146,7 +145,7 @@ public class ArtworkServiceImp implements ArtworkService {
                         rename = UUID.randomUUID() + "";
                         imageFileName = rename.substring(0, 8) + suffix;
                         System.out.println(imageFileName);
-                        fileItem.write(new File(realPath, imageFileName));
+                        fileItem.write(new File(realPath.toString(), imageFileName));
                     }else {
                         imageFileName = artworksDao.getArtwork(Integer.parseInt(artworkId)).getImageFileName();
                     }
@@ -166,5 +165,21 @@ public class ArtworkServiceImp implements ArtworkService {
         }
     }
 
+    @Override
+    public List<ArtworksEntity> getFriendArtworks(int friendId) {
+        List<ArtworksEntity> friendArtworks = new ArrayList<>();
 
+        // get favors of friend
+        List<FavorEntity> allFavors = favorDao.getFavors(friendId);
+        for (FavorEntity favor : allFavors) {
+            if ("public".equals(favor.getType())) {// get public favors
+                friendArtworks.add(
+                        // query artwork entity of artwork ID
+                        getArtwork(favor.getArtworkId())
+                );
+            }
+        }
+
+        return friendArtworks;
+    }
 }

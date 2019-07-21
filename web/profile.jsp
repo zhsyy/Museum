@@ -95,7 +95,7 @@
                         <tr>
                             <th scope="row" class="align-middle"><%=requestSenders.indexOf(sender) + 1%></th>
                             <td class="align-middle">
-                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=sender.getName()%></a>
+                                <a href="friend.page?friendId=<%=sender.getUserId()%>" class="badge badge-light"><%=sender.getName()%></a>
                             </td>
                             <td class="align-middle">
                                 <%=sender.getEmail()%>
@@ -148,7 +148,7 @@
                         <tr>
                             <th scope="row" class="align-middle"><%=friends.indexOf(friend) + 1%></th>
                             <td class="align-middle">
-                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>
+                                <a href="friend.page?friendId=<%=friend.getUserId()%>" class="badge badge-light"><%=friend.getName()%></a>
                             </td>
                             <td class="align-middle">
                                 <%=friend.getEmail()%>
@@ -217,7 +217,7 @@
                         <tr>
                             <th scope="row" class="align-middle"><%=++index%></th>
                             <td class="align-middle">
-                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=result.getName()%></a>
+                                <a href="friend.page?friendId=<%=result.getUserId()%>" class="badge badge-light"><%=result.getName()%></a>
                             </td>
                             <td class="align-middle">
                                 <%=result.getEmail()%>

@@ -20,7 +20,7 @@
 
 <%@include file="nav.jsp"%>
 
-<main class="cart m-4">
+<main class="m-4">
     <h5>My Favor</h5>
 
     <% if (favoriteArtworks == null || favoriteArtworks.size() == 0) {// not have favors yet %>

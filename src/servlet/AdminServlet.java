@@ -51,7 +51,7 @@ public class AdminServlet extends HttpServlet {
     @SuppressWarnings("unused")
     private void user(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
-        UsersEntity usersEntity = userService.getUserByName(name);
+        UsersEntity usersEntity = userService.get(name);
         req.setAttribute("user",usersEntity);
         req.getRequestDispatcher("adminUser.jsp").forward(req, resp);
     }

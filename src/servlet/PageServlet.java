@@ -1,7 +1,5 @@
 package servlet;
 
-import com.alibaba.fastjson.JSONArray;
-import dao.impl.FavorDaoImp;
 import entity.ArtworksEntity;
 import entity.FavorEntity;
 import entity.UsersEntity;
@@ -18,7 +16,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
@@ -168,6 +165,18 @@ public class PageServlet extends HttpServlet {
             req.setAttribute("favoriteArtworks", favoriteArtworks);
             req.getRequestDispatcher("favor.jsp").forward(req, resp);
         }
+    }
+
+    @SuppressWarnings("unused")
+    private void friend(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int friendId = Integer.parseInt(req.getParameter("friendId"));
+
+        UsersEntity friend = userService.get(friendId);
+        List<ArtworksEntity> favoriteArtworks = artworkService.getFriendArtworks(friendId);
+
+        req.setAttribute("friend", friend);
+        req.setAttribute("favoriteArtworks", favoriteArtworks);
+        req.getRequestDispatcher("friend.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")

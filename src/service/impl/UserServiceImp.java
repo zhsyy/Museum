@@ -43,7 +43,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public UsersEntity getUserByName(String username) {
+    public UsersEntity get(String username) {
         return usersDao.query(username);
     }
 
@@ -114,5 +114,10 @@ public class UserServiceImp implements UserService {
     @Override
     public List<UsersEntity> getUserByNameLike(String username) {
         return usersDao.queryLike(username);
+    }
+
+    @Override
+    public UsersEntity get(int userId) {
+        return usersDao.query(userId);
     }
 }
