@@ -51,10 +51,10 @@
                 <a class="nav-link" href="profile.page"><%= user.getName() %></a>
             </li>
             <li class="nav-item <%=navFavor%>">
-                <a class="nav-link" href="favor.jsp">Favor</a>
+                <a class="nav-link" href="favor.page">Favor</a>
             </li>
             <li class="nav-item <%=navRelease%>">
-                <a class="nav-link" href="release.html">Release</a>
+                <a class="nav-link" href="">Release</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/logOut.user">Log out</a>

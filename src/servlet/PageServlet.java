@@ -1,18 +1,20 @@
 package servlet;
 
 import com.alibaba.fastjson.JSONArray;
+import dao.impl.FavorDaoImp;
 import entity.ArtworksEntity;
+import entity.FavorEntity;
 import entity.UsersEntity;
 import service.ArtworkService;
 import service.impl.ArtworkServiceImp;
 import util.ServletUtils;
 
-import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -116,6 +118,12 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
+    private void deleteFavor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String favorId = req.getParameter("favorId");
+
+    }
+
+    @SuppressWarnings("unused")
     private void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("user") == null) {// user not logged in, error
             resp.sendRedirect("error.page?message=NotLoggedIn");
@@ -148,8 +156,23 @@ public class PageServlet extends HttpServlet {
                 info += "Some unknown error occurred!";
                 break;
         }
-
         req.setAttribute("info", info);
         req.getRequestDispatcher("error.jsp").forward(req, resp);
+    }
+
+    @SuppressWarnings("unused")
+    void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        UsersEntity user = (UsersEntity)session.getAttribute("user");
+        if (user==null){
+            resp.sendRedirect("signUp.jsp");
+        }else {
+            FavorDaoImp favorDaoImp = new FavorDaoImp();
+            List<ArtworksEntity> artworksEntityList = artworkService.getFavorArtworks(user.getUserId());
+            List<FavorEntity> favorEntityList = favorDaoImp.getFavors(user.getUserId());
+            req.setAttribute("artworkList",artworksEntityList);
+            req.setAttribute("favorList",favorEntityList);
+            req.getRequestDispatcher("/favor.jsp").forward(req,resp);
+        }
     }
 }

@@ -135,12 +135,11 @@
                                     <% if (editUser!=null && editUser.getType().equals("normal"))
                                         out.print("checked");%> class="form-control">
                             </div>
-
-                        <div class="btn-toolbar list-toolbar">
-                            <button class="btn btn-primary" id="btSave"><i class="fa fa-save"></i> Save</button>
-                            <a href="#myModal" data-toggle="modal" class="btn btn-danger <%if (editUser==null)out.print("invisible");%>">Delete</a>
-                        </div>
                         </form>
+                        <div class="btn-toolbar list-toolbar">
+                        <button class="btn btn-primary" id="btSave"><i class="fa fa-save"></i> Save</button>
+                        <a href="#myModal" data-toggle="modal" class="btn btn-danger <%if (editUser==null)out.print("invisible");%>">Delete</a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -173,7 +172,7 @@
         </footer>
     </div>
 </div>
-<script src="adminPageLib/js/jsForUser.js"></script>
+
 <script src="adminPageLib/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
     $("[rel=tooltip]").tooltip();
@@ -181,6 +180,6 @@
         $('.demo-cancel-click').click(function(){return false;});
     });
 </script>
-
+<script src="adminPageLib/js/jsForUser.js"></script>
 
 </body></html>

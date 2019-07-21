@@ -52,7 +52,7 @@
 
             <% boolean isFavored = (boolean) request.getAttribute("isFavored"); %>
 
-            <form class="invisible" method="post" action="favor.artwork">
+            <form class="invisible" method="post" action="add.favor">
                 <label><input id="artworkId" name="artworkId" type="text" value="<%=artwork.getArtworkId()%>"></label>
                 <label><input id="userId" name="userId" type="text" value="<%=user.getUserId()%>"></label>
 

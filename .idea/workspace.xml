@@ -7,21 +7,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3525f7aa-9b6c-4bad-b686-6b8642c69d5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/FriendshipDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/impl/FriendshipDaoImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/FriendshipEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/FriendshipService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/impl/FriendshipServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/FriendServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UsersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UsersDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/impl/UsersDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/impl/UsersDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/UsersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/UsersEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/impl/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/impl/UserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/PageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/PageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/favor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/favor.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/dao/UsersDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/dao/UsersDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/dao/impl/UsersDaoImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/dao/impl/UsersDaoImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/entity/UsersEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/entity/UsersEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/FavorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/FavorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/impl/FavorServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/impl/FavorServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/impl/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/service/impl/UserServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/AdminServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/AdminServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/ArtworkServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/ArtworkServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/GetFavor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/PageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/PageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/servlet/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/util/ServletUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/WEB-INF/classes/util/ServletUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminArtwork.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminArtwork.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminIndex.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminIndex.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminPageLib/js/jsForUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminPageLib/js/jsForUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminUsersList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/adminUsersList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/details.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/favor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/favor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/signUp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/myTest_war_exploded/signUp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/dao/UsersDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/dao/UsersDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/dao/impl/UsersDaoImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/dao/impl/UsersDaoImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/entity/UsersEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/entity/UsersEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/service/FavorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/service/FavorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/service/impl/FavorServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/service/impl/FavorServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/service/impl/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/service/impl/UserServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/servlet/AdminServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/servlet/AdminServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/servlet/ArtworkServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/servlet/ArtworkServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/servlet/GetFavor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/servlet/PageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/servlet/PageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/servlet/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/servlet/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Museum/util/ServletUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Museum/util/ServletUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/AdminServlet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,12 +79,14 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="2019summervacation@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="2019summervacation: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="2019summervacation: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="2019summervacation@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="2019summervacation: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="artworks: table" type="285a2a93:MysqlImplModel$Table" />
         <item name="2019summervacation: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="friendship: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
@@ -68,8 +94,15 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="2019summervacation@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="2019summervacation: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="users: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="2019summervacation: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="favor: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="2019summervacation@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="2019summervacation: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -79,11 +112,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servlet/PageServlet.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/servlet/AdminServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="246">
+              <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,6 +125,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/favor.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="828">
+              <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
         <entry file="file://$PROJECT_DIR$/web/profile.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3717">
@@ -107,10 +146,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/impl/FriendshipDaoImp.java">
+        <entry file="file://$PROJECT_DIR$/web/adminPageLib/js/jsForUser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="10" column="72" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
             </state>
           </provider>
         </entry>
