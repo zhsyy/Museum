@@ -196,7 +196,7 @@
                                     <div class="col-sm-6">
                                         <form method="post" action="">
 <%--                                            <input type="hidden" name="fromId" value="<%=user.getUserId()%>">--%>
-                                            <input type="hidden" name="toId" value="<%=friend.getUserId()%>">
+                                            <input type="hidden" name="toId" value="<%=friend.getName()%>">
                                             <button type="submit" class="btn btn-outline-primary">Send Message</button>
                                         </form>
                                     </div>
