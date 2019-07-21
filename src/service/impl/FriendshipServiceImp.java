@@ -5,8 +5,6 @@ import dao.impl.FriendshipDaoImp;
 import entity.FriendshipEntity;
 import service.FriendshipService;
 
-import java.util.List;
-
 public class FriendshipServiceImp implements FriendshipService {
     private FriendshipDao friendshipDao = new FriendshipDaoImp();
 
@@ -40,5 +38,10 @@ public class FriendshipServiceImp implements FriendshipService {
     @Override
     public void delete(int userId, int friendId) {
         friendshipDao.delete(userId, friendId);
+    }
+
+    @Override
+    public void add(int senderId, int receiverId) {
+        friendshipDao.insert(new FriendshipEntity(senderId, receiverId));
     }
 }

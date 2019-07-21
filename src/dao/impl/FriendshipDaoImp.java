@@ -41,4 +41,11 @@ public class FriendshipDaoImp implements FriendshipDao {
 
         DBUtils.update(sql, userId, friendId, friendId, userId);
     }
+
+    @Override
+    public void insert(FriendshipEntity friendship) {
+        String sql = "INSERT INTO friendship (senderId, receiverId, status) VALUES (?, ?, ?)";
+
+        DBUtils.update(sql, friendship.getSenderId(), friendship.getReceiverId(), "sent");
+    }
 }

@@ -1,4 +1,6 @@
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="javax.jws.soap.SOAPBinding" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -6,6 +8,8 @@
     List<UsersEntity> friends = (List<UsersEntity>) request.getAttribute("friends");
     @SuppressWarnings("unchecked")
     List<UsersEntity> requestSenders = (List<UsersEntity>) request.getAttribute("requestSenders");
+    @SuppressWarnings("unchecked")
+    Map<UsersEntity, Boolean> searchedUsers = (Map<UsersEntity, Boolean>) request.getAttribute("searchedUsers");
 %>
 
 <html lang="en">
@@ -117,13 +121,10 @@
                         </thead>
                         <tbody>
 
-                        <%
-                            for (int i = 0; i < requestSenders.size(); i++) {
-                                UsersEntity sender = requestSenders.get(i);
-                        %>
+                        <% for (UsersEntity sender : requestSenders) { %>
 
                         <tr>
-                            <th scope="row" class="align-middle"><%=i + 1%></th>
+                            <th scope="row" class="align-middle"><%=requestSenders.indexOf(sender) + 1%></th>
                             <td class="align-middle">
                                 <a href="<%//TODO: friend page%>" class="badge badge-light"><%=sender.getName()%></a>
                             </td>
@@ -153,9 +154,7 @@
                             </td>
                         </tr>
 
-                        <%
-                            } // end of loop of friend requests
-                        %>
+                        <% } // end of loop of friend requests  %>
 
                         </tbody>
                     </table>
@@ -175,13 +174,10 @@
                         </thead>
                         <tbody>
 
-                        <%
-                            for (int i = 0; i < friends.size(); i++) {
-                                UsersEntity friend = friends.get(i);
-                        %>
+                        <% for (UsersEntity friend : friends) { %>
 
                         <tr>
-                            <th scope="row" class="align-middle"><%=i + 1%></th>
+                            <th scope="row" class="align-middle"><%=friends.indexOf(friend) + 1%></th>
                             <td class="align-middle">
                                 <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>
                             </td>
@@ -196,7 +192,7 @@
                                     <div class="col-sm-6">
                                         <form method="post" action="">
 <%--                                            <input type="hidden" name="fromId" value="<%=user.getUserId()%>">--%>
-                                            <input type="hidden" name="toId" value="<%=friend.getName()%>">
+                                            <input type="hidden" name="toName" value="<%=friend.getName()%>">
                                             <button type="submit" class="btn btn-outline-primary">Send Message</button>
                                         </form>
                                     </div>
@@ -211,15 +207,23 @@
                             </td>
                         </tr>
 
-                        <%
-                            } // end of loop of friends
-                        %>
+                        <% } // end of loop of friends %>
 
                         </tbody>
                     </table>
                 </div>
 
-<%--                TODO: search box for user searching--%>
+                <form class="form-inline" method="post" action="search.friend">
+                    <div class="form-group">
+                        <label for="inputUsername" class="col-sm-6 col-form-label">Input username to search: </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="inputUsername" name="searchName" placeholder="Username">
+                        </div>
+                    </div>
+                    <button type="submit" class="col-sm-2 btn btn-outline-primary">Search</button>
+                </form>
+
+                <% if (searchedUsers != null) {// have searched results %>
 
                 <div class="row">
                     <table class="table table-hover table-sm">
@@ -236,37 +240,57 @@
                         <tbody>
 
                         <%
-//                            for (int i = 0; i < friends.size(); i++) {
-//                                UsersEntity friend = friends.get(i);
+                            int index = 0;
+                            for (Map.Entry<UsersEntity, Boolean> entry : searchedUsers.entrySet()) {
+                                UsersEntity result = entry.getKey();
                         %>
 
-<%--                        <tr>--%>
-<%--                            <th scope="row" class="align-middle"><%=i + 1%></th>--%>
-<%--                            <td class="align-middle">--%>
-<%--                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>--%>
-<%--                            </td>--%>
-<%--                            <td class="align-middle">--%>
-<%--                                <%=friend.getEmail()%>--%>
-<%--                            </td>--%>
-<%--                            <td class="align-middle">--%>
-<%--                                <%=friend.getSignature()%>--%>
-<%--                            </td>--%>
-<%--                            <td class="align-middle">--%>
-<%--                                <form method="post" action="">--%>
-<%--                                    <input type="hidden" name="friendId" value="<%=friend.getUserId()%>">--%>
-<%--                                    <input type="hidden" name="userId" value="<%=user.getUserId()%>">--%>
-<%--                                    <button type="submit" class="btn btn-outline-primary">Delete</button>--%>
-<%--                                </form>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
+                        <tr>
+                            <th scope="row" class="align-middle"><%=++index%></th>
+                            <td class="align-middle">
+                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=result.getName()%></a>
+                            </td>
+                            <td class="align-middle">
+                                <%=result.getEmail()%>
+                            </td>
+                            <td class="align-middle">
+                                <%=result.getSignature()%>
+                            </td>
+                            <td class="align-middle">
+
+                                <% if (entry.getValue()) {// is friend %>
+
+                                <form method="post" action="delete.friend">
+                                    <input type="hidden" name="friendId" value="<%=result.getUserId()%>">
+                                    <input type="hidden" name="userId" value="<%=user.getUserId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Delete</button>
+                                </form>
+
+                                <% } else {// not friend %>
+
+                                <form method="post" action="add.friend">
+                                    <input type="hidden" name="receiverId" value="<%=result.getUserId()%>">
+                                    <input type="hidden" name="senderId" value="<%=user.getUserId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Send Friend Request</button>
+                                </form>
+
+                                <% }// end of not friend %>
+
+                            </td>
+                        </tr>
 
                         <%
-//                            } // end of loop of user search results
+                            } // end of loop of user search results
                         %>
 
                         </tbody>
                     </table>
                 </div>
+
+                <% }// end of have searched results %>
+
+
+
             </div>
         </div>
     </div>

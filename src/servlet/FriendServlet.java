@@ -79,4 +79,21 @@ public class FriendServlet extends HttpServlet {
 
         resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
     }
+
+    @SuppressWarnings("unused")
+    private void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int senderId = Integer.parseInt(req.getParameter("senderId"));
+        int receiverId = Integer.parseInt(req.getParameter("receiverId"));
+
+        // add friend request
+        friendshipService.add(senderId, receiverId);
+
+        // response and redirect
+        resp.setContentType("text/plain");
+        PrintWriter out = resp.getWriter();
+
+        out.println("Friend request sent successfully! Returning to previous page...");
+
+        resp.setHeader("refresh", "2;url=" + req.getHeader("Referer"));
+    }
 }

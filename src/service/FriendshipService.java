@@ -2,8 +2,6 @@ package service;
 
 import entity.FriendshipEntity;
 
-import java.util.List;
-
 public interface FriendshipService {
 //    List<FriendshipEntity> getFriendships(int userId);
 //
@@ -16,4 +14,6 @@ public interface FriendshipService {
     FriendshipEntity get(int userId, int friendId);
 
     void delete(int userId, int friendId);
+
+    void add(int senderId, int receiverId);
 }
