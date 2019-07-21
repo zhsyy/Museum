@@ -29,15 +29,6 @@ public class UsersEntity {
         this.signature = signature;
     }
 
-
-    public Timestamp getTime() {
-        return time;
-    }
-
-    public void setTime(Timestamp time) {
-        this.time = time;
-    }
-
     @Id
     @Column(name = "userId")
     public int getUserId() {

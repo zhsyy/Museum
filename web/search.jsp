@@ -119,3 +119,5 @@
 <script src="js/jsSignIn.js"></script>
 <script src="js/jsPagination.js"></script>
 <script src="js/jsSearch.js"></script>
+</body>
+</html>

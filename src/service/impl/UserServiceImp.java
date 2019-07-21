@@ -56,6 +56,7 @@ public class UserServiceImp implements UserService {
     @Override
     public boolean checkModifyUser(int userId, String password) {
         return usersDao.query(userId, password) != null;
+    }
 
     @Override
     public void addUser(UsersEntity user) {

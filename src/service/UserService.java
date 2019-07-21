@@ -18,7 +18,7 @@ public interface UserService {
     UsersEntity update(UsersEntity user);
 
     boolean checkModifyUser(int userId, String password);
-  
+
     void addUser(UsersEntity users);
 
     void modifyUser(UsersEntity users);

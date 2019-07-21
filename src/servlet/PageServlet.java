@@ -1,18 +1,20 @@
 package servlet;
 
 import com.alibaba.fastjson.JSONArray;
+import dao.impl.FavorDaoImp;
 import entity.ArtworksEntity;
+import entity.FavorEntity;
 import entity.UsersEntity;
 import service.ArtworkService;
 import service.impl.ArtworkServiceImp;
 import util.ServletUtils;
 
-import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,29 +30,6 @@ public class PageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
-    }
-
-    @SuppressWarnings("unused")
-    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String searchText = req.getParameter("searchText");
-        String sortBy = req.getParameter("sortBy");
-        String[] searchBy = req.getParameterValues("searchBy");
-        List<ArtworksEntity> allArtworks = artworkService.getSearchArtworks(searchText,searchBy,sortBy);
-
-
-        int totalCount = allArtworks.size();
-        int totalPage = ((totalCount % 9 == 0) ? (totalCount / 9):(totalCount / 9 + 1));
-        for (String u: searchBy) {
-            if (u.equals("title")) req.setAttribute("searchByTitle",u);
-            if (u.equals("description")) req.setAttribute("searchByDescription",u);
-            if (u.equals("location")) req.setAttribute("searchByLocation",u);
-        }
-        req.setAttribute("searchText",searchText);
-        req.setAttribute("totalCount",totalCount);
-        req.setAttribute("totalPage",totalPage);
-        req.setAttribute("sortBy",sortBy);
-        req.setAttribute("artworksEntities",artworkService.getOutputArtworks(allArtworks,1));
-        req.getRequestDispatcher("search.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")
@@ -139,6 +118,12 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
+    private void deleteFavor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String favorId = req.getParameter("favorId");
+
+    }
+
+    @SuppressWarnings("unused")
     private void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("user") == null) {// user not logged in, error
             resp.sendRedirect("error.page?message=NotLoggedIn");
@@ -171,8 +156,23 @@ public class PageServlet extends HttpServlet {
                 info += "Some unknown error occurred!";
                 break;
         }
-
         req.setAttribute("info", info);
         req.getRequestDispatcher("error.jsp").forward(req, resp);
+    }
+
+    @SuppressWarnings("unused")
+    void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        UsersEntity user = (UsersEntity)session.getAttribute("user");
+        if (user==null){
+            resp.sendRedirect("signUp.jsp");
+        }else {
+            FavorDaoImp favorDaoImp = new FavorDaoImp();
+            List<ArtworksEntity> artworksEntityList = artworkService.getFavorArtworks(user.getUserId());
+            List<FavorEntity> favorEntityList = favorDaoImp.getFavors(user.getUserId());
+            req.setAttribute("artworkList",artworksEntityList);
+            req.setAttribute("favorList",favorEntityList);
+            req.getRequestDispatcher("/favor.jsp").forward(req,resp);
+        }
     }
 }
