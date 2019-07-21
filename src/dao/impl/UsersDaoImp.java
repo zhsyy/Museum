@@ -29,6 +29,13 @@ public class UsersDaoImp implements UsersDao {
     }
 
     @Override
+    public UsersEntity query(int userId) {
+        String sql = "SELECT * FROM users WHERE userId = ?";
+
+        return DBUtils.get(UsersEntity.class, sql, userId);
+    }
+
+    @Override
     public void insert(UsersEntity user) {
         String sql = "INSERT INTO users (name, email, password, type) VALUE (?,?,?,?)";
 

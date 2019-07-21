@@ -1,7 +1,12 @@
+<%@ page import="entity.FriendshipEntity" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-
+    @SuppressWarnings("unchecked")
+    List<UsersEntity> friends = (List<UsersEntity>) request.getAttribute("friends");
+    @SuppressWarnings("unchecked")
+    List<UsersEntity> requestSenders = (List<UsersEntity>) request.getAttribute("requestSenders");
 %>
 
 <html lang="en">
@@ -99,195 +104,150 @@
 
             <div class="col-sm-8">
 
-                <!--my artworks-->
                 <div class="row">
                     <table class="table table-hover table-sm">
-                        <caption>My artworks</caption>
+                        <caption>New Friends</caption>
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Release Time</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Signature</th>
                             <th scope="col">Options</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <!--                        <?php-->
+                        <%
+                            for (int i = 0; i < requestSenders.size(); i++) {
+                                UsersEntity sender = requestSenders.get(i);
+                        %>
 
-                        <!--                        // get my art works-->
-                        <!--                        $resultMyArtWorks = $connection->query($sqlMyArtWorks);-->
+                        <tr>
+                            <th scope="row"><%=i + 1%></th>
+                            <td>
+                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=sender.getName()%></a>
+                            </td>
+                            <td>
+                                <%=sender.getEmail()%>
+                            </td>
+                            <td>
+                                <%=sender.getSignature()%>
+                            </td>
+                            <td>
+                                <form method="post" action="">
+                                    <input type="hidden" name="senderId" value="<%=sender.getUserId()%>">
+                                    <input type="hidden" name="receiverId" value="<%=user.getUserId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Accept</button>
+                                </form>
+                                &nbsp;
+                                <form method="post" action="">
+                                    <input type="hidden" name="senderId" value="<%=sender.getUserId()%>">
+                                    <input type="hidden" name="receiverId" value="<%=user.getUserId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Reject</button>
+                                </form>
+                            </td>
+                        </tr>
 
-                        <!--                        // output rows of art works-->
-                        <!--                        $i = 1;-->
-                        <!--                        while ($rowMyArtWorks = $resultMyArtWorks->fetch_array()) {-->
-                        <!--                            echo '<tr>-->
-                        <!--                                <th scope="row">'.$i.'</th>-->
-                        <!--                                <td>-->
-                        <!--                                    <a href="details.php?artworkID='.$rowMyArtWorks['artworkID'].'" class="badge badge-light">-->
-                        <!--                                    '.$rowMyArtWorks['title'].'-->
-                        <!--                                    </a>-->
-                        <!--                                </td>-->
-                        <!--                                <td>'.$rowMyArtWorks['timeReleased'].'</td>';-->
-
-                        <!--                            if ($rowMyArtWorks['orderID']) {// sold out-->
-                        <!--                                echo '<td>-->
-                        <!--                                        <a href="release.html" class="btn btn-outline-primary disabled">Revise</a> &nbsp;-->
-                        <!--                                        <button type="button" class="btn btn-outline-primary" disabled>Delete</button>-->
-                        <!--                                </td>-->
-                        <!--                            </tr>';-->
-                        <!--                            } else {// not sold yet-->
-                        <!--                                echo '<td>-->
-                        <!--                                        <a href="release.html?artworkID='.$rowMyArtWorks['artworkID'].'" class="btn btn-outline-primary">Revise</a> &nbsp;-->
-                        <!--                                        <button type="button" class="btn btn-outline-primary" -->
-                        <!--                                data-toggle="modal" data-target="#deleteWork'.$rowMyArtWorks['artworkID'].'Modal">Delete</button>-->
-                        <!--                                </td>-->
-                        <!--                            </tr>';-->
-                        <!--                            }-->
-
-                        <!--                            $i++;-->
-                        <!--                        }-->
-
-                        <!--                        // release result-->
-                        <!--                        $resultMyArtWorks->close();-->
-
-                        <!--                        ?>-->
+                        <%
+                            } // end of loop of friend requests
+                        %>
 
                         </tbody>
                     </table>
                 </div>
 
-                <!--my orders-->
                 <div class="row">
                     <table class="table table-hover table-sm">
-                        <caption>My orders</caption>
+                        <caption>My Friends</caption>
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Order Time</th>
-                            <th scope="col">Sum</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Signature</th>
+                            <th scope="col">Options</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <!--                        <?php-->
+                        <%
+                            for (int i = 0; i < friends.size(); i++) {
+                                UsersEntity friend = friends.get(i);
+                        %>
 
-                        <!--                        // get my orders-->
-                        <!--                        $sqlMyOrders = "SELECT * FROM orders WHERE ownerID = ".$user['userID'];-->
-                        <!--                        $resultMyOrders = $connection->query($sqlMyOrders);-->
+                        <tr>
+                            <th scope="row"><%=i + 1%></th>
+                            <td>
+                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>
+                            </td>
+                            <td>
+                                <%=friend.getEmail()%>
+                            </td>
+                            <td>
+                                <%=friend.getSignature()%>
+                            </td>
+                            <td>
+                                <form method="post" action="">
+                                    <input type="hidden" name="friendId" value="<%=friend.getUserId()%>">
+                                    <input type="hidden" name="userId" value="<%=user.getUserId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
 
-                        <!--                        // output rows of orders-->
-                        <!--                        $i = 1;-->
-                        <!--                        while ($rowMyOrders = $resultMyOrders->fetch_array()) {-->
-
-                        <!--                            // output works of every order-->
-                        <!--                            echo '<tr>-->
-                        <!--                                <th scope="row">'.$i.'</th>-->
-                        <!--                                <td>'.$rowMyOrders['orderID'].'</td>-->
-                        <!--                                <td>';-->
-
-                        <!--                            // get works of every order-->
-                        <!--                            $sqlMyOrderWorks = "SELECT * FROM artworks";-->
-                        <!--                            $resultMyOrderWorks = $connection->query($sqlMyOrderWorks);-->
-                        <!--                            while ($rowMyOrderWorks = $resultMyOrderWorks->fetch_array()) {-->
-                        <!--                                if ($rowMyOrderWorks['orderID'] == $rowMyOrders['orderID']){-->
-                        <!--                                    echo '<p>-->
-                        <!--                                    <a href="details.php?artworkID='.$rowMyOrderWorks['artworkID'].'" class="badge badge-light">-->
-                        <!--                                    '.$rowMyOrderWorks['title'].'-->
-                        <!--                                    </a>-->
-                        <!--                                </p>';-->
-                        <!--                                }-->
-                        <!--                            }-->
-
-                        <!--                            echo '</td>-->
-                        <!--                                    <td>'.$rowMyOrders['timeCreated'].'</td>-->
-                        <!--                                    <td>$'.$rowMyOrders['sum'].'</td>-->
-                        <!--                                </tr>';-->
-
-                        <!--                            // release result-->
-                        <!--                            $resultMyOrderWorks->close();-->
-
-                        <!--                            $i++;-->
-                        <!--                        }-->
-
-                        <!--                        // release result-->
-                        <!--                        $resultMyOrders->close();-->
-
-                        <!--                        ?>-->
+                        <%
+                            } // end of loop of friends
+                        %>
 
                         </tbody>
                     </table>
                 </div>
 
-                <!--my sold works-->
+<%--                TODO: search box for user searching--%>
+
                 <div class="row">
                     <table class="table table-hover table-sm">
-                        <caption>My sold works</caption>
+                        <caption>Users Found</caption>
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Sold Time</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Buyer</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Signature</th>
+                            <th scope="col">Options</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <!--                        <?php-->
+                        <%
+//                            for (int i = 0; i < friends.size(); i++) {
+//                                UsersEntity friend = friends.get(i);
+                        %>
 
-                        <!--                        // get my sold works-->
-                        <!--                        $sqlMySoldWorks = "SELECT * FROM artworks WHERE ownerID = ".$user['userID']." AND orderID IS NOT NULL";-->
-                        <!--                        $resultMySoldWorks = $connection->query($sqlMySoldWorks);-->
+<%--                        <tr>--%>
+<%--                            <th scope="row"><%=i + 1%></th>--%>
+<%--                            <td>--%>
+<%--                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>--%>
+<%--                            </td>--%>
+<%--                            <td>--%>
+<%--                                <%=friend.getEmail()%>--%>
+<%--                            </td>--%>
+<%--                            <td>--%>
+<%--                                <%=friend.getSignature()%>--%>
+<%--                            </td>--%>
+<%--                            <td>--%>
+<%--                                <form method="post" action="">--%>
+<%--                                    <input type="hidden" name="friendId" value="<%=friend.getUserId()%>">--%>
+<%--                                    <input type="hidden" name="userId" value="<%=user.getUserId()%>">--%>
+<%--                                    <button type="submit" class="btn btn-outline-primary">Delete</button>--%>
+<%--                                </form>--%>
+<%--                            </td>--%>
+<%--                        </tr>--%>
 
-                        <!--                        // output rows of sold outs-->
-                        <!--                        $i = 1;-->
-                        <!--                        while ($rowMySoldWorks = $resultMySoldWorks->fetch_array()) {-->
-
-                        <!--                            // get order of every sold out-->
-                        <!--                            $sqlMySoldOrder = "SELECT * FROM orders WHERE orderID = ".$rowMySoldWorks['orderID'];-->
-                        <!--                            $resultMySoldOrder = $connection->query($sqlMySoldOrder);-->
-                        <!--                            $rowMySoldOrder = $resultMySoldOrder->fetch_array();-->
-
-                        <!--                            // get buyer of every order-->
-                        <!--                            $sqlMySoldBuyer = "SELECT * FROM users";-->
-                        <!--                            $resultMySoldBuyer = $connection->query($sqlMySoldBuyer);-->
-                        <!--                            while ($rowMySoldBuyer = $resultMySoldBuyer->fetch_array()) {-->
-                        <!--                                if ($rowMySoldOrder['ownerID'] == $rowMySoldBuyer['userID']) {-->
-                        <!--                                    break;-->
-                        <!--                                }-->
-                        <!--                            }-->
-
-                        <!--                            // release results-->
-                        <!--                            $resultMySoldOrder->close();-->
-                        <!--                            $resultMySoldBuyer->close();-->
-
-                        <!--                            echo '<tr>-->
-                        <!--                                <th scope="row">'.$i.'</th>-->
-                        <!--                                <td>-->
-                        <!--                                    <a href="details.php?artworkID='.$rowMySoldWorks['artworkID'].'" class="badge badge-light">-->
-                        <!--                                    '.$rowMySoldWorks['title'].'-->
-                        <!--                                    </a>-->
-                        <!--                                </td>-->
-                        <!--                                <td>'.$rowMySoldOrder['timeCreated'].'</td>-->
-                        <!--                                <td>$'.$rowMySoldWorks['price'].'</td>-->
-                        <!--                                <td>-->
-                        <!--                                    <p>User name: '.$rowMySoldBuyer['name'].'</p>-->
-                        <!--                                    <p>Email: '.$rowMySoldBuyer['email'].'</p>-->
-                        <!--                                    <p>Tel: '.$rowMySoldBuyer['tel'].'</p>-->
-                        <!--                                    <p>Address: '.$rowMySoldBuyer['address'].'</p>-->
-                        <!--                                </td>-->
-                        <!--                                </tr>';-->
-
-                        <!--                            $i++;-->
-                        <!--                        }-->
-
-                        <!--                        // release result-->
-                        <!--                        $resultMySoldWorks->close();-->
-
-                        <!--                        ?>-->
+                        <%
+//                            } // end of loop of user search results
+                        %>
 
                         </tbody>
                     </table>

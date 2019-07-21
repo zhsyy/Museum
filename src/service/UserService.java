@@ -26,4 +26,8 @@ public interface UserService {
     void deleteUser(String name);
 
     void deleteUser(int userId);
+
+    List<UsersEntity> getFriends(int userId);
+
+    List<UsersEntity> getFriendRequestSenders(int receiverId);
 }
