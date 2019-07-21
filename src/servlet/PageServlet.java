@@ -54,29 +54,6 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
-    private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String searchText = req.getParameter("searchText");
-        String sortBy = req.getParameter("sortBy");
-        String[] searchBy = req.getParameterValues("searchBy");
-        List<ArtworksEntity> allArtworks = artworkService.getSearchArtworks(searchText,searchBy,sortBy);
-
-
-        int totalCount = allArtworks.size();
-        int totalPage = ((totalCount % 9 == 0) ? (totalCount / 9):(totalCount / 9 + 1));
-        for (String u: searchBy) {
-            if (u.equals("title")) req.setAttribute("searchByTitle",u);
-            if (u.equals("description")) req.setAttribute("searchByDescription",u);
-            if (u.equals("location")) req.setAttribute("searchByLocation",u);
-        }
-        req.setAttribute("searchText",searchText);
-        req.setAttribute("totalCount",totalCount);
-        req.setAttribute("totalPage",totalPage);
-        req.setAttribute("sortBy",sortBy);
-        req.setAttribute("artworksEntities",artworkService.getOutputArtworks(allArtworks,1));
-        req.getRequestDispatcher("search.jsp").forward(req, resp);
-    }
-
-    @SuppressWarnings("unused")
     private void index(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("hottestArtworks", artworkService.getHottestArtworks());
         req.setAttribute("newestArtworks", artworkService.getNewestArtworks());

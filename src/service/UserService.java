@@ -18,7 +18,7 @@ public interface UserService {
     UsersEntity update(UsersEntity user);
 
     boolean checkModifyUser(int userId, String password);
-  
+
     void addUser(UsersEntity users);
 
     void modifyUser(UsersEntity users);
@@ -26,4 +26,8 @@ public interface UserService {
     void deleteUser(String name);
 
     void deleteUser(int userId);
+
+    List<UsersEntity> getFriends(int userId);
+
+    List<UsersEntity> getFriendRequestSenders(int receiverId);
 }
