@@ -14,4 +14,6 @@ public interface FriendshipDao {
     FriendshipEntity get(int userId, int friendId);
 
     void delete(int userId, int friendId);
+
+    void insert(FriendshipEntity friendship);
 }
