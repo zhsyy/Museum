@@ -2,8 +2,16 @@ package service;
 
 import entity.FavorEntity;
 
+import java.util.List;
+
 public interface FavorService {
     void insert(FavorEntity favor);
 
-    void delete(String favorId);
+    void delete(int favorId);
+
+    List<FavorEntity> getFavors(int userId);
+
+    void publicize(int favorId);
+
+    void privatize(int favorId);
 }

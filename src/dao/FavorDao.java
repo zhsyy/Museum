@@ -10,4 +10,6 @@ public interface FavorDao {
     void delete(int favorId);
 
     List<FavorEntity> getFavors(int userId);
+
+    void update(int favorId, String type);
 }

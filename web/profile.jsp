@@ -159,8 +159,7 @@
                             <td class="align-middle">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <form method="post" action="">
-<%--                                            <input type="hidden" name="fromId" value="<%=user.getUserId()%>">--%>
+                                        <form method="post" action="<%// TODO: email page%>">
                                             <input type="hidden" name="toName" value="<%=friend.getName()%>">
                                             <button type="submit" class="btn btn-outline-primary">Send Message</button>
                                         </form>
@@ -266,8 +265,6 @@
                 </div>
 
                 <% }// end of have searched results %>
-
-
 
             </div>
         </div>

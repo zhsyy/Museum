@@ -25,12 +25,13 @@ public class FavorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
     }
+
     @SuppressWarnings("unused")
-    void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int artworkId = Integer.parseInt(req.getParameter("artworkId"));
         int userId = Integer.parseInt(req.getParameter("userId"));
 
-        FavorEntity favor = new FavorEntity(userId, artworkId);
+        FavorEntity favor = new FavorEntity(userId, artworkId, "public");
 
         favorService.insert(favor);
 
@@ -39,11 +40,29 @@ public class FavorServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
-    void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String favorId = req.getParameter("favorId");
+    private void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int favorId = Integer.parseInt(req.getParameter("favorId"));
+
         favorService.delete(favorId);
+
         resp.sendRedirect(req.getHeader("Referer"));
     }
 
+    @SuppressWarnings("unused")
+    private void publicize(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int favorId = Integer.parseInt(req.getParameter("favorId"));
 
+        favorService.publicize(favorId);
+
+        resp.sendRedirect(req.getHeader("Referer"));
+    }
+
+    @SuppressWarnings("unused")
+    private void privatize(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int favorId = Integer.parseInt(req.getParameter("favorId"));
+
+        favorService.privatize(favorId);
+
+        resp.sendRedirect(req.getHeader("Referer"));
+    }
 }

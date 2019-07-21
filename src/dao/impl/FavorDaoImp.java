@@ -31,4 +31,11 @@ public class FavorDaoImp implements FavorDao {
 
         return DBUtils.getList(FavorEntity.class, sql, userId);
     }
+
+    @Override
+    public void update(int favorId, String type) {
+        String sql = "UPDATE favor SET type = ? WHERE favorId = ?";
+
+        DBUtils.update(sql, type, favorId);
+    }
 }

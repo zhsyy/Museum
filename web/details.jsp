@@ -58,7 +58,7 @@
 
                 <% if (isFavored) { %>
 
-                <button type="submit" class="btn btn-outline-primary btn-block" title="Already Favored" disabled>Add to My Favor</button>
+                <button type="submit" class="btn btn-outline-primary btn-block visible" title="Already Favored" disabled>Add to My Favor</button>
 
                 <% } else { %>
 
