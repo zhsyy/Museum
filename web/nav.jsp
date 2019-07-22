@@ -1,7 +1,7 @@
 <%@ page import="entity.UsersEntity" %>
 <%
-    String navFront, navSignUp, navProfile, navFavor, navEmail;
-    navFront = navSignUp = navProfile = navFavor = navEmail = "";
+    String navFront, navNotLoggedIn, navLoggedIn, navAdmin;
+    navFront = navNotLoggedIn = navLoggedIn = navAdmin = "";
 
     final String ACTIVE = "active";
 
@@ -11,16 +11,19 @@
             navFront = ACTIVE;
             break;
         case "/signUp.jsp":
-            navSignUp = ACTIVE;
+            navNotLoggedIn = ACTIVE;
             break;
         case "/favor.jsp":
-            navFavor = ACTIVE;
-            break;
         case "/profile.jsp":
-            navProfile = ACTIVE;
-            break;
         case "/email.jsp":
-            navEmail = ACTIVE;
+            navLoggedIn = ACTIVE;
+            break;
+        case "/adminIndex.jsp":
+        case "/adminArtwork.jsp":
+        case "/adminArtworkList.jsp":
+        case "/adminUser.jsp":
+        case "/adminUsersList.jsp":
+            navAdmin = ACTIVE;
             break;
     }
 %>
@@ -61,27 +64,44 @@
 
             <% if (user == null) {// not logged in %>
 
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Login</a>
-            </li>
-            <li class="nav-item <%=navSignUp%>">
-                <a class="nav-link" href="signUp.page">Sign up</a>
+            <li class="nav-item dropdown <%=navNotLoggedIn%>">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotLoggedIn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownNotLoggedIn">
+                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#signInFormModal" onclick="changeVerify()">Login</a>
+                    <a class="dropdown-item" href="signUp.page">Sign up</a>
+                </div>
             </li>
 
             <% } else {// logged in %>
 
-            <li class="nav-item <%=navProfile%>">
-                <a class="nav-link" href="profile.page"><%= user.getName() %></a>
+            <li class="nav-item dropdown <%=navLoggedIn%>">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLoggedIn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= user.getName() %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownLoggedIn">
+                    <a class="dropdown-item" href="profile.page">Profile</a>
+                    <a class="dropdown-item" href="favor.page">Favor</a>
+                    <a class="dropdown-item" href="email.page">Email</a>
+                    <a class="dropdown-item" href="logOut.user">Log out</a>
+                </div>
             </li>
-            <li class="nav-item <%=navFavor%>">
-                <a class="nav-link" href="favor.page">Favor</a>
+
+            <% if (user.getType().equals("admin")) {// user is admin %>
+
+            <li class="nav-item dropdown <%=navAdmin%>">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Management
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                    <a class="dropdown-item" href="adminIndex.page">Admin Index</a>
+                    <a class="dropdown-item" href="usersList.admin">User List</a>
+                    <a class="dropdown-item" href="artworksList.admin">Artworks List</a>
+                </div>
             </li>
-            <li class="nav-item <%=navEmail%>">
-                <a class="nav-link" href="email.page">Email</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/logOut.user">Log out</a>
-            </li>
+
+            <% } %>
 
             <% }// end of logged in %>
 

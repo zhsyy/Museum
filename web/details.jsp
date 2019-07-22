@@ -70,7 +70,7 @@
 
             <%      if ("admin".equals(user.getType())) {// admin logged in %>
 
-            <form class="invisible" method="post" action="<% //TODO: set manage page as action%>">
+            <form class="invisible" method="post" action="artwork.admin">
                 <button type="submit" class="btn btn-outline-primary btn-block visible">Manage the Artwork</button>
                 <label><input name="artworkId" type="text" value="<%=artwork.getArtworkId()%>"></label>
             </form>

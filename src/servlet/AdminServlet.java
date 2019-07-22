@@ -12,9 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.sql.Timestamp;
 import java.util.List;
 
 @WebServlet(name = "AdminPage", value = "*.admin")
@@ -30,18 +28,6 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.getAndDoMethod(this, req, resp);
-    }
-
-    @SuppressWarnings("unused")
-    private void index(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        UsersEntity usersEntity = (UsersEntity) session.getAttribute("user");
-        if (usersEntity==null) {
-            resp.sendRedirect("signUp.page");return;
-        }
-
-        session.setAttribute("user",usersEntity);
-        req.getRequestDispatcher("adminIndex.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")

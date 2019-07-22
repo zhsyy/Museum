@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -195,6 +196,17 @@ public class PageServlet extends HttpServlet {
         req.setAttribute("inbox", inbox);
         req.setAttribute("outbox", outbox);
         req.getRequestDispatcher("email.jsp").forward(req, resp);
+    }
+
+    @SuppressWarnings("unused")
+    private void adminIndex(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        UsersEntity user = (UsersEntity) req.getSession().getAttribute("user");
+
+        if (!"admin".equals(user.getType())) {// not admin user
+            resp.sendRedirect("error.page?message=NotAuthorized");
+        }
+
+        req.getRequestDispatcher("adminIndex.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")
