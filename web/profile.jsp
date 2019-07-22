@@ -20,7 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/cssCommon.css">
+    <link rel="stylesheet" href="resource/css/cssCommon.css">
     <title>Profile of <%=((UsersEntity) session.getAttribute("user")).getName()%></title>
 </head>
 <body>
@@ -364,7 +364,7 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-<script src="js/jsSearch.js"></script>
-<script src="js/jsModifyModal.js"></script>
+<script src="resource/js/jsSearch.js"></script>
+<script src="resource/js/jsModifyModal.js"></script>
 </body>
 </html>
