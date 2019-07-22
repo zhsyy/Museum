@@ -1,5 +1,5 @@
 <%@ page import="entity.ArtworksEntity" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <%
     ArtworksEntity artwork = (ArtworksEntity) request.getAttribute("artwork");
@@ -15,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/cssCommon.css">
+    <link rel="stylesheet" href="resource/css/cssCommon.css">
     <title>Details of <%=artwork.getTitle()%>></title>
 </head>
 <body>
@@ -43,22 +43,25 @@
                     <p><%=artwork.getDescription()%></p>
                 </dd>
 
-<%--                <% if (!"".equals(artwork.getVideoFileName())) {// has video %>--%>
+                <% if (!"".equals(artwork.getVideoFileName())) {// has video %>
 
                 <dt class="col-sm-3">Video: </dt>
                 <dd class="col-sm-9">
                     <video class="rounded w-100" controls>
-<%--                        <source src="resource/video/<%=artwork.getVideoFileName()%>" type="video/mp4">--%>
-    <object>
-        <param name="movie" value="https://share.vrs.sohu.com/my/v.swf&topBar=1&id=93469058&autoplay=false&from=page"></param>
-        <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
-        <param name="wmode" value="Transparent"></param>
-        <embed wmode="Transparent" allowfullscreen="true" allowscriptaccess="always" quality="high" src="https://share.vrs.sohu.com/my/v.swf&topBar=1&id=93469058&autoplay=false&from=page" type="application/x-shockwave-flash"></embed>
-    </object>
+                        <source src="resource/video/<%=artwork.getVideoFileName()%>" type="video/mp4">
                     </video>
                 </dd>
 
-<%--                <% } %>--%>
+                <% } else {// doesn't have video, give default %>
+
+                <dt class="col-sm-3">Video: </dt>
+                <dd class="col-sm-9">
+                    <video class="rounded w-100" controls>
+                        <source src="resource/video/default.mp4" type="video/mp4">
+                    </video>
+                </dd>
+
+                <% } %>
 
             </dl>
 
@@ -109,7 +112,7 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-<script src="js/jsSignIn.js"></script>
-<script src="js/jsSearch.js"></script>
+<script src="resource/js/jsSignIn.js"></script>
+<script src="resource/js/jsSearch.js"></script>
 </body>
 </html>
