@@ -12,4 +12,6 @@ public interface FavorDao {
     List<FavorEntity> getFavors(int userId);
 
     void update(int favorId, String type);
+
+    List<FavorEntity> getFavorsByArtworkId(int artworkId);
 }

@@ -44,7 +44,7 @@
             %>
             <div class="card-group text-center col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="resource/img/<%=artworksEntities.get(j).getImageFileName()%>" alt="<%=artworksEntities.get(j).getTitle()%>">
+                    <img class="card-img-top" src="resource/img/<%=artworksEntities.get(j).getImageFileName()%>" alt="<%=artworksEntities.get(j).getTitle()%>" style="height: 500px">
                     <div class="card-body">
                         <h5 class="card-title"><%=artworksEntities.get(j).getTitle()%></h5>
                         <p class="card-text" style="display:

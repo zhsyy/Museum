@@ -9,6 +9,8 @@
     List<UsersEntity> requestSenders = (List<UsersEntity>) request.getAttribute("requestSenders");
     @SuppressWarnings("unchecked")
     Map<UsersEntity, String> searchedUsers = (Map<UsersEntity, String>) request.getAttribute("searchedUsers");
+    @SuppressWarnings("unchecked")
+    Map<UsersEntity,String> recommendedUsers = (Map<UsersEntity,String>) request.getAttribute("recommendedUsers");
 %>
 
 <html lang="en">
@@ -72,6 +74,53 @@
                     <dd class="col-sm-9"><%=user.getSignature()%></dd>
                 </dl>
                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modifyFormModal">Modify</button>
+                <br><br>
+                <div class="row" style="padding-right: 1em">
+                    <h5>Recommended Friends</h5>
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Options</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <%
+                            for (Map.Entry<UsersEntity, String> entry : recommendedUsers.entrySet()) {
+                                UsersEntity recommendedUser = entry.getKey();
+                        %>
+                        <tr>
+                            <td class="align-middle">
+                                <a href="friend.page?friendId=<%=recommendedUser.getUserId()%>" class="badge badge-light"><%=recommendedUser.getName()%></a>
+                            </td>
+                            <td class="align-middle">
+                                <%=recommendedUser.getEmail()%>
+                            </td>
+                            <td class="align-middle">
+                                <form method="post" action="add.friend" style="padding-top: 1em;">
+                                <input type="hidden" name="receiverId" value="<%=recommendedUser.getUserId()%>">
+                                <input type="hidden" name="senderId" value="<%=user.getUserId()%>">
+                                <%if ("sent".equals(entry.getValue())) {// has sent request %>
+                                    <button type="submit" class="btn btn-outline-secondary" title="Friend request already sent." disabled>Add</button>
+                                <% } else {// not friend %>
+                                    <button type="submit" class="btn btn-outline-primary">Add</button>
+                                <% }// end of not friend %>
+                                </form>
+                                <%--<form method="post" action="add.friend" style="padding-top: 1em;">--%>
+                                    <%--<input type="hidden" name="receiverId" value="<%=recommendedUser.getUserId()%>">--%>
+                                    <%--<input type="hidden" name="senderId" value="<%=user.getUserId()%>">--%>
+                                    <%--<button type="submit" class="btn btn-outline-secondary">Add</button>--%>
+                                <%--</form>--%>
+                            </td>
+                        </tr>
+
+                        <% } // end of loop of friend requests  %>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="col-sm-8">
@@ -237,15 +286,15 @@
 
                                 <% } else if ("sent".equals(entry.getValue())) {// has sent request %>
 
-                                <form method="post" action="add.friend">
+                                <form method="post" action="add.friend" style="padding-top: 1em;">
                                     <input type="hidden" name="receiverId" value="<%=result.getUserId()%>">
                                     <input type="hidden" name="senderId" value="<%=user.getUserId()%>">
-                                    <button type="submit" class="btn btn-outline-primary" title="Friend request already sent." disabled>Send Friend Request</button>
+                                    <button type="submit" class="btn btn-outline-secondary" title="Friend request already sent." disabled>Send Friend Request</button>
                                 </form>
 
                                 <% } else {// not friend %>
 
-                                <form method="post" action="add.friend">
+                                <form method="post" action="add.friend" style="padding-top: 1em;">
                                     <input type="hidden" name="receiverId" value="<%=result.getUserId()%>">
                                     <input type="hidden" name="senderId" value="<%=user.getUserId()%>">
                                     <button type="submit" class="btn btn-outline-primary">Send Friend Request</button>

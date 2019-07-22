@@ -42,7 +42,7 @@ function ajaxToPage(page,totalPage) {
                 for (let j = 0; j < 3; j++) {
                     if (data[i]) {
                         output += `<div class="card-group text-center col-md-4"><div class="card">
-                                <img class="card-img-top" src="resource/img/` + data[i]['imageFileName'] + `" alt="` + data[i]['title'] + `">
+                                <img class="card-img-top" src="resource/img/` + data[i]['imageFileName'] + `" alt="` + data[i]['title'] + `"  style="height: 500px">
                                 <div class="card-body">
                                 <h5 class="card-title">` + data[i]['title'] + `</h5>
                             <p class="card-text" style="display: 

@@ -127,10 +127,10 @@ public class PageServlet extends HttpServlet {
         } else {// user logged in , normal
             List<UsersEntity> friends = userService.getFriends(user.getUserId());
             List<UsersEntity> requestSenders = userService.getFriendRequestSenders(user.getUserId());
-
+            Map<UsersEntity,String> recommendedUsers = userService.getRecommendedFriends(user.getUserId());
             req.setAttribute("friends", friends);
             req.setAttribute("requestSenders", requestSenders);
-
+            req.setAttribute("recommendedUsers", recommendedUsers);
             req.getRequestDispatcher("profile.jsp").forward(req, resp);
         }
     }
