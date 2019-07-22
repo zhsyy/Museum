@@ -43,9 +43,23 @@
                     <p><%=artwork.getDescription()%></p>
                 </dd>
 
-<%--                TODO: if have video, show--%>
-<%--                <dt class="col-sm-3">Released time: </dt>--%>
-<%--                <dd class="col-sm-9">XXXX</dd>--%>
+<%--                <% if (!"".equals(artwork.getVideoFileName())) {// has video %>--%>
+
+                <dt class="col-sm-3">Video: </dt>
+                <dd class="col-sm-9">
+                    <video class="rounded w-100" controls>
+<%--                        <source src="resource/video/<%=artwork.getVideoFileName()%>" type="video/mp4">--%>
+    <object>
+        <param name="movie" value="https://share.vrs.sohu.com/my/v.swf&topBar=1&id=93469058&autoplay=false&from=page"></param>
+        <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+        <param name="wmode" value="Transparent"></param>
+        <embed wmode="Transparent" allowfullscreen="true" allowscriptaccess="always" quality="high" src="https://share.vrs.sohu.com/my/v.swf&topBar=1&id=93469058&autoplay=false&from=page" type="application/x-shockwave-flash"></embed>
+    </object>
+                    </video>
+                </dd>
+
+<%--                <% } %>--%>
+
             </dl>
 
             <% if (user != null) {// logged in %>
