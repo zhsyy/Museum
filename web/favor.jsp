@@ -2,6 +2,13 @@
 <%@ page import="entity.ArtworksEntity" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.FavorEntity" %>
+<%@ page import="java.util.Map" %>
+
+<%
+    @SuppressWarnings("unchecked")
+    Map<FavorEntity, ArtworksEntity> favoriteArtworks = (Map<FavorEntity, ArtworksEntity>) request.getAttribute("favoriteArtworks");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +20,15 @@
 
 <%@include file="nav.jsp"%>
 
-<main class="cart m-4">
+<main class="m-4">
     <h5>My Favor</h5>
+
+    <% if (favoriteArtworks == null || favoriteArtworks.size() == 0) {// not have favors yet %>
+
+    <h6>You haven't got any favors yet! Go and find some now!</h6>
+
+    <% } else {// have favors %>
+
     <div class="container my-3">
         <div class="row">
             <table class="table table-hover table-sm">
@@ -22,60 +36,85 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col" width="100px">Image</th>
+                    <th scope="col">Image</th>
                     <th scope="col">View</th>
                     <th scope="col">Location</th>
                     <th scope="col">FavoriteTime</th>
                     <th scope="col">Option</th>
                 </tr>
                 </thead>
+
                 <tbody>
+
                 <%
-                    @SuppressWarnings("unchecked")
-                    List<ArtworksEntity> artworkList = (List<ArtworksEntity>)request.getAttribute("artworkList");
-                    @SuppressWarnings("unchecked")
-                    List<FavorEntity> favorList = (List<FavorEntity>)request.getAttribute("favorList");
-                    for (int i = 0;i<artworkList.size();i++){
-                        ArtworksEntity artworksEntity = artworkList.get(i);
-                        FavorEntity favorEntity = favorList.get(i);
+                    int index = 0;
+                    for (Map.Entry<FavorEntity, ArtworksEntity> entry : favoriteArtworks.entrySet()){
+                        FavorEntity favor = entry.getKey();
+                        ArtworksEntity artwork = entry.getValue();
                 %>
+
                 <tr>
-                    <th scope="row"><%=(i+1)%></th>
-                    <td>
-                        <a href="details.page?artworkId=<%=favorEntity.getArtworkId()%>" class="badge badge-light">
-                            <%=artworksEntity.getTitle()%>
+                    <th scope="row" class="align-middle"><%=++index%></th>
+                    <td class="align-middle">
+                        <a class="badge badge-light" href="details.page?artworkId=<%=artwork.getArtworkId()%>">
+                            <%=artwork.getTitle()%>
                         </a>
                     </td>
-                    <td style="display:-webkit-box;
-                                -webkit-box-orient:vertical;
-                                -webkit-line-clamp:2;
-                                overflow: hidden;"><%=artworksEntity.getDescription()%></td>
-                    <td>
-                        <img class="w-100" src="resource/img/<%=artworksEntity.getImageFileName()%>" alt="<%=artworksEntity.getTitle()%>" style="height: 100px">
+                    <td class="align-middle">
+                        <img style="width: 100px; height: 100px" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>">
                     </td>
-                    <td><%=artworksEntity.getView()%></td>
-                    <td><%=artworksEntity.getLocation()%></td>
-                    <td><%=favorEntity.getTime().toString()%></td>
-                    <td>
-                        <form class="invisible" method="post" action="delete.favor">
-                            <input type="text" name="favorId" value="<%=favorEntity.getFavorId()%>">
-                            <button type="submit" class="btn btn-outline-primary visible">Remove</button>
-                        </form>
+                    <td class="align-middle">
+                        <%=artwork.getView()%>
+                    </td>
+                    <td class="align-middle">
+                        <%=artwork.getLocation()%>
+                    </td>
+                    <td class="align-middle">
+                        <%=favor.getTime().toString()%>
+                    </td>
+                    <td class="align-middle">
+                        <div class="row">
+
+                            <% if ("private".equals(favor.getType())) {// can be publicized %>
+
+                            <div class="col-sm-6">
+                                <form method="post" action="publicize.favor">
+                                    <input type="hidden" name="favorId" value="<%=favor.getFavorId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Publicize</button>
+                                </form>
+                            </div>
+
+                            <% } else {// can be privatized %>
+
+                            <div class="col-sm-6">
+                                <form method="post" action="privatize.favor">
+                                    <input type="hidden" name="favorId" value="<%=favor.getFavorId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Privatize</button>
+                                </form>
+                            </div>
+
+                            <% }// end of can be privatized %>
+
+                            <div class="col-sm-6">
+                                <form method="post" action="delete.favor">
+                                    <input type="hidden" name="favorId" value="<%=favor.getFavorId()%>">
+                                    <button type="submit" class="btn btn-outline-primary">Delete</button>
+                                </form>
+                            </div>
+                        </div>
                     </td>
                 </tr>
+
                 <%
-                    }
+                    }// end of loop of favorite artworks
                 %>
+
                 </tbody>
             </table>
         </div>
-
-        <!--alert-->
-        <div class="row">
-            <span id="alertBuy" class="alert"></span>
-        </div>
     </div>
+
+    <% }// end of have favors %>
 
 </main>
 

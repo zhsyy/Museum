@@ -10,14 +10,16 @@ public class FavorEntity {
     private int favorId;
     private int userId;
     private int artworkId;
+    private String type;
     private Timestamp time;
 
     public FavorEntity() {
     }
 
-    public FavorEntity(int userId, int artworkId) {
+    public FavorEntity(int userId, int artworkId, String type) {
         this.userId = userId;
         this.artworkId = artworkId;
+        this.type = type;
     }
 
     @Id
@@ -51,6 +53,16 @@ public class FavorEntity {
     }
 
     @Basic
+    @Column(name = "type")
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Basic
     @Column(name = "time")
     public Timestamp getTime() {
         return time;
@@ -68,11 +80,12 @@ public class FavorEntity {
         return favorId == that.favorId &&
                 userId == that.userId &&
                 artworkId == that.artworkId &&
+                Objects.equals(type, that.type) &&
                 Objects.equals(time, that.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(favorId, userId, artworkId, time);
+        return Objects.hash(favorId, userId, artworkId, type, time);
     }
 }

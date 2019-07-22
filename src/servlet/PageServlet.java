@@ -1,13 +1,13 @@
 package servlet;
 
-import com.alibaba.fastjson.JSONArray;
-import dao.impl.FavorDaoImp;
 import entity.ArtworksEntity;
 import entity.FavorEntity;
 import entity.UsersEntity;
 import service.ArtworkService;
+import service.FavorService;
 import service.UserService;
 import service.impl.ArtworkServiceImp;
+import service.impl.FavorServiceImp;
 import service.impl.UserServiceImp;
 import util.ServletUtils;
 
@@ -16,14 +16,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "Page", value = "*.page")
 public class PageServlet extends HttpServlet {
     private ArtworkService artworkService = new ArtworkServiceImp();
     private UserService userService = new UserServiceImp();
+    private FavorService favorService = new FavorServiceImp();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -129,12 +131,6 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
-    private void deleteFavor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String favorId = req.getParameter("favorId");
-
-    }
-
-    @SuppressWarnings("unused")
     private void modify(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("user") == null) {// user not logged in, error
             resp.sendRedirect("error.page?message=NotLoggedIn");
@@ -146,19 +142,41 @@ public class PageServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unused")
-    void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        UsersEntity user = (UsersEntity)session.getAttribute("user");
-        if (user==null){
-            resp.sendRedirect("signUp.jsp");
-        }else {
-            FavorDaoImp favorDaoImp = new FavorDaoImp();
-            List<ArtworksEntity> artworksEntityList = artworkService.getFavorArtworks(user.getUserId());
-            List<FavorEntity> favorEntityList = favorDaoImp.getFavors(user.getUserId());
-            req.setAttribute("artworkList",artworksEntityList);
-            req.setAttribute("favorList",favorEntityList);
-            req.getRequestDispatcher("/favor.jsp").forward(req,resp);
+    private void favor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        UsersEntity user = (UsersEntity) req.getSession().getAttribute("user");
+
+        if (user == null) {// not logged in, error
+            resp.sendRedirect("error.page?message=NotLoggedIn");
+        } else {// logged in, normal
+            List<FavorEntity> favors = favorService.getFavors(user.getUserId());
+            List<ArtworksEntity> artworks = artworkService.getFavorArtworks(user.getUserId());
+
+            // generate map of favor and artwork
+            Map<FavorEntity, ArtworksEntity> favoriteArtworks = new Hashtable<>();
+            for (FavorEntity favor : favors) {
+                for (ArtworksEntity artwork : artworks) {
+                    if (favor.getArtworkId() == artwork.getArtworkId()) {
+                        favoriteArtworks.put(favor, artwork);
+                        break;
+                    }
+                }
+            }
+
+            req.setAttribute("favoriteArtworks", favoriteArtworks);
+            req.getRequestDispatcher("favor.jsp").forward(req, resp);
         }
+    }
+
+    @SuppressWarnings("unused")
+    private void friend(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int friendId = Integer.parseInt(req.getParameter("friendId"));
+
+        UsersEntity friend = userService.get(friendId);
+        List<ArtworksEntity> favoriteArtworks = artworkService.getFriendArtworks(friendId);
+
+        req.setAttribute("friend", friend);
+        req.setAttribute("favoriteArtworks", favoriteArtworks);
+        req.getRequestDispatcher("friend.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")

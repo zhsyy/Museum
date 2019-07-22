@@ -11,7 +11,7 @@ public interface UserService {
 
     void signUp(UsersEntity user);
 
-    UsersEntity getUserByName(String userName);
+    UsersEntity get(String username);
 
     List<UsersEntity> getAllUsers();
 
@@ -30,4 +30,8 @@ public interface UserService {
     List<UsersEntity> getFriends(int userId);
 
     List<UsersEntity> getFriendRequestSenders(int receiverId);
+
+    List<UsersEntity> getUserByNameLike(String username);
+
+    UsersEntity get(int userId);
 }

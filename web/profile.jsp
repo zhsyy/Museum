@@ -1,6 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="javax.jws.soap.SOAPBinding" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -9,7 +8,7 @@
     @SuppressWarnings("unchecked")
     List<UsersEntity> requestSenders = (List<UsersEntity>) request.getAttribute("requestSenders");
     @SuppressWarnings("unchecked")
-    Map<UsersEntity, Boolean> searchedUsers = (Map<UsersEntity, Boolean>) request.getAttribute("searchedUsers");
+    Map<UsersEntity, String> searchedUsers = (Map<UsersEntity, String>) request.getAttribute("searchedUsers");
 %>
 
 <html lang="en">
@@ -22,36 +21,6 @@
 <body>
 
 <%@include file="nav.jsp"%>
-
-<!-- Modal -->
-<%--<div class="modal fade" id="deleteWork<?php echo $rowMyArtWorks['artworkID'] ?>Modal" tabindex="-1"--%>
-<%--     role="dialog" aria-labelledby="deleteWork<?php echo $rowMyArtWorks['artworkID'] ?>ModalLabel" aria-hidden="true">--%>
-<%--    <div class="modal-dialog modal-dialog-centered" role="document">--%>
-<%--        <div class="modal-content">--%>
-<%--            <div class="modal-header">--%>
-<%--                <h5 class="modal-title" id="deleteWork<?php echo $rowMyArtWorks['artworkID'] ?>ModalLabel">Delete Art Work</h5>--%>
-<%--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
-<%--                    <span aria-hidden="true">&times;</span>--%>
-<%--                </button>--%>
-<%--            </div>--%>
-<%--            <div class="modal-body">--%>
-<%--                <form id="delete<?php echo $rowMyArtWorks['artworkID'] ?>" name="delete<?php echo $rowMyArtWorks['artworkID'] ?>" method="get" action="deleteWork.php">--%>
-<%--                    <div class="form-row">--%>
-<%--                        <div class="col mb-3">--%>
-<%--                            <span>You are attempting to DELETE <?php echo $rowMyArtWorks['title'] ?>!</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <input type="hidden" name="artworkID" value="<?php echo $rowMyArtWorks['artworkID'] ?>">--%>
-<%--                    <input type="hidden" name="imageFileName" value="<?php echo $rowMyArtWorks['imageFileName'] ?>">--%>
-<%--                </form>--%>
-<%--            </div>--%>
-<%--            <div class="modal-footer">--%>
-<%--                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No</button>--%>
-<%--                <button type="submit" class="btn btn-outline-primary" onclick="document.getElementById('delete<?php echo $rowMyArtWorks['artworkID'] ?>').submit()">Yes</button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
 
 <div class="modal fade" id="modifyFormModal" tabindex="-1" role="dialog" aria-labelledby="modifyFormModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -126,7 +95,7 @@
                         <tr>
                             <th scope="row" class="align-middle"><%=requestSenders.indexOf(sender) + 1%></th>
                             <td class="align-middle">
-                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=sender.getName()%></a>
+                                <a href="friend.page?friendId=<%=sender.getUserId()%>" class="badge badge-light"><%=sender.getName()%></a>
                             </td>
                             <td class="align-middle">
                                 <%=sender.getEmail()%>
@@ -179,7 +148,7 @@
                         <tr>
                             <th scope="row" class="align-middle"><%=friends.indexOf(friend) + 1%></th>
                             <td class="align-middle">
-                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=friend.getName()%></a>
+                                <a href="friend.page?friendId=<%=friend.getUserId()%>" class="badge badge-light"><%=friend.getName()%></a>
                             </td>
                             <td class="align-middle">
                                 <%=friend.getEmail()%>
@@ -190,8 +159,7 @@
                             <td class="align-middle">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <form method="post" action="">
-<%--                                            <input type="hidden" name="fromId" value="<%=user.getUserId()%>">--%>
+                                        <form method="post" action="<%// TODO: email page%>">
                                             <input type="hidden" name="toName" value="<%=friend.getName()%>">
                                             <button type="submit" class="btn btn-outline-primary">Send Message</button>
                                         </form>
@@ -217,6 +185,7 @@
                     <div class="form-group">
                         <label for="inputUsername" class="col-sm-6 col-form-label">Input username to search: </label>
                         <div class="col-sm-4">
+                            <input type="hidden" name="userId" value="<%=user.getUserId()%>">
                             <input type="text" class="form-control" id="inputUsername" name="searchName" placeholder="Username">
                         </div>
                     </div>
@@ -241,14 +210,14 @@
 
                         <%
                             int index = 0;
-                            for (Map.Entry<UsersEntity, Boolean> entry : searchedUsers.entrySet()) {
+                            for (Map.Entry<UsersEntity, String> entry : searchedUsers.entrySet()) {
                                 UsersEntity result = entry.getKey();
                         %>
 
                         <tr>
                             <th scope="row" class="align-middle"><%=++index%></th>
                             <td class="align-middle">
-                                <a href="<%//TODO: friend page%>" class="badge badge-light"><%=result.getName()%></a>
+                                <a href="friend.page?friendId=<%=result.getUserId()%>" class="badge badge-light"><%=result.getName()%></a>
                             </td>
                             <td class="align-middle">
                                 <%=result.getEmail()%>
@@ -258,12 +227,20 @@
                             </td>
                             <td class="align-middle">
 
-                                <% if (entry.getValue()) {// is friend %>
+                                <% if ("accepted".equals(entry.getValue())) {// is friend %>
 
                                 <form method="post" action="delete.friend">
                                     <input type="hidden" name="friendId" value="<%=result.getUserId()%>">
                                     <input type="hidden" name="userId" value="<%=user.getUserId()%>">
                                     <button type="submit" class="btn btn-outline-primary">Delete</button>
+                                </form>
+
+                                <% } else if ("sent".equals(entry.getValue())) {// has sent request %>
+
+                                <form method="post" action="add.friend">
+                                    <input type="hidden" name="receiverId" value="<%=result.getUserId()%>">
+                                    <input type="hidden" name="senderId" value="<%=user.getUserId()%>">
+                                    <button type="submit" class="btn btn-outline-primary" title="Friend request already sent." disabled>Send Friend Request</button>
                                 </form>
 
                                 <% } else {// not friend %>
@@ -288,8 +265,6 @@
                 </div>
 
                 <% }// end of have searched results %>
-
-
 
             </div>
         </div>

@@ -12,10 +12,10 @@ import java.util.List;
 public class FavorDaoImp implements FavorDao {
     @Override
     public void insert(FavorEntity favor) {
-        String sql = "INSERT INTO favor (userId, artworkId, time) VALUE (?,?,?)";
+        String sql = "INSERT INTO favor (userId, artworkId, type, time) VALUE (?, ?, ?, ?)";
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-        DBUtils.update(sql, favor.getUserId(), favor.getArtworkId(), Timestamp.valueOf(dateFormat.format(new Date())));
+        DBUtils.update(sql, favor.getUserId(), favor.getArtworkId(), favor.getType(), Timestamp.valueOf(dateFormat.format(new Date())));
     }
 
     @Override
@@ -30,5 +30,12 @@ public class FavorDaoImp implements FavorDao {
         String sql = "SELECT * FROM favor WHERE userId = ?";
 
         return DBUtils.getList(FavorEntity.class, sql, userId);
+    }
+
+    @Override
+    public void update(int favorId, String type) {
+        String sql = "UPDATE favor SET type = ? WHERE favorId = ?";
+
+        DBUtils.update(sql, type, favorId);
     }
 }

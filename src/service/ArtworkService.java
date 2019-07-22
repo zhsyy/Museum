@@ -28,5 +28,7 @@ public interface ArtworkService {
     void updateArtwork(ArtworksEntity artwork);
 
     void saveArtworks(HttpServletRequest req,String filePath);
+
+    List<ArtworksEntity> getFriendArtworks(int friendId);
 }
 

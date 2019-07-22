@@ -16,4 +16,6 @@ public interface FriendshipService {
     void delete(int userId, int friendId);
 
     void add(int senderId, int receiverId);
+
+    String getFriendshipStatus(int userId, int friendId);
 }

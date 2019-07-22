@@ -16,6 +16,8 @@
         case "/favor.jsp":
             navFavor = ACTIVE;
             break;
+        case "/profile.jsp":
+            navProfile = ACTIVE;
     }
 %>
 
