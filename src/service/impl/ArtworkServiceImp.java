@@ -146,6 +146,7 @@ public class ArtworkServiceImp implements ArtworkService {
                         imageFileName = rename.substring(0, 8) + suffix;
                         System.out.println(imageFileName);
                         fileItem.write(new File(realPath.toString(), imageFileName));
+                        fileItem.write(new File(filePath, imageFileName));
                     }else {
                         imageFileName = artworksDao.getArtwork(Integer.parseInt(artworkId)).getImageFileName();
                     }
