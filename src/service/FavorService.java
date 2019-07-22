@@ -14,4 +14,6 @@ public interface FavorService {
     void publicize(int favorId);
 
     void privatize(int favorId);
+
+    List<FavorEntity> getFavorsByArtworkId(int artworkId);
 }

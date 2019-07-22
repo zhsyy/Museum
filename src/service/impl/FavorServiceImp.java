@@ -26,6 +26,11 @@ public class FavorServiceImp implements FavorService {
     }
 
     @Override
+    public List<FavorEntity> getFavorsByArtworkId(int artworkId) {
+        return favorDao.getFavorsByArtworkId(artworkId);
+    }
+
+    @Override
     public void publicize(int favorId) {
         favorDao.update(favorId, "public");
     }
