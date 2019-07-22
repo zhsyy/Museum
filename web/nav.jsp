@@ -22,7 +22,7 @@
         case "/adminArtwork.jsp":
         case "/adminArtworkList.jsp":
         case "/adminUser.jsp":
-        case "adminUsersList.jsp":
+        case "/adminUsersList.jsp":
             navAdmin = ACTIVE;
             break;
     }
