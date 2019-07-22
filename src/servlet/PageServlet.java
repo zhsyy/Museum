@@ -20,12 +20,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "Page", value = "*.page")
+@WebServlet(name = "PageServlet", value = "*.page")
 public class PageServlet extends HttpServlet {
     private ArtworkService artworkService = new ArtworkServiceImp();
     private UserService userService = new UserServiceImp();

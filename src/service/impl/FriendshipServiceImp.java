@@ -8,16 +8,6 @@ import service.FriendshipService;
 public class FriendshipServiceImp implements FriendshipService {
     private FriendshipDao friendshipDao = new FriendshipDaoImp();
 
-//    @Override
-//    public List<FriendshipEntity> getFriendships(int userId) {
-//        return friendshipDao.getFriendships(userId);
-//    }
-//
-//    @Override
-//    public List<FriendshipEntity> getFriendshipRequests(int receiverId) {
-//        return friendshipDao.getFriendshipRequests(receiverId);
-//    }
-
     @Override
     public void accept(FriendshipEntity friendship) {
         friendship.setStatus("accepted");
