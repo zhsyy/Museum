@@ -1,7 +1,7 @@
 <%@ page import="entity.UsersEntity" %>
 <%
-    String navFront, navSignUp, navProfile, navFavor, navRelease;
-    navFront = navSignUp = navProfile = navFavor = navRelease = "";
+    String navFront, navSignUp, navProfile, navFavor, navEmail;
+    navFront = navSignUp = navProfile = navFavor = navEmail = "";
 
     final String ACTIVE = "active";
 
@@ -18,7 +18,28 @@
             break;
         case "/profile.jsp":
             navProfile = ACTIVE;
+            break;
+        case "/email.jsp":
+            navEmail = ACTIVE;
+            break;
     }
+%>
+
+<%
+    String checkTitle, checkDescription, checkLocation;
+
+    final String CHECKED = "checked";
+    final String UNCHECKED = "";
+
+    checkTitle = request.getAttribute("searchByTitle") != null ? CHECKED : UNCHECKED;
+    checkDescription = request.getAttribute("searchByDescription") != null ? CHECKED : UNCHECKED;
+    checkLocation = request.getAttribute("searchByLocation") != null ? CHECKED : UNCHECKED;
+
+    // if all unchecked, let title be checked
+    if (checkTitle.equals(UNCHECKED)
+    && checkDescription.equals(UNCHECKED)
+    && checkLocation.equals(UNCHECKED))
+        checkTitle = CHECKED;
 %>
 
 <%
@@ -55,8 +76,8 @@
             <li class="nav-item <%=navFavor%>">
                 <a class="nav-link" href="favor.page">Favor</a>
             </li>
-            <li class="nav-item <%=navRelease%>">
-                <a class="nav-link" href="">Release</a>
+            <li class="nav-item <%=navEmail%>">
+                <a class="nav-link" href="email.page">Email</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/logOut.user">Log out</a>
@@ -73,15 +94,15 @@
                 </button>
                 <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy" value="title" <%=request.getAttribute("searchByTitle") != null ? "checked" : ""%>>
+                        <input class="form-check-input" type="checkbox" id="ckbTitle" name="searchBy" value="title" <%=checkTitle%>>
                         <label class="form-check-label" for="ckbTitle">Title</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy" value="description" <%=request.getAttribute("searchByDescription") != null ? "checked" : ""%>>
+                        <input class="form-check-input" type="checkbox" id="ckbIntroduction" name="searchBy" value="description" <%=checkDescription%>>
                         <label class="form-check-label" for="ckbIntroduction">Description</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="ckbLocation" name="searchBy" value="location" <%=request.getAttribute("searchByLocation") != null ? "checked" : ""%>>
+                        <input class="form-check-input" type="checkbox" id="ckbLocation" name="searchBy" value="location" <%=checkLocation%>>
                         <label class="form-check-label" for="ckbLocation">Location</label>
                     </div>
                     <label for="sortBy"></label><input class="invisible" id="sortBy" name="sortBy" value="">

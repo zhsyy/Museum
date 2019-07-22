@@ -1,12 +1,15 @@
 package servlet;
 
 import entity.ArtworksEntity;
+import entity.EmailsEntity;
 import entity.FavorEntity;
 import entity.UsersEntity;
 import service.ArtworkService;
+import service.EmailService;
 import service.FavorService;
 import service.UserService;
 import service.impl.ArtworkServiceImp;
+import service.impl.EmailServiceImp;
 import service.impl.FavorServiceImp;
 import service.impl.UserServiceImp;
 import util.ServletUtils;
@@ -26,6 +29,7 @@ public class PageServlet extends HttpServlet {
     private ArtworkService artworkService = new ArtworkServiceImp();
     private UserService userService = new UserServiceImp();
     private FavorService favorService = new FavorServiceImp();
+    private EmailService emailService = new EmailServiceImp();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -177,6 +181,20 @@ public class PageServlet extends HttpServlet {
         req.setAttribute("friend", friend);
         req.setAttribute("favoriteArtworks", favoriteArtworks);
         req.getRequestDispatcher("friend.jsp").forward(req, resp);
+    }
+
+    @SuppressWarnings("unused")
+    private void email(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        UsersEntity user = (UsersEntity) req.getSession().getAttribute("user");
+        String receiverName = req.getParameter("toName");
+
+        List<EmailsEntity> inbox = emailService.getInbox(user.getName());
+        List<EmailsEntity> outbox = emailService.getOutbox(user.getName());
+
+        req.setAttribute("receiverName", receiverName);
+        req.setAttribute("inbox", inbox);
+        req.setAttribute("outbox", outbox);
+        req.getRequestDispatcher("email.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")
