@@ -12,9 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.sql.Timestamp;
 import java.util.List;
 
 @WebServlet(name = "AdminPage", value = "*.admin")
@@ -30,22 +28,6 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.getAndDoMethod(this, req, resp);
-    }
-
-    @SuppressWarnings("unused")
-    private void index(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        UsersEntity usersEntity = (UsersEntity) session.getAttribute("user");
-//        if (usersEntity==null) {
-//            resp.sendRedirect("signUp.page");return;
-//        }
-        String tsStr = "2011-05-09 11:49:45";
-        UsersEntity usersEntity = new UsersEntity("zhsyy","123@email","123456","admin","");
-        usersEntity.setTime(Timestamp.valueOf(tsStr));
-        usersEntity.setUserId(2);
-        HttpSession session = req.getSession();
-        session.setAttribute("user",usersEntity);
-        req.getRequestDispatcher("adminIndex.jsp").forward(req, resp);
     }
 
     @SuppressWarnings("unused")
