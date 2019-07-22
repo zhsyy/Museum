@@ -3,6 +3,7 @@ package service;
 import entity.UsersEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
     UsersEntity login(String username, String password);
@@ -34,4 +35,6 @@ public interface UserService {
     List<UsersEntity> getUserByNameLike(String username);
 
     UsersEntity get(int userId);
+
+    Map<UsersEntity, String> getRecommendedFriends(int userId);
 }

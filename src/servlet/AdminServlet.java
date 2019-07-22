@@ -34,16 +34,12 @@ public class AdminServlet extends HttpServlet {
 
     @SuppressWarnings("unused")
     private void index(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        UsersEntity usersEntity = (UsersEntity) session.getAttribute("user");
-//        if (usersEntity==null) {
-//            resp.sendRedirect("signUp.page");return;
-//        }
-        String tsStr = "2011-05-09 11:49:45";
-        UsersEntity usersEntity = new UsersEntity("zhsyy","123@email","123456","admin","");
-        usersEntity.setTime(Timestamp.valueOf(tsStr));
-        usersEntity.setUserId(2);
         HttpSession session = req.getSession();
+        UsersEntity usersEntity = (UsersEntity) session.getAttribute("user");
+        if (usersEntity==null) {
+            resp.sendRedirect("signUp.page");return;
+        }
+
         session.setAttribute("user",usersEntity);
         req.getRequestDispatcher("adminIndex.jsp").forward(req, resp);
     }
