@@ -54,9 +54,9 @@ public class ArtworksDaoImp implements ArtworksDao {
 
     @Override
     public void insert(ArtworksEntity artwork) {
-        String sql = "INSERT INTO artworks (imageFileName, title, description, yearOfWork, location, view, type, timeReleased) VALUE (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO artworks (imageFileName, videoFileName, title, description, yearOfWork, location, view, type, timeReleased) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        DBUtils.update(sql, artwork.getImageFileName(), artwork.getTitle(),artwork.getDescription(),artwork.getYearOfWork(),artwork.getLocation(),artwork.getView(),artwork.getType(),artwork.getTimeReleased());
+        DBUtils.update(sql, artwork.getImageFileName(), artwork.getVideoFileName(), artwork.getTitle(), artwork.getDescription(), artwork.getYearOfWork(), artwork.getLocation(), artwork.getView(), artwork.getType(), artwork.getTimeReleased());
     }
 
     @Override

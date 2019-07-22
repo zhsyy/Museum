@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "favor", value = "*.favor")
+@WebServlet(name = "FavorServlet", value = "*.favor")
 public class FavorServlet extends HttpServlet {
     private FavorService favorService = new FavorServiceImp();
 

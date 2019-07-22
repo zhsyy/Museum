@@ -3,10 +3,6 @@ package service;
 import entity.FriendshipEntity;
 
 public interface FriendshipService {
-//    List<FriendshipEntity> getFriendships(int userId);
-//
-//    List<FriendshipEntity> getFriendshipRequests(int receiverId);
-
     void accept(FriendshipEntity friendship);
 
     void reject(FriendshipEntity friendship);

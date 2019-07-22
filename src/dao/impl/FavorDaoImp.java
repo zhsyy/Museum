@@ -4,7 +4,7 @@ import dao.FavorDao;
 import entity.FavorEntity;
 import util.DBUtils;
 
-import java.sql.*;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;

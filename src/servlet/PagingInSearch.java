@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "pagingInSearch", value = "/pagingInSearch")
+@WebServlet(name = "PagingInSearch", value = "/pagingInSearch")
 public class PagingInSearch extends HttpServlet {
     private ArtworkService artworkService = new ArtworkServiceImp();
     @Override

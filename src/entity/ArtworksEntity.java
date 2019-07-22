@@ -9,6 +9,7 @@ import java.util.Objects;
 public class ArtworksEntity {
     private int artworkId;
     private String imageFileName;
+    private String videoFileName;
     private String title;
     private String description;
     private int yearOfWork;
@@ -20,8 +21,9 @@ public class ArtworksEntity {
     public ArtworksEntity() {
     }
 
-    public ArtworksEntity(String imageFileName, String title, String description, int yearOfWork, String location, int view, String type, Timestamp timeReleased) {
+    public ArtworksEntity(String imageFileName, String videoFileName, String title, String description, int yearOfWork, String location, int view, String type, Timestamp timeReleased) {
         this.imageFileName = imageFileName;
+        this.videoFileName = videoFileName;
         this.title = title;
         this.description = description;
         this.yearOfWork = yearOfWork;
@@ -49,6 +51,16 @@ public class ArtworksEntity {
 
     public void setImageFileName(String imageFileName) {
         this.imageFileName = imageFileName;
+    }
+
+    @Basic
+    @Column(name = "videoFileName")
+    public String getVideoFileName() {
+        return videoFileName;
+    }
+
+    public void setVideoFileName(String videoFileName) {
+        this.videoFileName = videoFileName;
     }
 
     @Basic
@@ -130,6 +142,7 @@ public class ArtworksEntity {
                 yearOfWork == that.yearOfWork &&
                 view == that.view &&
                 Objects.equals(imageFileName, that.imageFileName) &&
+                Objects.equals(videoFileName, that.videoFileName) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(location, that.location) &&
@@ -139,6 +152,6 @@ public class ArtworksEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(artworkId, imageFileName, title, description, yearOfWork, location, view, type, timeReleased);
+        return Objects.hash(artworkId, imageFileName, videoFileName, title, description, yearOfWork, location, view, type, timeReleased);
     }
 }

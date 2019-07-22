@@ -3,7 +3,6 @@ package service;
 import entity.ArtworksEntity;
 
 import javax.servlet.http.HttpServletRequest;
-import java.awt.geom.Area;
 import java.util.List;
 
 public interface ArtworkService {
