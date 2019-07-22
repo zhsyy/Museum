@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "artworks", schema = "2019summervacation")
-public class ArtworksEntity {
+public class ArtworksEntity implements Comparable<ArtworksEntity>{
     private int artworkId;
     private String imageFileName;
     private String videoFileName;
@@ -17,6 +17,15 @@ public class ArtworksEntity {
     private int view;
     private String type;
     private Timestamp timeReleased;
+
+    @Override
+    public int compareTo(ArtworksEntity o) {
+        if (this.view > o.view) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
 
     public ArtworksEntity() {
     }

@@ -21,4 +21,6 @@ public interface ArtworksDao {
     void delete(String artworkId);
 
     void modify(ArtworksEntity artwork);
+
+    List<ArtworksEntity> getArtworksByType(String type);
 }

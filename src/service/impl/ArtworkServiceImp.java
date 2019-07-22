@@ -15,13 +15,38 @@ import service.ArtworkService;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class ArtworkServiceImp implements ArtworkService {
     private ArtworksDao artworksDao = new ArtworksDaoImp();
     private FavorDao favorDao = new FavorDaoImp();
+    @SuppressWarnings("unchecked")
+    private List removeDuplicate(List list) {
+        HashSet h = new HashSet(list);
+        list.clear();
+        list.addAll(h);
+        return list;
+    }
+    @Override@SuppressWarnings("unchecked")
+    public List<ArtworksEntity> getRecommendedArtworks(int userId) {
+        List<FavorEntity> favorList = favorDao.getFavors(userId);
+        List<ArtworksEntity> recommendedArtworks = new ArrayList<>();
+        for (FavorEntity favor:favorList){
+            ArtworksEntity artworksEntity = artworksDao.getArtwork(favor.getArtworkId());
+            List<ArtworksEntity> sameTypeArtworks = artworksDao.getArtworksByType(artworksEntity.getType());
+            recommendedArtworks.addAll(sameTypeArtworks);
+        }
+        List<ArtworksEntity> out = removeDuplicate(recommendedArtworks);
+        Collections.sort(out);
+        List<ArtworksEntity> topFiveArtworks = new ArrayList<>();
+        int flag = 0;
+        for (ArtworksEntity artworksEntity: out){
+            if (flag == 5)break;
+            topFiveArtworks.add(artworksEntity);
+            flag++;
+        }
+        return topFiveArtworks;
+    }
 
     @Override
     public List<ArtworksEntity> getOutputArtworks(HttpServletRequest req) {
@@ -103,12 +128,13 @@ public class ArtworkServiceImp implements ArtworkService {
         DiskFileItemFactory sf= new DiskFileItemFactory();//实例化磁盘被文件列表工厂
         String[] p = filePath.split("\\\\");
         StringBuilder realPath = new StringBuilder();
-        for (int i = 0;i<p.length-5;i++){
+        for (int i = 0;i<p.length-4;i++){
             realPath.append(p[i]).append("\\");
         }
-        realPath.append("web\\resource\\img");
-        sf.setRepository(new File(filePath));//设置文件存放目录
-        sf.setSizeThreshold(1024*1024);//设置文件上传小于1M放在内存中
+        realPath.append("web\\resource");
+        System.out.println(realPath);
+        sf.setRepository(new File(filePath+"\\video"));//设置文件存放目录
+        sf.setSizeThreshold(1024*1024*100);//设置文件上传小于1M放在内存中
         String rename = "";//文件新生成的文件名
         String fileName = "";//文件原名称
 
@@ -116,11 +142,11 @@ public class ArtworkServiceImp implements ArtworkService {
         String description = "";
         String location = "";
         String yearOfWork = "";
-        String imageFileName = "";
+        String FileName = "";
+        String videoFileName = "";
         String artworkId = "";
-        ServletFileUpload sfu = new ServletFileUpload(sf);
-
         try {
+            ServletFileUpload sfu = new ServletFileUpload(sf);
             @SuppressWarnings("unchecked")
             List<FileItem> lst = sfu.parseRequest(req);//得到request中所有的元素
             for (FileItem fileItem : lst) {
@@ -143,16 +169,22 @@ public class ArtworkServiceImp implements ArtworkService {
                         fileName = fileName.substring(fileName.lastIndexOf("\\") + 1);
                         String suffix = fileName.substring(fileName.lastIndexOf("."));
                         rename = UUID.randomUUID() + "";
-                        imageFileName = rename.substring(0, 8) + suffix;
-                        System.out.println(imageFileName);
-                        fileItem.write(new File(realPath.toString(), imageFileName));
-                        fileItem.write(new File(filePath, imageFileName));
+
+                        if (!suffix.equals(".jpg") && !suffix.equals(".png") && !suffix.equals(".gif")){
+                            videoFileName = rename.substring(0, 8) + suffix;
+                            fileItem.write(new File(realPath+"\\video", videoFileName));
+                            fileItem.write(new File(filePath+"\\video", videoFileName));
+                        }else {
+                            FileName = rename.substring(0, 8) + suffix;
+                            fileItem.write(new File(realPath+"\\img", FileName));
+                            fileItem.write(new File(filePath+"\\img", FileName));
+                        }
                     }else {
-                        imageFileName = artworksDao.getArtwork(Integer.parseInt(artworkId)).getImageFileName();
+                        FileName = artworksDao.getArtwork(Integer.parseInt(artworkId)).getImageFileName();
                     }
                 }
             }
-            ArtworksEntity artworksEntity = new ArtworksEntity(imageFileName,title,description,Integer.parseInt(yearOfWork),location,0,"other",new Timestamp(System.currentTimeMillis()));
+            ArtworksEntity artworksEntity = new ArtworksEntity(FileName,videoFileName,title,description,Integer.parseInt(yearOfWork),location,0,"other",new Timestamp(System.currentTimeMillis()));
             ArtworksDao artworkService = new ArtworksDaoImp();
             if (!artworkId.equals("")){
                 artworksEntity.setArtworkId(Integer.parseInt(artworkId));
