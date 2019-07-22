@@ -127,6 +127,8 @@ public class PageServlet extends HttpServlet {
             List<UsersEntity> friends = userService.getFriends(user.getUserId());
             List<UsersEntity> requestSenders = userService.getFriendRequestSenders(user.getUserId());
             Map<UsersEntity,String> recommendedUsers = userService.getRecommendedFriends(user.getUserId());
+            List<ArtworksEntity> recommendedArtworks = artworkService.getRecommendedArtworks(user.getUserId());
+            req.setAttribute("recommendedArtworks", recommendedArtworks);
             req.setAttribute("friends", friends);
             req.setAttribute("requestSenders", requestSenders);
             req.setAttribute("recommendedUsers", recommendedUsers);

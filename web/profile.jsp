@@ -1,8 +1,11 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
+<%@ page import="entity.ArtworksEntity" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+    @SuppressWarnings("unchecked")
+    List<ArtworksEntity> recommendedArtworks = (List<ArtworksEntity>) request.getAttribute("recommendedArtworks");
     @SuppressWarnings("unchecked")
     List<UsersEntity> friends = (List<UsersEntity>) request.getAttribute("friends");
     @SuppressWarnings("unchecked")
@@ -113,6 +116,38 @@
                                     <%--<input type="hidden" name="senderId" value="<%=user.getUserId()%>">--%>
                                     <%--<button type="submit" class="btn btn-outline-secondary">Add</button>--%>
                                 <%--</form>--%>
+                            </td>
+                        </tr>
+
+                        <% } // end of loop of friend requests  %>
+
+                        </tbody>
+                    </table>
+                </div>
+                <br><br>
+                <div class="row" style="padding-right: 1em">
+                    <h5>Recommended Artworks</h5>
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Pic</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Hot</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <%
+                            for (ArtworksEntity artworksEntity:recommendedArtworks) {%>
+                        <tr>
+                            <td class="align-middle">
+                                <img src="resource/img/<%=artworksEntity.getImageFileName()%>" style="height: 100px;width: 100px;" alt="<%=artworksEntity.getTitle()%>">
+                            </td>
+                            <td class="align-middle">
+                                <a href="details.page?artworkId=<%=artworksEntity.getArtworkId()%>"><%=artworksEntity.getTitle()%></a>
+                            </td>
+                            <td class="align-middle">
+                                <%=artworksEntity.getView()%> ℃
                             </td>
                         </tr>
 

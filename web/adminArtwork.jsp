@@ -138,8 +138,14 @@
                 </div>
                 <div class="form-group">
                     <div class="custom-file col-md-4">
-                        <input type="file" id="imageFileName" name="imageFileName" accept="image/png,image/jpeg,image/gif">
-                            <%--准备设置为，若用户在修改时上传了图片，则使用该图片，若没有，则使用原本的图片--%>
+                        <label for="imageFileName">Upload picture</label>
+                        <input type="file" id="imageFileName" name="imageFileName" accept="image/*">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="custom-file col-md-4">
+                        <label for="videoFileName">Upload video</label>
+                        <input type="file" id="videoFileName" name="videoFileName" accept="video/*">
                     </div>
                 </div>
                     <div class="custom-file col-md-8"></div>

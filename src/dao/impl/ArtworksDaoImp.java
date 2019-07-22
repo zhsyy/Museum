@@ -65,4 +65,11 @@ public class ArtworksDaoImp implements ArtworksDao {
 
         DBUtils.update(sql, artworkId);
     }
+
+    @Override
+    public List<ArtworksEntity> getArtworksByType(String type) {
+        String sql = "SELECT * FROM artworks WHERE type = ?";
+
+        return DBUtils.getList(ArtworksEntity.class, sql, type);
+    }
 }
