@@ -160,7 +160,6 @@ public class ArtworkServiceImp implements ArtworkService {
                 artworkService.insert(artworksEntity);
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

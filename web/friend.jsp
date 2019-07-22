@@ -40,7 +40,7 @@
 
                 <% if (favoriteArtworks == null || favoriteArtworks.size() == 0) {// not have favors yet %>
 
-                <h6><%=friend.getName()%> hasn't got any favors yet! Go and tell him to favor some now!</h6>
+                <h6><%=friend.getName()%> hasn't got any favors yet! Go and tell him/her to favor some now!</h6>
 
                 <% } else {// have favors %>
 

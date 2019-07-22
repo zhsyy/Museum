@@ -159,7 +159,7 @@
                             <td class="align-middle">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <form method="post" action="<%// TODO: email page%>">
+                                        <form method="post" action="email.page">
                                             <input type="hidden" name="toName" value="<%=friend.getName()%>">
                                             <button type="submit" class="btn btn-outline-primary">Send Message</button>
                                         </form>
