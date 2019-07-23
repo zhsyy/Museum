@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="2019summervacation@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.15">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.14">
     <root id="1">
       <ServerVersion>10.1.32</ServerVersion>
+      <Dbms>MARIADB</Dbms>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultCasing>lower/lower</DefaultCasing>
     </root>
