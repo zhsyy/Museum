@@ -2,11 +2,17 @@ package service.impl;
 
 import criteriaObject.CriteriaSearch;
 import dao.ArtworksDao;
+import dao.DeleteHistoryDao;
 import dao.FavorDao;
+import dao.ViewHistoryDao;
 import dao.impl.ArtworksDaoImp;
+import dao.impl.DeleteHistoryDaoImp;
 import dao.impl.FavorDaoImp;
+import dao.impl.ViewHistoryDaoImp;
 import entity.ArtworksEntity;
+import entity.DeletehistoryEntity;
 import entity.FavorEntity;
+import entity.ViewhistoryEntity;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -20,6 +26,8 @@ import java.util.*;
 public class ArtworkServiceImp implements ArtworkService {
     private ArtworksDao artworksDao = new ArtworksDaoImp();
     private FavorDao favorDao = new FavorDaoImp();
+    private DeleteHistoryDao deleteHistoryDao = new DeleteHistoryDaoImp();
+    private ViewHistoryDao viewHistoryDao = new ViewHistoryDaoImp();
     @SuppressWarnings("unchecked")
     private List removeDuplicate(List list) {
         HashSet h = new HashSet(list);
@@ -31,20 +39,37 @@ public class ArtworkServiceImp implements ArtworkService {
     public List<ArtworksEntity> getRecommendedArtworks(int userId) {
         List<FavorEntity> favorList = favorDao.getFavors(userId);
         List<ArtworksEntity> recommendedArtworks = new ArrayList<>();
+        List<ViewhistoryEntity> viewhistoryEntities = viewHistoryDao.query(userId);
+        Collections.sort(viewhistoryEntities);
+
+        int flag = 0;
+        for (ViewhistoryEntity viewhistoryEntity: viewhistoryEntities){
+            if (flag == 2)break;
+            recommendedArtworks.add(artworksDao.getArtwork(viewhistoryEntity.getArtworkId()));
+            flag++;
+        }
+
         for (FavorEntity favor:favorList){
             ArtworksEntity artworksEntity = artworksDao.getArtwork(favor.getArtworkId());
             List<ArtworksEntity> sameTypeArtworks = artworksDao.getArtworksByType(artworksEntity.getType());
             sameTypeArtworks.remove(artworksEntity);
             recommendedArtworks.addAll(sameTypeArtworks);
         }
+
         List<ArtworksEntity> out = removeDuplicate(recommendedArtworks);
+
+        List<DeletehistoryEntity> deleteList = deleteHistoryDao.query(userId);
+        for (DeletehistoryEntity u : deleteList){
+            ArtworksEntity artworksEntity = artworksDao.getArtwork(u.getArtworkId());
+            recommendedArtworks.remove(artworksEntity);
+        }
         for (FavorEntity favor:favorList){
             ArtworksEntity artworksEntity = artworksDao.getArtwork(favor.getArtworkId());
             out.remove(artworksEntity);
         }
         Collections.sort(out);
         List<ArtworksEntity> topFiveArtworks = new ArrayList<>();
-        int flag = 0;
+        flag = 0;
         for (ArtworksEntity artworksEntity: out){
             if (flag == 5)break;
             topFiveArtworks.add(artworksEntity);

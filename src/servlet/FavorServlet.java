@@ -1,8 +1,14 @@
 package servlet;
 
+import entity.ArtworksEntity;
 import entity.FavorEntity;
+import entity.UsersEntity;
+import service.ArtworkService;
 import service.FavorService;
+import service.UserService;
+import service.impl.ArtworkServiceImp;
 import service.impl.FavorServiceImp;
+import service.impl.UserServiceImp;
 import util.ServletUtils;
 
 import javax.servlet.ServletException;
@@ -10,12 +16,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "FavorServlet", value = "*.favor")
 public class FavorServlet extends HttpServlet {
     private FavorService favorService = new FavorServiceImp();
-
+    private UserService userService = new UserServiceImp();
+    private ArtworkService artworkService = new ArtworkServiceImp();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletUtils.getAndDoMethod(this, req, resp);
@@ -30,7 +38,7 @@ public class FavorServlet extends HttpServlet {
     private void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int artworkId = Integer.parseInt(req.getParameter("artworkId"));
         int userId = Integer.parseInt(req.getParameter("userId"));
-
+        userService.updateDeleteHistory(userId,artworkId);
         FavorEntity favor = new FavorEntity(userId, artworkId, "public");
 
         favorService.insert(favor);
@@ -41,10 +49,13 @@ public class FavorServlet extends HttpServlet {
 
     @SuppressWarnings("unused")
     private void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession httpSession = req.getSession();
+        UsersEntity user = (UsersEntity)httpSession.getAttribute("user");
         int favorId = Integer.parseInt(req.getParameter("favorId"));
-
+        FavorEntity favorEntity = favorService.query(favorId);
+        ArtworksEntity artworksEntity = artworkService.getArtwork(favorEntity.getArtworkId());
         favorService.delete(favorId);
-
+        userService.updateDeleteHistory(user.getUserId(),artworksEntity.getArtworkId());
         resp.sendRedirect(req.getHeader("Referer"));
     }
 

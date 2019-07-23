@@ -102,6 +102,8 @@ public class PageServlet extends HttpServlet {
                 List<ArtworksEntity> favorArtworks = artworkService.getFavorArtworks(user.getUserId());
                 boolean isFavored = favorArtworks.contains(artwork);
                 req.setAttribute("isFavored", isFavored);
+                //modify view history table
+                userService.updateViewHistory(user.getUserId(),artworkId);
             }
 
             // add view time by 1

@@ -5,6 +5,8 @@ import entity.FavorEntity;
 import java.util.List;
 
 public interface FavorService {
+    FavorEntity query(int favorId);
+
     void insert(FavorEntity favor);
 
     void delete(int favorId);

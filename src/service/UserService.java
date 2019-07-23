@@ -37,4 +37,10 @@ public interface UserService {
     UsersEntity get(int userId);
 
     Map<UsersEntity, String> getRecommendedFriends(int userId);
+
+    void updateViewHistory(int userId,int artworkId);
+
+    void updateDeleteHistory(int userId,int artworkId);
+
+    boolean queryDeleteHistory(int userId,int artworkId);
 }

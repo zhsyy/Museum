@@ -33,6 +33,13 @@ public class FavorDaoImp implements FavorDao {
     }
 
     @Override
+    public FavorEntity getFavorById(int favorId) {
+        String sql = "SELECT * FROM favor WHERE favorId = ?";
+
+        return DBUtils.get(FavorEntity.class, sql, favorId);
+    }
+
+    @Override
     public List<FavorEntity> getFavorsByArtworkId(int artworkId) {
         String sql = "SELECT * FROM favor WHERE artworkId = ?";
 
