@@ -34,9 +34,14 @@ public class ArtworkServiceImp implements ArtworkService {
         for (FavorEntity favor:favorList){
             ArtworksEntity artworksEntity = artworksDao.getArtwork(favor.getArtworkId());
             List<ArtworksEntity> sameTypeArtworks = artworksDao.getArtworksByType(artworksEntity.getType());
+            sameTypeArtworks.remove(artworksEntity);
             recommendedArtworks.addAll(sameTypeArtworks);
         }
         List<ArtworksEntity> out = removeDuplicate(recommendedArtworks);
+        for (FavorEntity favor:favorList){
+            ArtworksEntity artworksEntity = artworksDao.getArtwork(favor.getArtworkId());
+            out.remove(artworksEntity);
+        }
         Collections.sort(out);
         List<ArtworksEntity> topFiveArtworks = new ArrayList<>();
         int flag = 0;

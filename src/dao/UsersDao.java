@@ -24,4 +24,6 @@ public interface UsersDao {
     void delete(int userId);
 
     List<UsersEntity> queryLike(String username);
+
+    void updateInAdmin(UsersEntity user);
 }
