@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Museum">
+    <output-path>$PROJECT_DIR$/out/artifacts/Museum</output-path>
+    <root id="archive" name="Museum.war">
+      <element id="artifact" artifact-name="myTest:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="JPA 1.0-JPA 1.0" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="jpa-descriptors" facet="Museum/jpa/JPA" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
