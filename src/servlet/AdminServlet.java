@@ -71,7 +71,7 @@ public class AdminServlet extends HttpServlet {
 
     @SuppressWarnings("unused")
     private void modifyArtwork(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String path = this.getServletContext().getRealPath("/resource/img");
+        String path = this.getServletContext().getRealPath("/resource");
         artworkService.saveArtworks(req,path);
         resp.setHeader("refresh", "0.1;url=artworksList.admin");
     }
