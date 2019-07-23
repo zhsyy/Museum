@@ -11,8 +11,36 @@
         <filter-name>EncodingFilter</filter-name>
         <url-pattern>/*</url-pattern> <!--*即为过滤所有-->
     </filter-mapping>
+
     <welcome-file-list><!--默认首页地址-->
         <welcome-file>index.page</welcome-file>
     </welcome-file-list>
 
+    <!--用户信息放到session中的键的名字-->
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>userSessionValue</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>filter.LoginFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--未登录，需重定向的页面-->
+    <context-param>
+        <param-name>redirectPage</param-name>
+        <param-value>signUp.page</param-value>
+    </context-param>
+
+    <!--不需要检查的url列表-->
+    <context-param>
+        <param-name>uncheckedUrls</param-name>
+        <param-value>/index.jsp,/details.jsp,/error.jsp,/search.jsp,/signUp.jsp</param-value>
+    </context-param>
 </web-app>
