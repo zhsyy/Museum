@@ -113,7 +113,8 @@ public class DBUtils {
      * @throws IllegalAccessException e
      * @throws NoSuchFieldException e
      */
-    private static <T> List<T> getListOfEntities(Class<T> clazz, List<Map<String, Object>> listOfValues) throws InstantiationException, IllegalAccessException, NoSuchFieldException {
+    private static <T> List<T> getListOfEntities(Class<T> clazz, List<Map<String, Object>> listOfValues)
+            throws InstantiationException, IllegalAccessException, NoSuchFieldException {
         List<T> result = new ArrayList<>();
         if (listOfValues.size() > 0) {
             for (Map<String, Object> values : listOfValues) {
