@@ -39,4 +39,9 @@ public class FavorServiceImp implements FavorService {
     public void privatize(int favorId) {
         favorDao.update(favorId, "private");
     }
+
+    @Override
+    public FavorEntity query(int favorId) {
+        return favorDao.getFavorById(favorId);
+    }
 }
