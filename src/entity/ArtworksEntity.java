@@ -8,8 +8,8 @@ import java.util.Objects;
 @Table(name = "artworks", schema = "2019summervacation")
 public class ArtworksEntity implements Comparable<ArtworksEntity>{
     private int artworkId;
-    private String imageFileName;
-    private String videoFileName;
+    private String imageFileName = "";
+    private String videoFileName = "";
     private String title;
     private String description;
     private int yearOfWork;

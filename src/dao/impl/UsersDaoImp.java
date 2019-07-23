@@ -75,4 +75,11 @@ public class UsersDaoImp implements UsersDao {
 
         return DBUtils.getList(UsersEntity.class, sql, "%" + username + "%");
     }
+
+    @Override
+    public void updateInAdmin(UsersEntity user) {
+        String sql = "UPDATE users SET name = ?, email = ?, password = ?, type = ? WHERE userId = ?";
+
+        DBUtils.update(sql, user.getName(), user.getEmail(), user.getPassword(), user.getType(), user.getUserId());
+    }
 }

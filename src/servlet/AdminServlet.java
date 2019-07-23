@@ -71,7 +71,7 @@ public class AdminServlet extends HttpServlet {
 
     @SuppressWarnings("unused")
     private void modifyArtwork(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String path = this.getServletContext().getRealPath("/resource/img");
+        String path = this.getServletContext().getRealPath("/resource");
         artworkService.saveArtworks(req,path);
         resp.setHeader("refresh", "0.1;url=artworksList.admin");
     }
@@ -97,8 +97,12 @@ public class AdminServlet extends HttpServlet {
     @SuppressWarnings("unused")
     private void modifyUser(HttpServletRequest req, HttpServletResponse resp){
         String userId = req.getParameter("userId");
-        userService.deleteUser(Integer.parseInt(userId));
-        addUser(req,resp);
+        String Username = req.getParameter("name");
+        String Email = req.getParameter("email");
+        String Password = req.getParameter("password");
+        String Type = req.getParameter("type");
+        UsersEntity usersEntity = new UsersEntity(Integer.parseInt(userId),Username,Email,Password,Type);
+        userService.modifyUser(usersEntity);
         resp.setHeader("refresh", "0.1;url=usersList.admin");
     }
 

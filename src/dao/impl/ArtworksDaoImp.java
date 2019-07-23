@@ -10,8 +10,8 @@ import java.util.List;
 public class ArtworksDaoImp implements ArtworksDao {
     @Override
     public void modify(ArtworksEntity artwork) {
-        delete(artwork.getArtworkId()+"");
-        insert(artwork);
+        String sql = "UPDATE artworks SET imageFileName = ?, videoFileName = ?, title = ?, description = ?, yearOfWork = ?, location = ?, view = ?, timeReleased = ? WHERE artworkId = ?";
+        DBUtils.update(sql, artwork.getImageFileName(),artwork.getVideoFileName(), artwork.getTitle(),artwork.getDescription(),artwork.getYearOfWork(),artwork.getLocation(), artwork.getView(), artwork.getTimeReleased(),artwork.getArtworkId());
     }
 
     @Override

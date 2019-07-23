@@ -73,8 +73,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void modifyUser(UsersEntity user) {
-        usersDao.delete(user.getName());
-        usersDao.insert(user);
+        usersDao.updateInAdmin(user);
     }
 
     @Override

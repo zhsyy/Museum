@@ -28,6 +28,14 @@ public class UsersEntity {
         this.signature = signature;
     }
 
+    public UsersEntity(int userId, String name, String email, String password, String type) {
+        this.userId = userId;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.type = type;
+    }
+
     @Id
     @Column(name = "userId")
     public int getUserId() {
