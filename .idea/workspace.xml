@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="myTest:war exploded" />
+      <artifact name="Museum" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -246,6 +246,7 @@
     <option name="y" value="70" />
     <option name="width" value="1340" />
     <option name="height" value="800" />
+
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -261,6 +262,24 @@
           <expand>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
               <item name="Museum" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -288,7 +307,16 @@
             </path>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -305,6 +333,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563952666067" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -313,7 +342,6 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
@@ -533,6 +561,7 @@
       <workItem from="1563939944115" duration="298000" />
       <workItem from="1563945621724" duration="5212000" />
       <workItem from="1563952701559" duration="912000" />
+
     </task>
     <task id="LOCAL-00006" summary="modified some settings for cloud deployment">
       <created>1563869818343</created>
@@ -586,6 +615,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7141372" visible="true" weight="0.22788204" />
+
       <window_info id="Structure" order="1" sideWeight="0.4466403" side_tool="true" weight="0.19504021" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.28556594" side_tool="true" weight="0.24360341" />
@@ -596,7 +626,9 @@
       <window_info id="Web" order="8" sideWeight="0.2837838" side_tool="true" weight="0.23827292" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32640332" />
+
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6467828" visible="true" weight="0.27903682" />
+
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -617,6 +649,7 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.1930295" />
+
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -650,6 +683,7 @@
     <MESSAGE value="modified footer" />
     <MESSAGE value="added lib and stylesheet for admin pages" />
     <MESSAGE value="optimized some code styles" />
+
     <option name="LAST_COMMIT_MESSAGE" value="optimized some code styles" />
   </component>
   <component name="editorHistoryManager">
@@ -691,10 +725,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="33" column="114" lean-forward="true" selection-start-line="33" selection-start-column="114" selection-end-line="33" selection-end-column="114" />
+
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/EmailServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/util/DBUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="26" column="93" selection-start-line="26" selection-start-column="93" selection-end-line="26" selection-end-column="93" />
@@ -731,6 +766,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/viewhistory">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -864,6 +900,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+
         </state>
       </provider>
     </entry>

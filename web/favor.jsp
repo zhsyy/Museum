@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="entity.ArtworksEntity" %>
-<%@ page import="java.util.List" %>
 <%@ page import="entity.FavorEntity" %>
 <%@ page import="java.util.Map" %>
 
 <%
     @SuppressWarnings("unchecked")
     Map<FavorEntity, ArtworksEntity> favoriteArtworks = (Map<FavorEntity, ArtworksEntity>) request.getAttribute("favoriteArtworks");
+
+    if (favoriteArtworks == null) {
+        response.sendRedirect("error.page?message=NotAuthorized");
+    }
 %>
 
 <!DOCTYPE html>
