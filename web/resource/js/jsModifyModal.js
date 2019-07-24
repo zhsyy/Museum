@@ -48,7 +48,7 @@ modifySubmit.onclick = function () {
             }
         };
 
-        xhr.open("post", "/checkPassword.user", true);
+        xhr.open("post", "checkPassword.user", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send("userId=" + modifyUserId.value + "&password=" + modifyPassword.value);
     }
