@@ -8,9 +8,9 @@ btSave.onclick = function () {
     let alertMessage = document.getElementById("alertMessage");
     // alert(Username+" "+Email+" "+Password);
     if (Username.length === 0 || Email.length === 0 || Password.length === 0) {
-        alertMessage.innerText = "All fields checked! Going to update!";
+        alertMessage.innerText = "Please fill in all fields needed!";
     } else {
-        alertMessage.innerText = " ";
+        alertMessage.innerText = "All fields checked! Going to update!";
         userFormSubmit.submit();
     }
 };
