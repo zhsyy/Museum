@@ -10,15 +10,16 @@ btSubmit.onclick = function () {
     let alertMessage = document.getElementById("alertMessage");
     var fileInput = $('#imageFileName').get(0).files[0];
     if (title.length === 0 || description.length === 0 || location.length === 0 || yearOfWork.length===0) {
-        alertMessage.innerText = "All fields checked! Going to update!";
+        alertMessage.innerText = "Please fill in all fields needed!";
     } else {
         if (submitWay==="modify"){
-            alertMessage.innerText = "";
+            alertMessage.innerText = "All fields checked! Going to update!";
             artworkFormSubmit.submit();
         } else {
             if (!fileInput)
-                alertMessage.innerText = "All fields checked! Going to update!";
+                alertMessage.innerText = "Please fill in an image at least!";
             else {
+                alertMessage.innerText = "All fields checked! Going to update!";
                 artworkFormSubmit.submit();
             }
         }

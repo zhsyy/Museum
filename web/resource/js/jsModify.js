@@ -89,7 +89,7 @@ function checkSignUpUserName(username) {
             }
         };
 
-        xhr.open("post", "/checkSignUp.user", true);
+        xhr.open("post", "checkSignUp.user", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send("username=" + username);
     }
