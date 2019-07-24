@@ -28,6 +28,7 @@ public class ArtworkServiceImp implements ArtworkService {
     private FavorDao favorDao = new FavorDaoImp();
     private DeleteHistoryDao deleteHistoryDao = new DeleteHistoryDaoImp();
     private ViewHistoryDao viewHistoryDao = new ViewHistoryDaoImp();
+
     @SuppressWarnings("unchecked")
     private List removeDuplicate(List list) {
         HashSet h = new HashSet(list);
@@ -35,6 +36,7 @@ public class ArtworkServiceImp implements ArtworkService {
         list.addAll(h);
         return list;
     }
+
     @Override@SuppressWarnings("unchecked")
     public List<ArtworksEntity> getRecommendedArtworks(int userId) {
         List<FavorEntity> favorList = favorDao.getFavors(userId);
@@ -156,12 +158,6 @@ public class ArtworkServiceImp implements ArtworkService {
     @Override
     public void saveArtworks(HttpServletRequest req,String filePath){
         DiskFileItemFactory sf= new DiskFileItemFactory();//实例化磁盘被文件列表工厂
-        String[] p = filePath.split("\\\\");
-        StringBuilder realPath = new StringBuilder();
-        for (int i = 0;i<p.length-4;i++){
-            realPath.append(p[i]).append("\\");
-        }
-        realPath.append("web\\resource");
         sf.setRepository(new File(filePath));//设置文件存放目录
         sf.setSizeThreshold(1024*1024*10);//设置文件上传小于1M放在内存中
         String rename = "";//文件新生成的文件名
@@ -196,17 +192,15 @@ public class ArtworkServiceImp implements ArtworkService {
                     //获得文件名称
                     fileName = fileItem.getName();
                     if (!fileName.equals("")) {
-                        fileName = fileName.substring(fileName.lastIndexOf("\\") + 1);
+                        fileName = fileName.substring(fileName.lastIndexOf("/") + 1);
                         String suffix = fileName.substring(fileName.lastIndexOf("."));
                         rename = UUID.randomUUID() + "";
                         if (suffix.equals(".jpg")||suffix.equals(".png")||suffix.equals(".gif")){
                             imageFileName = rename.substring(0, 8) + suffix;
-                            fileItem.write(new File(realPath+"\\img", imageFileName));
-                            fileItem.write(new File(filePath+"\\img", imageFileName));
+                            fileItem.write(new File(filePath+"/img", imageFileName));
                         }else {
                             videoFileName = rename.substring(0, 8) + suffix;
-                            fileItem.write(new File(realPath+"\\video", videoFileName));
-                            fileItem.write(new File(filePath+"\\video", videoFileName));
+                            fileItem.write(new File(filePath+"/video", videoFileName));
                         }
                     }else {
                         if (imageFileName.equals("") && !artworkId.equals(""))
