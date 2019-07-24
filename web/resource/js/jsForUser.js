@@ -1,6 +1,5 @@
 const btSave = document.getElementById("btSave");
 const userFormSubmit = document.getElementById("userFormSubmit");
-
 btSave.onclick = function () {
     let Username = document.getElementById("name").value;
     let Email = document.getElementById("email").value;
