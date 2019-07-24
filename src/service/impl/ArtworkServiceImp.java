@@ -155,7 +155,6 @@ public class ArtworkServiceImp implements ArtworkService {
 
     @Override
     public void saveArtworks(HttpServletRequest req,String filePath){
-        System.out.println(filePath);
         DiskFileItemFactory sf= new DiskFileItemFactory();//实例化磁盘被文件列表工厂
         String[] p = filePath.split("\\\\");
         StringBuilder realPath = new StringBuilder();
@@ -202,7 +201,6 @@ public class ArtworkServiceImp implements ArtworkService {
                         rename = UUID.randomUUID() + "";
                         if (suffix.equals(".jpg")||suffix.equals(".png")||suffix.equals(".gif")){
                             imageFileName = rename.substring(0, 8) + suffix;
-                            System.out.println(imageFileName);
                             fileItem.write(new File(realPath+"\\img", imageFileName));
                             fileItem.write(new File(filePath+"\\img", imageFileName));
                         }else {
@@ -221,11 +219,9 @@ public class ArtworkServiceImp implements ArtworkService {
             ArtworksEntity artworksEntity = new ArtworksEntity(imageFileName,videoFileName,title,description,Integer.parseInt(yearOfWork),location,0,"other",new Timestamp(System.currentTimeMillis()));
             ArtworksDao artworkService = new ArtworksDaoImp();
             if (!artworkId.equals("")){
-                 System.out.println("modify");
                 artworksEntity.setArtworkId(Integer.parseInt(artworkId));
                 artworkService.modify(artworksEntity);
             }else {
-                System.out.println("add");
                 artworkService.insert(artworksEntity);
             }
         } catch (Exception e) {

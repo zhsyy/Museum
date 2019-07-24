@@ -55,19 +55,6 @@ public class UsersDaoImp implements UsersDao {
 
         DBUtils.update(sql, user.getName(), user.getEmail(), user.getPassword(), user.getType(), user.getTime(), user.getSignature(), user.getUserId());
     }
-  
-    public void delete(String name) {
-        String sql = "DELETE FROM users WHERE name = ?";
-
-        DBUtils.update(sql, name);
-    }
-
-    @Override
-    public void delete(int userId) {
-        String sql = "DELETE FROM users WHERE userId = ?";
-
-        DBUtils.update(sql, userId);
-    }
 
     @Override
     public List<UsersEntity> queryLike(String username) {
@@ -81,5 +68,54 @@ public class UsersDaoImp implements UsersDao {
         String sql = "UPDATE users SET name = ?, email = ?, password = ?, type = ? WHERE userId = ?";
 
         DBUtils.update(sql, user.getName(), user.getEmail(), user.getPassword(), user.getType(), user.getUserId());
+    }
+
+    @Override
+    public void deleteInUsers(String name) {
+        String sql = "DELETE FROM users WHERE name = ?";
+
+        DBUtils.update(sql, name);
+    }
+
+    @Override
+    public void deleteInViewHistory(int userId) {
+        String sql = "DELETE FROM viewhistory WHERE userId = ?";
+
+        DBUtils.update(sql, userId);
+    }
+
+    @Override
+    public void deleteInDeleteHistory(int userId) {
+        String sql = "DELETE FROM deletehistory WHERE userId = ?";
+
+        DBUtils.update(sql, userId);
+    }
+
+    @Override
+    public void deleteInEmail(String name) {
+        String sql = "DELETE FROM emails WHERE senderName = ? OR receiverName = ?";
+
+        DBUtils.update(sql, name,name);
+    }
+
+    @Override
+    public void deleteInFavor(int userId) {
+        String sql = "DELETE FROM favor WHERE userId = ?";
+
+        DBUtils.update(sql, userId);
+    }
+
+    @Override
+    public void deleteInfriendship(int userId) {
+        String sql = "DELETE FROM friendship WHERE senderId = ? OR receiverId = ?";
+
+        DBUtils.update(sql, userId,userId);
+    }
+
+    @Override
+    public void deleteInUsers(int userId) {
+        String sql = "DELETE FROM users WHERE userId = ?";
+
+        DBUtils.update(sql, userId);
     }
 }

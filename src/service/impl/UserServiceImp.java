@@ -104,12 +104,26 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void deleteUser(String name) {
-        usersDao.delete(name);
+        UsersEntity usersEntity = usersDao.query(name);
+        int userId = usersEntity.getUserId();
+        usersDao.deleteInUsers(name);
+        usersDao.deleteInDeleteHistory(userId);
+        usersDao.deleteInEmail(name);
+        usersDao.deleteInFavor(userId);
+        usersDao.deleteInfriendship(userId);
+        usersDao.deleteInViewHistory(userId);
     }
 
     @Override
     public void deleteUser(int userId) {
-        usersDao.delete(userId);
+        UsersEntity usersEntity = usersDao.query(userId);
+        String name = usersEntity.getName();
+        usersDao.deleteInViewHistory(userId);
+        usersDao.deleteInfriendship(userId);
+        usersDao.deleteInFavor(userId);
+        usersDao.deleteInEmail(name);
+        usersDao.deleteInDeleteHistory(userId);
+        usersDao.deleteInUsers(name);
     }
 
     @Override
