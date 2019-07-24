@@ -51,6 +51,7 @@
                 <td><%=artwork.getYearOfWork()%></td>
                 <td>
                     <a class="btn btn-outline-primary" href="artwork.admin?artworkId=<%=artwork.getArtworkId()%>">Modify</a><!--修改-->
+                    <br>
                     <a class="btn btn-outline-danger" href="deleteArtwork.admin?artworkId=<%=artwork.getArtworkId()%>">Delete</a><!--删除-->
                 </td>
             </tr>

@@ -19,9 +19,13 @@ public interface UsersDao {
 
     void update(UsersEntity user);
 
-    void delete(String name);
-
-    void delete(int userId);
+    void deleteInUsers(String name);
+    void deleteInViewHistory(int userId);
+    void deleteInDeleteHistory(int userId);
+    void deleteInEmail(String name);
+    void deleteInFavor(int userId);
+    void deleteInfriendship(int userId);
+    void deleteInUsers(int userId);
 
     List<UsersEntity> queryLike(String username);
 

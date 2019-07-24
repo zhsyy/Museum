@@ -26,6 +26,8 @@ public class FavorServlet extends HttpServlet {
     private ArtworkService artworkService = new ArtworkServiceImp();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession httpSession = req.getSession();
+        if (httpSession.getAttribute("user")==null){resp.sendRedirect("signUp.page");return;}
         ServletUtils.getAndDoMethod(this, req, resp);
     }
 
