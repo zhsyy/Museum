@@ -1,8 +1,7 @@
 <%@ page import="entity.UsersEntity" %>
-
 <%
-    String navFront, navAccount, navLoggedIn, navAdmin;
-    navFront = navAccount = navLoggedIn = navAdmin = "";
+    String navFront, navNotLoggedIn, navLoggedIn, navAdmin;
+    navFront = navNotLoggedIn = navLoggedIn = navAdmin = "";
 
     final String ACTIVE = "active";
 
@@ -12,15 +11,16 @@
             navFront = ACTIVE;
             break;
         case "/signUp.jsp":
-            navAccount = ACTIVE;
+            navNotLoggedIn = ACTIVE;
             break;
         case "/favor.jsp":
         case "/profile.jsp":
         case "/email.jsp":
             navLoggedIn = ACTIVE;
             break;
+        case "/adminIndex.jsp":
         case "/adminArtwork.jsp":
-        case "/adminArtworksList.jsp":
+        case "/adminArtworkList.jsp":
         case "/adminUser.jsp":
         case "/adminUsersList.jsp":
             navAdmin = ACTIVE;
@@ -64,7 +64,7 @@
 
             <% if (user == null) {// not logged in %>
 
-            <li class="nav-item dropdown <%=navAccount%>">
+            <li class="nav-item dropdown <%=navNotLoggedIn%>">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotLoggedIn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
                 </a>
@@ -95,9 +95,8 @@
                     Management
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
-                    <a class="dropdown-item" href="user.admin">New User</a>
+                    <a class="dropdown-item" href="adminIndex.page">Admin Index</a>
                     <a class="dropdown-item" href="usersList.admin">User List</a>
-                    <a class="dropdown-item" href="artwork.admin">New Artwork</a>
                     <a class="dropdown-item" href="artworksList.admin">Artworks List</a>
                 </div>
             </li>

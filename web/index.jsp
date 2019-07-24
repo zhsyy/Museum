@@ -42,12 +42,11 @@
 
             <%
                 for (int i = 0; i < 3; i++) {
-                    assert hottestArtworks != null;
                     ArtworksEntity artwork = hottestArtworks.get(i);
             %>
 
             <div class="carousel-item <%=i == 0 ? "active" : ""%>">
-                <img class="d-block w-100" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>" style="height: 800px">
+                <img class="d-block w-100" src="resource/img/<%=artwork.getImageFileName()%>" alt="<%=artwork.getTitle()%>">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="display-4"><%=artwork.getTitle()%></h1>
                     <h4 style="display: -webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow: hidden;"><%=artwork.getDescription()%></h4>
@@ -74,7 +73,6 @@
 
         <%
             for (int i = 0; i < 3; i++) {
-                assert newestArtworks != null;
                 ArtworksEntity artwork = newestArtworks.get(i);
         %>
 

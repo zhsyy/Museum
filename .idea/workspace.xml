@@ -6,7 +6,97 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9b3fee5-e220-4364-b133-71c349947666" name="Default Changelist" comment="optimized some code styles" />
+    <list default="true" id="d9b3fee5-e220-4364-b133-71c349947666" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/adminIndex.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/26.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/28.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/29.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/32.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/35.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/36.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/37.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/39.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/40.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/44.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/47.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/48.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/51.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/56.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/57.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/58.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/59.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/60.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/61.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/62.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/63.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/64.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/65.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/66.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/67.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/68.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/69.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/70.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/71.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/72.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/73.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/74.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/75.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/76.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/77.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/78.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/79.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/80.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/81.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/82.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/83.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/84.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/85.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/86.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/87.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/88.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/89.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/resource/img/90.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/myTest_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/myTest_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_fileupload_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Museum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Museum.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/fastjson-1.2.7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/fastjson-1.2.7.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.47-bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.47-bin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/adminArtwork.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminArtwork.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/adminArtworksList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminArtworksList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/adminUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/adminUsersList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminUsersList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/favor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/favor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lib/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/web/lib/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/web/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lib/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/web/lib/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lib/font-awesome/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/web/lib/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lib/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/web/lib/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lib/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/web/lib/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lib/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/web/lib/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/js/jsModify.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/resource/js/jsModify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/js/jsModifyModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/resource/js/jsModifyModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resource/js/jsSignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/resource/js/jsSignUp.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,33 +168,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resource/js/jsForArtwork.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resource/js/jsForUser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resource/js/jsSignUp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="88" column="26" lean-forward="true" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/users">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -124,11 +187,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/artworks">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#removeDuplicate#0;class#ArtworkServiceImp#0" />
+                <element signature="method#getRecommendedArtworks#0;class#ArtworkServiceImp#0" />
+                <element signature="method#getOutputArtworks#0;class#ArtworkServiceImp#0" />
+                <element signature="method#getOutputArtworks#1;class#ArtworkServiceImp#0" />
+                <element signature="method#getSearchArtworks#0;class#ArtworkServiceImp#0" />
+                <element signature="e#5233#5234#0" expanded="true" />
+                <element signature="e#5288#5289#0" expanded="true" />
+                <element signature="method#getFriendArtworks#0;class#ArtworkServiceImp#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/adminArtworksList.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -271,65 +363,30 @@
           <expand>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="Museum_local" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="myTest_war_exploded" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="myTest_war_exploded" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="myTest_war_exploded" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="Museum_local" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="Museum_local" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="Museum_local" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Museum" type="462c0819:PsiDirectoryNode" />
+              <item name="Museum_local" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Museum" type="b2602c69:ProjectViewProjectNode" />
@@ -347,7 +404,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563952666067" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563955266448" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -355,7 +412,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -578,6 +635,7 @@
       <workItem from="1563939944115" duration="298000" />
       <workItem from="1563945621724" duration="5212000" />
       <workItem from="1563952701559" duration="1639000" />
+      <workItem from="1563955004851" duration="255000" />
     </task>
     <task id="LOCAL-00006" summary="modified some settings for cloud deployment">
       <created>1563869818343</created>
@@ -621,17 +679,24 @@
       <option name="project" value="LOCAL" />
       <updated>1563952749902</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="optimized some code styles">
+      <created>1563955029374</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1563955029374</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56070000" />
+    <option name="totallyTimeSpent" value="56325000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7141372" visible="true" weight="0.22788204" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7141372" visible="true" weight="0.3016086" />
       <window_info id="Structure" order="1" sideWeight="0.4466403" side_tool="true" weight="0.19504021" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.28556594" side_tool="true" weight="0.24360341" />
@@ -655,14 +720,14 @@
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49865952" weight="0.32577905" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.4989339" weight="0.32952183" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.4989339" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.1930295" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.1930295" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -775,24 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1969">
-          <caret line="191" column="3" selection-start-line="191" selection-start-column="3" selection-end-line="191" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#removeDuplicate#0;class#ArtworkServiceImp#0" />
-            <element signature="method#getRecommendedArtworks#0;class#ArtworkServiceImp#0" />
-            <element signature="method#getOutputArtworks#0;class#ArtworkServiceImp#0" />
-            <element signature="method#getOutputArtworks#1;class#ArtworkServiceImp#0" />
-            <element signature="method#getSearchArtworks#0;class#ArtworkServiceImp#0" />
-            <element signature="e#5233#5234#0" expanded="true" />
-            <element signature="e#5288#5289#0" expanded="true" />
-            <element signature="method#getFriendArtworks#0;class#ArtworkServiceImp#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/details.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1926">
@@ -834,20 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminArtworksList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminArtwork.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4050">
-          <caret line="225" column="6" selection-start-line="225" selection-start-column="6" selection-end-line="225" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/signUp.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -874,15 +907,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resource/js/jsSignUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="88" column="26" lean-forward="true" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="27" />
+        <state relative-caret-position="1584">
+          <caret line="88" column="26" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/deletehistory">
+    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <filtering enabled="true" />
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
@@ -893,7 +928,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/friendship">
+    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/deletehistory">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/emails">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering>
@@ -911,16 +953,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/emails">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/users">
+    <entry file="das://a1c00b72-4066-4c2a-92d0-e24e61e05048/schema/2019summervacation/table/friendship">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering>
@@ -933,6 +966,38 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/adminArtwork.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/adminArtworksList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/impl/ArtworkServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#removeDuplicate#0;class#ArtworkServiceImp#0" />
+            <element signature="method#getRecommendedArtworks#0;class#ArtworkServiceImp#0" />
+            <element signature="method#getOutputArtworks#0;class#ArtworkServiceImp#0" />
+            <element signature="method#getOutputArtworks#1;class#ArtworkServiceImp#0" />
+            <element signature="method#getSearchArtworks#0;class#ArtworkServiceImp#0" />
+            <element signature="e#5233#5234#0" expanded="true" />
+            <element signature="e#5288#5289#0" expanded="true" />
+            <element signature="method#getFriendArtworks#0;class#ArtworkServiceImp#0" />
+          </folding>
         </state>
       </provider>
     </entry>
