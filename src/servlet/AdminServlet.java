@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 
@@ -27,6 +28,8 @@ public class AdminServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession httpSession = req.getSession();
+        if (httpSession.getAttribute("user")==null){resp.sendRedirect("signUp.page");return;}
         ServletUtils.getAndDoMethod(this, req, resp);
     }
 
@@ -72,6 +75,7 @@ public class AdminServlet extends HttpServlet {
     @SuppressWarnings("unused")
     private void modifyArtwork(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String path = this.getServletContext().getRealPath("/resource");
+        System.out.println(path);
         artworkService.saveArtworks(req,path);
         resp.setHeader("refresh", "0.1;url=artworksList.admin");
     }

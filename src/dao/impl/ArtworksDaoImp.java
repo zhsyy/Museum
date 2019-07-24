@@ -64,6 +64,15 @@ public class ArtworksDaoImp implements ArtworksDao {
         String sql = "DELETE FROM artworks WHERE artworkId = ?";
 
         DBUtils.update(sql, artworkId);
+        sql = "DELETE FROM favor WHERE artworkId = ?";
+
+        DBUtils.update(sql, artworkId);
+        sql = "DELETE FROM deletehistory WHERE artworkId = ?";
+
+        DBUtils.update(sql, artworkId);
+        sql = "DELETE FROM viewhistory WHERE artworkId = ?";
+
+        DBUtils.update(sql, artworkId);
     }
 
     @Override
